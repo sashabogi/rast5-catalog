@@ -558,9 +558,9 @@ export default function ConnectorGuidePage() {
                         <h2 className="text-2xl font-bold mb-2">{t('step5.resultsTitle')}</h2>
                         <p className="text-blue-100">
                           {t('step5.basedOn', {
-                            poleCount: wizardState.poleCount,
-                            orientation: wizardState.orientation,
-                            applicationType: wizardState.applicationType?.replace('-', ' ')
+                            poleCount: wizardState.poleCount ?? 0,
+                            orientation: wizardState.orientation ?? '',
+                            applicationType: wizardState.applicationType?.replace('-', ' ') ?? ''
                           })}
                         </p>
                       </div>
