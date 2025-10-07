@@ -7,7 +7,7 @@ import { CatalogFilters } from '@/components/CatalogFilters'
 import { CatalogContent } from '@/components/CatalogContent'
 
 export default async function CatalogPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
+  await params;
   const t = await getTranslations('CatalogPage');
 
   // Fetch all connectors from Supabase
@@ -22,12 +22,12 @@ export default async function CatalogPage({ params }: { params: Promise<{ locale
     return (
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl font-bold mb-8">Connector Catalog</h1>
+          <h1 className="text-4xl font-bold mb-8">{t('title')}</h1>
           <Card className="border-red-200 bg-red-50">
             <CardContent className="p-6">
               <div className="flex items-center gap-2 text-red-600">
                 <AlertCircle className="h-5 w-5" />
-                <p className="font-semibold">Error loading connectors</p>
+                <p className="font-semibold">{t('error.title')}</p>
               </div>
               <p className="text-sm text-red-600 mt-2">{error.message}</p>
             </CardContent>
@@ -42,15 +42,15 @@ export default async function CatalogPage({ params }: { params: Promise<{ locale
     return (
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <h1 className="text-4xl font-bold mb-8">Connector Catalog</h1>
+          <h1 className="text-4xl font-bold mb-8">{t('title')}</h1>
           <Card className="border-blue-200 bg-blue-50">
             <CardContent className="p-6">
               <div className="flex items-center gap-2 text-blue-600">
                 <AlertCircle className="h-5 w-5" />
-                <p className="font-semibold">No connectors found</p>
+                <p className="font-semibold">{t('empty.title')}</p>
               </div>
               <p className="text-sm text-blue-600 mt-2">
-                Run the migration script to populate the database with connectors.
+                {t('empty.description')}
               </p>
             </CardContent>
           </Card>

@@ -68,6 +68,13 @@
     "card": {
       "poles": "poli",
       "viewDetails": "Visualizza Dettagli"
+    },
+    "error": {
+      "title": "Errore nel caricamento dei connettori"
+    },
+    "empty": {
+      "title": "Nessun connettore trovato",
+      "description": "Esegui lo script di migrazione per popolare il database con i connettori."
     }
   },
   "ConnectorDetailPage": {

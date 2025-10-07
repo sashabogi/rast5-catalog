@@ -68,6 +68,13 @@
     "card": {
       "poles": "polos",
       "viewDetails": "Ver Detalhes"
+    },
+    "error": {
+      "title": "Erro ao carregar conectores"
+    },
+    "empty": {
+      "title": "Nenhum conector encontrado",
+      "description": "Execute o script de migração para preencher o banco de dados com conectores."
     }
   },
   "ConnectorDetailPage": {

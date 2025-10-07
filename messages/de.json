@@ -68,6 +68,13 @@
     "card": {
       "poles": "Pole",
       "viewDetails": "Details Anzeigen"
+    },
+    "error": {
+      "title": "Fehler beim Laden der Steckverbinder"
+    },
+    "empty": {
+      "title": "Keine Steckverbinder gefunden",
+      "description": "Führen Sie das Migrationsskript aus, um die Datenbank mit Steckverbindern zu füllen."
     }
   },
   "ConnectorDetailPage": {

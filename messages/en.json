@@ -68,6 +68,13 @@
     "card": {
       "poles": "poles",
       "viewDetails": "View Details"
+    },
+    "error": {
+      "title": "Error loading connectors"
+    },
+    "empty": {
+      "title": "No connectors found",
+      "description": "Run the migration script to populate the database with connectors."
     }
   },
   "ConnectorDetailPage": {

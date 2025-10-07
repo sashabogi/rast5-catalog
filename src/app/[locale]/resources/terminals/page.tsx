@@ -29,7 +29,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 // Terminal suffix explanations - function that takes translation function
-const getTerminalSuffixes = (t: any) => [
+const getTerminalSuffixes = (t: ReturnType<typeof useTranslations>) => [
   {
     suffix: 'FR',
     name: t('terminalTypes.socket.FR.name'),
@@ -141,7 +141,7 @@ const getTerminalSuffixes = (t: any) => [
 ]
 
 // Technical specifications - function that takes translation function
-const getTechnicalSpecs = (t: any) => [
+const getTechnicalSpecs = (t: ReturnType<typeof useTranslations>) => [
   {
     icon: Gauge,
     title: t('technicalSpecs.currentRating.title'),
@@ -169,7 +169,7 @@ const getTechnicalSpecs = (t: any) => [
 ]
 
 // Installation steps - function that takes translation function
-const getInstallationSteps = (t: any) => [
+const getInstallationSteps = (t: ReturnType<typeof useTranslations>) => [
   {
     step: 1,
     title: t('installation.steps.1.title'),
@@ -203,7 +203,7 @@ const getInstallationSteps = (t: any) => [
 ]
 
 // Common mistakes - function that takes translation function
-const getCommonMistakes = (t: any) => [
+const getCommonMistakes = (t: ReturnType<typeof useTranslations>) => [
   {
     mistake: t('commonMistakes.mistakes.1.mistake'),
     consequence: t('commonMistakes.mistakes.1.consequence'),
