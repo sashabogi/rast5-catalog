@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Cable, Search, Book, Zap } from 'lucide-react'
+import { Cable, Search, Book, Zap, Lightbulb, Compass } from 'lucide-react'
 
 export default function HomePage() {
   return (
@@ -66,6 +66,26 @@ export default function HomePage() {
               </CardDescription>
             </CardHeader>
           </Card>
+        </div>
+      </section>
+
+      {/* Interactive Connector Selection Guide Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Lightbulb className="h-12 w-12 text-white mx-auto mb-4" />
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Not Sure Which Connector You Need?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Our interactive guide walks you through selecting the perfect connector
+            based on your application, pole count, and specific requirements.
+          </p>
+          <Link href="/resources/connector-guide">
+            <Button size="lg" variant="secondary" className="gap-2 text-lg px-8 py-6 h-auto">
+              <Compass className="h-5 w-5" />
+              Launch Selection Guide
+            </Button>
+          </Link>
         </div>
       </section>
 

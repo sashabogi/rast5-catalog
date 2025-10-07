@@ -24,7 +24,7 @@ export default function ResourcesPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-orange-200 bg-gradient-to-br from-orange-50 to-white">
           <CardHeader>
             <Book className="h-10 w-10 text-orange-600 mb-2" />
             <CardTitle>Terminal Components Guide</CardTitle>
@@ -32,10 +32,16 @@ export default function ResourcesPage() {
               Learn about the terminal components that go inside connectors
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-3">
             <p className="text-sm text-gray-600">
               Understanding FR, FT, VR, VT, VS, and PC terminal types
             </p>
+            <Link href="/resources/terminals">
+              <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                View Terminal Guide
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </CardContent>
         </Card>
 
@@ -60,7 +66,7 @@ export default function ResourcesPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-purple-200 bg-gradient-to-br from-purple-50 to-white">
           <CardHeader>
             <Cable className="h-10 w-10 text-purple-600 mb-2" />
             <CardTitle>Installation Guide</CardTitle>
@@ -68,10 +74,16 @@ export default function ResourcesPage() {
               Step-by-step instructions for crimping and assembly
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-3">
             <p className="text-sm text-gray-600">
               Best practices for reliable electrical connections
             </p>
+            <Link href="/resources/installation">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                View Installation Guide
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </div>
