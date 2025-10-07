@@ -1,0 +1,1363 @@
+{
+  "Navbar": {
+    "brandName": "RAST 5 Catalog",
+    "browseCatalog": "Browse Catalog",
+    "resources": "Resources"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "RAST 5 Connector Catalog",
+      "description": "Professional catalog of RAST 5 electrical connectors with detailed specifications, 360° interactive views, and complete compatibility information.",
+      "browseCatalog": "Browse Catalog",
+      "resources": "Resources"
+    },
+    "features": {
+      "title": "Why Use This Catalog?",
+      "view360": {
+        "title": "360° Views",
+        "description": "Interactive 360° videos of every connector. Drag to rotate and explore from all angles."
+      },
+      "compatibility": {
+        "title": "Complete Compatibility",
+        "description": "See which connectors mate with each other, required terminal components, and assembly variants."
+      },
+      "documentation": {
+        "title": "Detailed Documentation",
+        "description": "Access keying guides, technical specifications, and installation resources."
+      }
+    },
+    "selectionGuide": {
+      "title": "Not Sure Which Connector You Need?",
+      "description": "Our interactive guide walks you through selecting the perfect connector based on your application, pole count, and specific requirements.",
+      "launchGuide": "Launch Selection Guide"
+    },
+    "categories": {
+      "title": "Connector Categories",
+      "socket": {
+        "title": "Socket Connectors (Female)",
+        "description": "34 female socket housings for receiving tab terminals"
+      },
+      "tab": {
+        "title": "Tab Connectors (Male)",
+        "description": "16 male tab housings that insert into socket connectors"
+      },
+      "pcb": {
+        "title": "PCB Headers",
+        "description": "6 printed circuit board mounted headers"
+      }
+    }
+  },
+  "CatalogPage": {
+    "title": "Connector Catalog",
+    "description": "Browse all RAST 5 connectors with filters",
+    "filters": {
+      "title": "Filters",
+      "search": "Search connectors...",
+      "category": "Category",
+      "allCategories": "All Categories",
+      "poleCount": "Pole Count",
+      "allPoles": "All Poles",
+      "poles": "poles",
+      "reset": "Reset Filters"
+    },
+    "results": {
+      "showing": "Showing {count} connectors",
+      "noResults": "No connectors found",
+      "tryAdjusting": "Try adjusting your filters"
+    },
+    "card": {
+      "poles": "poles",
+      "viewDetails": "View Details"
+    }
+  },
+  "ConnectorDetailPage": {
+    "backToCatalog": "Back to Catalog",
+    "breadcrumbs": {
+      "home": "Home",
+      "catalog": "Catalog"
+    },
+    "video": {
+      "badge360": "360° View"
+    },
+    "badges": {
+      "specialVersion": "Special Version"
+    },
+    "product": {
+      "defaultDisplayName": "{poleCount}-Pole {gender} Connector"
+    },
+    "specs": {
+      "title": "Specifications",
+      "model": "Model",
+      "series": "Series",
+      "gender": "Gender",
+      "poleCount": "Pole Count",
+      "orientation": "Orientation",
+      "orientationStandard": "Standard",
+      "terminalType": "Terminal Type",
+      "category": "Category"
+    },
+    "status": {
+      "inStock": "In Stock",
+      "contactForAvailability": "Contact for availability"
+    },
+    "quickSpecs": {
+      "poles": "Poles",
+      "type": "Type",
+      "typeSocket": "Socket",
+      "typeTab": "Tab",
+      "typePCB": "PCB",
+      "orientation": "Orientation",
+      "orientationStandard": "Standard",
+      "series": "Series"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "compatibility": "Compatibility",
+      "documentation": "Documentation"
+    },
+    "overview": {
+      "highlights": {
+        "title": "Product Highlights",
+        "quality": {
+          "title": "High-Quality Construction",
+          "description": "Durable materials for long-lasting performance"
+        },
+        "configuration": {
+          "title": "{poleCount}-Pole Configuration",
+          "description": "Optimal for power and signal transmission"
+        },
+        "standard": {
+          "title": "Industry Standard",
+          "description": "Compatible with CS series specifications"
+        }
+      },
+      "terminals": {
+        "title": "Terminal Requirements",
+        "requires": "Requires {terminalSuffix} terminals",
+        "specifications": "Terminal specifications",
+        "contactForDetails": "Contact for details"
+      }
+    },
+    "compatibility": {
+      "mating": {
+        "title": "Compatible Mating Connectors",
+        "description": "Direct mating partners for this connector"
+      },
+      "variants": {
+        "title": "Assembly Variants",
+        "description": "Alternative orientations and configurations"
+      },
+      "card": {
+        "poleBadge": "{count}-Pole"
+      },
+      "noInfo": {
+        "title": "No Compatibility Information Available",
+        "description": "Contact our technical support team for compatibility details"
+      }
+    },
+    "documentation": {
+      "keying": {
+        "title": "Keying Documentation",
+        "description": "Detailed keying specifications and configurations",
+        "noAvailable": "No keying documentation available for this connector"
+      },
+      "drawings": {
+        "title": "Technical Drawings",
+        "comingSoon": "Technical drawings coming soon"
+      },
+      "pdfDocument": "PDF Document",
+      "resources": {
+        "title": "Additional Resources",
+        "description": "Need more information? Contact our technical support team",
+        "datasheet": "Datasheet",
+        "model3d": "3D Model",
+        "applicationNotes": "Application Notes"
+      }
+    },
+    "actions": {
+      "addToProject": "Add to Project",
+      "comingSoon": "Coming Soon",
+      "requestQuote": "Request Quote"
+    }
+  },
+  "ResourcesPage": {
+    "title": "Resources",
+    "description": "Documentation and guides for RAST 5 connectors",
+    "selectionGuide": {
+      "title": "Interactive Connector Selection Guide",
+      "description": "Step-by-step guide to help you choose the right connector for your application"
+    },
+    "terminals": {
+      "title": "Terminal Components Guide",
+      "description": "Complete reference for all terminal types and their applications"
+    },
+    "installation": {
+      "title": "Installation Guide",
+      "description": "Proper assembly and installation procedures for RAST 5 connectors"
+    },
+    "keyingDocs": {
+      "title": "Keying Documentation",
+      "description": "Download pole-specific keying guides that show compatible connector pairings",
+      "details": "Available for 2-12 pole connectors, including special versions"
+    }
+  },
+  "ConnectorGuide": {
+    "pageTitle": "Connector Selection Guide",
+    "pageDescription": "Find the perfect connector for your application in 5 simple steps",
+    "progress": {
+      "step": "Step",
+      "of": "of",
+      "complete": "Complete"
+    },
+    "step1": {
+      "title": "What type of connection do you need?",
+      "description": "Select the application that best describes your project",
+      "wireToWire": {
+        "title": "Wire-to-Wire Connection",
+        "description": "Connect two wire assemblies together using a socket and tab connector pair",
+        "socketBadge": "Socket (Female)",
+        "tabBadge": "Tab (Male)"
+      },
+      "wireToBoard": {
+        "title": "Wire-to-Board Connection",
+        "description": "Connect wire assembly to a printed circuit board using socket and PCB header",
+        "socketBadge": "Socket (Female)",
+        "pcbBadge": "PCB Header"
+      },
+      "boardToBoard": {
+        "title": "Board-to-Board Connection",
+        "description": "Connect two printed circuit boards together using PCB headers",
+        "pcbBadge1": "PCB Header",
+        "pcbBadge2": "PCB Header"
+      }
+    },
+    "step2": {
+      "title": "How many circuits do you need?",
+      "description": "Select the number of poles (circuits/wires) for your connection",
+      "pole": "pole",
+      "poles": "poles"
+    },
+    "step3": {
+      "title": "What orientation works best?",
+      "description": "Choose how the connector should mount relative to your board or wire",
+      "horizontal": {
+        "title": "Horizontal (Parallel)",
+        "description": "Connector body is parallel to the board or wire. Best for space-constrained designs."
+      },
+      "vertical": {
+        "title": "Vertical (Perpendicular)",
+        "description": "Connector body is perpendicular to the board or wire. Easier cable management."
+      },
+      "either": {
+        "title": "Show Both Options",
+        "description": "Not sure? See both horizontal and vertical options to compare."
+      }
+    },
+    "step4": {
+      "title": "Any special requirements?",
+      "description": "Optional features to refine your selection (you can skip this step)",
+      "locking": {
+        "title": "Locking Mechanism Required",
+        "description": "Ensures secure connection in high-vibration environments"
+      },
+      "specialVersion": {
+        "title": "Special Version (FR, VR, VS, VT, FT)",
+        "description": "Variants with specific features like flanges or reversed orientations"
+      },
+      "keying": {
+        "title": "Specific Keying Requirements",
+        "description": "Need custom keying to prevent incorrect mating"
+      },
+      "infoMessage": "These are optional filters. Leave them unchecked to see all available options."
+    },
+    "step5": {
+      "loading": "Finding matching connectors...",
+      "resultsTitle": "Your Connector Matches",
+      "basedOn": "Based on your selections: {poleCount}-pole, {orientation}, {applicationType}",
+      "sockets": {
+        "femaleBadge": "Female",
+        "title": "Socket Connectors",
+        "found": "{count} matching socket found",
+        "foundPlural": "{count} matching sockets found"
+      },
+      "tabs": {
+        "maleBadge": "Male",
+        "title": "Tab Connectors",
+        "found": "{count} matching tab found",
+        "foundPlural": "{count} matching tabs found"
+      },
+      "headers": {
+        "pcbBadge": "PCB",
+        "title": "PCB Headers",
+        "found": "{count} matching header found",
+        "foundPlural": "{count} matching headers found"
+      },
+      "noResults": {
+        "title": "No Connectors Match Your Criteria",
+        "description": "Try adjusting your requirements or remove optional filters",
+        "buttonText": "Start Over"
+      }
+    },
+    "connectorCard": {
+      "view360": "360° View",
+      "poleLabel": "{count}-Pole",
+      "poleConnector": "{count}-Pole {gender} Connector",
+      "specialVersion": "Special Version",
+      "viewDetails": "View Details"
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next",
+      "showResults": "Show Results",
+      "refineSelection": "Refine Selection",
+      "startOver": "Start Over"
+    }
+  },
+  "TerminalsPage": {
+    "title": "Terminal Components Guide",
+    "description": "Complete reference for RAST 5 terminal types",
+    "categories": {
+      "socket": "Socket Terminals (Female)",
+      "tab": "Tab Terminals (Male)"
+    }
+  },
+  "TerminalsGuide": {
+    "hero": {
+      "badge": "Technical Reference",
+      "title": "Terminal Components Guide",
+      "description": "Complete technical reference for RAST 5 terminal components. Learn about socket, tab, and PCB terminals, their specifications, and proper installation techniques.",
+      "exploreButton": "Explore Terminal Types",
+      "installationButton": "Installation Guide"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "resources": "Resources",
+      "current": "Terminal Components Guide"
+    },
+    "overview": {
+      "sectionTitle": "Understanding RAST 5 Terminals",
+      "sectionDescription": "Terminals are the conductive metal components that create the electrical connection inside RAST 5 connectors. Each connector type requires specific terminal variants.",
+      "whatAreTerminals": {
+        "title": "What are Terminals?",
+        "description": "Terminals are precision-formed metal contacts that crimp onto wires or mount to PCBs. They provide the physical and electrical connection between wire and connector housing."
+      },
+      "whyDifferentTypes": {
+        "title": "Why Different Types?",
+        "description": "Different orientations (vertical/horizontal), mounting types (wire/PCB), and mating styles (socket/tab) require specific terminal designs to ensure proper fit and reliable connections."
+      },
+      "namingConvention": {
+        "title": "Naming Convention",
+        "description": "Terminals are identified by suffix codes (FR, VR, VS, VT, FT, PC) which indicate the terminal type. Always match the terminal suffix to your connector requirements."
+      }
+    },
+    "terminalTypes": {
+      "sectionTitle": "Terminal Types & Specifications",
+      "sectionDescription": "Explore the three main categories of RAST 5 terminals",
+      "socketTab": "Socket Terminals",
+      "tabTab": "Tab Terminals",
+      "pcbTab": "PCB Terminals",
+      "socket": {
+        "categoryTitle": "Socket Terminals (Female)",
+        "categoryDescription": "Receptacle-style terminals that accept tab terminals for secure electrical connections",
+        "badge": "Female",
+        "FR": {
+          "name": "Female Receptacle",
+          "description": "Standard female socket terminal with flat mounting orientation",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Wire-to-wire connections",
+            "2": "General purpose receptacles",
+            "3": "Horizontal mounting"
+          },
+          "features": {
+            "1": "Flat receptacle design",
+            "2": "Standard locking mechanism",
+            "3": "Crimp-style connection"
+          }
+        },
+        "VR": {
+          "name": "Vertical Receptacle",
+          "description": "Female socket terminal with vertical orientation for perpendicular connections",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Vertical board mounting",
+            "2": "Space-saving designs",
+            "3": "Right-angle connections"
+          },
+          "features": {
+            "1": "Vertical orientation",
+            "2": "Compact footprint",
+            "3": "Secure retention"
+          }
+        },
+        "VS": {
+          "name": "Vertical Socket",
+          "description": "Specialized vertical socket terminal with enhanced contact area",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "High-reliability applications",
+            "2": "Vertical PCB mounting",
+            "3": "Industrial connections"
+          },
+          "features": {
+            "1": "Enhanced contact design",
+            "2": "Superior retention",
+            "3": "Vibration resistant"
+          }
+        }
+      },
+      "tab": {
+        "categoryTitle": "Tab Terminals (Male)",
+        "categoryDescription": "Blade-style terminals that insert into socket terminals for mating connections",
+        "badge": "Male",
+        "VT": {
+          "name": "Vertical Tab",
+          "description": "Male tab terminal with vertical blade orientation",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Vertical mating",
+            "2": "PCB headers",
+            "3": "Right-angle connections"
+          },
+          "features": {
+            "1": "Vertical blade design",
+            "2": "Gold-plated contacts",
+            "3": "Reliable insertion"
+          }
+        },
+        "FT": {
+          "name": "Flat Tab",
+          "description": "Male tab terminal with flat blade orientation",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Standard wire-to-wire",
+            "2": "Horizontal mating",
+            "3": "General purpose"
+          },
+          "features": {
+            "1": "Flat blade design",
+            "2": "Standard dimensions",
+            "3": "Easy crimping"
+          }
+        }
+      },
+      "pcb": {
+        "categoryTitle": "PCB Terminals",
+        "categoryDescription": "Through-hole terminals designed for direct PCB mounting and soldering",
+        "badge": "PCB",
+        "PC": {
+          "name": "Printed Circuit",
+          "description": "Through-hole terminal for direct PCB mounting",
+          "wireGauge": "N/A (PCB mount)",
+          "currentRating": "7A",
+          "applications": {
+            "1": "PCB headers",
+            "2": "Board-to-board connections",
+            "3": "Soldered connections"
+          },
+          "features": {
+            "1": "Through-hole mounting",
+            "2": "Wave solderable",
+            "3": "Multiple pin options"
+          }
+        }
+      },
+      "labels": {
+        "technicalSpecifications": "Technical Specifications",
+        "wireGauge": "Wire Gauge:",
+        "currentRating": "Current Rating:",
+        "connectionType": "Connection Type:",
+        "keyFeatures": "Key Features",
+        "typicalApplications": "Typical Applications",
+        "availableTerminals": "Available Terminals"
+      }
+    },
+    "technicalSpecs": {
+      "sectionTitle": "Technical Specifications",
+      "sectionDescription": "Universal specifications applicable to all RAST 5 terminal types",
+      "currentRating": {
+        "title": "Current Rating",
+        "value": "7A per contact",
+        "description": "Maximum continuous current at 25°C ambient temperature"
+      },
+      "voltageRating": {
+        "title": "Voltage Rating",
+        "value": "250V AC/DC",
+        "description": "Maximum working voltage per IEC standards"
+      },
+      "wireRange": {
+        "title": "Wire Range",
+        "value": "16-22 AWG",
+        "description": "Compatible wire gauge for crimp terminals"
+      },
+      "contactMaterial": {
+        "title": "Contact Material",
+        "value": "Brass (Tin-plated)",
+        "description": "Corrosion-resistant finish for long-term reliability"
+      },
+      "materialDetails": {
+        "title": "Material & Plating Details",
+        "contactMaterial": {
+          "heading": "Contact Material",
+          "baseMaterial": "Base Material: Brass alloy (CuZn37)",
+          "plating": "Plating: Tin (Sn) 3-5 μm thickness",
+          "matingArea": "Mating Area: Gold flash available on request"
+        },
+        "performanceCharacteristics": {
+          "heading": "Performance Characteristics",
+          "contactResistance": "Contact Resistance: < 5mΩ initial",
+          "insertionForce": "Insertion Force: 1-3N typical",
+          "operatingTemperature": "Operating Temperature: -40°C to +105°C"
+        }
+      }
+    },
+    "installation": {
+      "sectionTitle": "Installation Guide",
+      "sectionDescription": "Step-by-step instructions for proper terminal crimping and insertion",
+      "requiredTools": {
+        "title": "Required Tools",
+        "crimpingTool": {
+          "title": "Crimping Tool",
+          "description": "Calibrated ratcheting crimper with proper die set for RAST 5 terminals"
+        },
+        "wireStripper": {
+          "title": "Wire Stripper",
+          "description": "Adjustable wire stripper for 16-22 AWG wire gauge"
+        },
+        "insertionTool": {
+          "title": "Insertion/Removal Tool",
+          "description": "Special tool for terminal insertion and safe removal if needed"
+        }
+      },
+      "steps": {
+        "1": {
+          "title": "Strip Wire",
+          "description": "Strip insulation to expose 5-6mm of conductor",
+          "warning": "Do not over-strip or damage strands"
+        },
+        "2": {
+          "title": "Insert into Terminal",
+          "description": "Place wire into terminal crimp area",
+          "warning": "Ensure wire is fully inserted before crimping"
+        },
+        "3": {
+          "title": "Crimp Terminal",
+          "description": "Use proper crimping tool to secure terminal",
+          "warning": "Check crimp quality - no strand pullout"
+        },
+        "4": {
+          "title": "Insert into Housing",
+          "description": "Push terminal into connector housing until it clicks",
+          "warning": "Terminal must be fully seated and locked"
+        },
+        "5": {
+          "title": "Verify Lock",
+          "description": "Gently tug wire to confirm terminal is secured",
+          "warning": "Terminal should not pull out of housing"
+        }
+      },
+      "importantLabel": "Important:",
+      "terminalRemoval": {
+        "title": "Terminal Removal Procedure",
+        "description": "If you need to remove a terminal from the housing",
+        "steps": {
+          "1": "Use proper terminal removal tool - never force with pliers or screwdriver",
+          "2": "Insert removal tool alongside terminal to release locking tab",
+          "3": "Gently pull wire while holding removal tool in place",
+          "4": "Inspect terminal for damage before reuse - damaged terminals must be replaced"
+        }
+      }
+    },
+    "commonMistakes": {
+      "sectionTitle": "Common Mistakes to Avoid",
+      "sectionDescription": "Learn from these common errors to ensure reliable connections",
+      "consequenceLabel": "Consequence:",
+      "solutionLabel": "Solution:",
+      "mistakes": {
+        "1": {
+          "mistake": "Over-stripping wire insulation",
+          "consequence": "Exposed conductor creates short circuit risk",
+          "solution": "Strip only 5-6mm as specified"
+        },
+        "2": {
+          "mistake": "Under-crimping or over-crimping",
+          "consequence": "Poor electrical connection or damaged wire",
+          "solution": "Use calibrated crimp tool with proper die"
+        },
+        "3": {
+          "mistake": "Forcing wrong terminal type",
+          "consequence": "Damaged housing or poor contact",
+          "solution": "Verify terminal suffix matches connector requirements"
+        },
+        "4": {
+          "mistake": "Not verifying terminal lock",
+          "consequence": "Terminal backs out during use",
+          "solution": "Always pull-test after insertion"
+        }
+      }
+    },
+    "downloadResources": {
+      "title": "Technical Documentation",
+      "description": "Download detailed specification sheets and installation guides",
+      "specsPdf": "Terminal Specifications PDF",
+      "installationPdf": "Installation Guide PDF"
+    },
+    "relatedResources": {
+      "sectionTitle": "Related Resources",
+      "browseCatalog": {
+        "title": "Browse Connectors",
+        "description": "View our complete catalog of RAST 5 connectors",
+        "button": "View Catalog"
+      },
+      "selectionGuide": {
+        "title": "Selection Guide",
+        "description": "Interactive wizard to find the right connector",
+        "button": "Launch Guide"
+      },
+      "allResources": {
+        "title": "All Resources",
+        "description": "Access all documentation and guides",
+        "button": "View Resources"
+      }
+    }
+  },
+  "InstallationGuide": {
+    "hero": {
+      "breadcrumb": {
+        "resources": "Resources",
+        "current": "Installation Guide"
+      },
+      "title": "RAST 5 Connector Installation Guide",
+      "subtitle": "Comprehensive step-by-step instructions for professional assembly, crimping, and installation of RAST 5 connectors",
+      "badges": {
+        "version": "Version 2.1",
+        "lastUpdated": "Last Updated: March 2025"
+      }
+    },
+    "quickActions": {
+      "printGuide": "Print Guide",
+      "downloadPdf": "Download PDF",
+      "progress": "Progress:"
+    },
+    "safetyWarning": {
+      "title": "SAFETY WARNING - READ BEFORE PROCEEDING",
+      "items": {
+        "1": "Always disconnect power before working on electrical connections",
+        "2": "Use properly rated tools and equipment for your application",
+        "3": "Wear appropriate personal protective equipment (safety glasses, insulated gloves)",
+        "4": "Follow all local electrical codes and regulations",
+        "5": "If unsure, consult a qualified electrician or engineer"
+      }
+    },
+    "gettingStarted": {
+      "title": "Getting Started",
+      "description": "What you'll need and how to prepare your workspace",
+      "requiredTools": {
+        "title": "Required Tools & Materials",
+        "items": {
+          "1": {
+            "name": "RAST 5 Crimp Tool",
+            "description": "Proper tool for terminal size"
+          },
+          "2": {
+            "name": "Wire Strippers",
+            "description": "Adjustable, precision type"
+          },
+          "3": {
+            "name": "Wire Cutters",
+            "description": "Clean, sharp cutting blades"
+          },
+          "4": {
+            "name": "Terminal Release Tool",
+            "description": "For removing/repositioning terminals"
+          },
+          "5": {
+            "name": "Magnifying Glass/Loupe",
+            "description": "For crimp quality inspection"
+          },
+          "6": {
+            "name": "Multimeter (Optional)",
+            "description": "For continuity testing"
+          }
+        }
+      },
+      "workspaceSetup": {
+        "title": "Workspace Setup",
+        "items": {
+          "1": "Clean, well-lit workspace with adequate room for tools and materials",
+          "2": "ESD-safe mat if working with sensitive electronic components",
+          "3": "Organize connectors, terminals, and wires by type and size",
+          "4": "Keep this installation guide readily accessible for reference"
+        }
+      }
+    },
+    "steps": {
+      "title": "Step-by-Step Installation Process",
+      "description": "Follow these steps carefully for reliable, professional assembly",
+      "step1": {
+        "badge": "Step 1",
+        "title": "Terminal Selection",
+        "understandingTypes": {
+          "title": "Understanding Terminal Types",
+          "description": "RAST 5 connectors use different terminal types based on the connector suffix:",
+          "types": {
+            "FR": "FR (Flange, Right Angle) - Female terminals with flange mounting",
+            "FT": "FT (Flange, Through-hole) - Female terminals for PCB mounting",
+            "VR": "VR (Vertical, Right Angle) - Vertical orientation terminals",
+            "VT": "VT (Vertical, Through-hole) - Male vertical terminals",
+            "VS": "VS (Vertical, Surface Mount) - SMT terminals for PCB",
+            "PC": "PC (Print Circuit) - PCB header terminals"
+          }
+        },
+        "wireGaugeCompatibility": {
+          "title": "Wire Gauge Compatibility",
+          "table": {
+            "headers": {
+              "awg": "Wire Gauge (AWG)",
+              "mm": "Wire Gauge (mm²)",
+              "compatible": "Compatible Terminals"
+            },
+            "rows": {
+              "1": {
+                "awg": "24-22 AWG",
+                "mm": "0.25-0.34 mm²",
+                "compatible": "Standard RAST 5 terminals"
+              },
+              "2": {
+                "awg": "20-18 AWG",
+                "mm": "0.5-0.75 mm²",
+                "compatible": "Standard RAST 5 terminals"
+              },
+              "3": {
+                "awg": "16 AWG",
+                "mm": "1.0-1.5 mm²",
+                "compatible": "Check terminal specifications"
+              }
+            }
+          }
+        },
+        "important": {
+          "title": "Important",
+          "message": "Always verify terminal compatibility with your specific connector model. Using incorrect terminals can result in poor connections and potential failure."
+        },
+        "checklist": {
+          "title": "Selection Checklist",
+          "items": {
+            "1": "Verify connector model and terminal suffix",
+            "2": "Confirm wire gauge matches terminal specifications",
+            "3": "Check current rating requirements for your application",
+            "4": "Ensure sufficient quantity of terminals for all positions"
+          }
+        }
+      },
+      "step2": {
+        "badge": "Step 2",
+        "title": "Wire Preparation",
+        "stripLength": {
+          "title": "Strip Length Requirements",
+          "recommended": "5-6 mm",
+          "recommendedLabel": "Recommended strip length",
+          "imperial": "0.20-0.24 in",
+          "imperialLabel": "Imperial equivalent",
+          "diagram": {
+            "insulation": "Insulation",
+            "strippedConductor": "Stripped Conductor",
+            "stripHere": "Strip Here"
+          }
+        },
+        "preparationSteps": {
+          "title": "Wire Preparation Steps",
+          "items": {
+            "1": {
+              "title": "Cut wire to required length",
+              "description": "Add extra length for routing and strain relief (typically 50-100mm extra)"
+            },
+            "2": {
+              "title": "Inspect insulation",
+              "description": "Check for nicks, cuts, or damage. Discard damaged wire."
+            },
+            "3": {
+              "title": "Strip insulation",
+              "description": "Use proper wire strippers set to correct gauge. Strip 5-6mm from end."
+            },
+            "4": {
+              "title": "Inspect conductor",
+              "description": "Ensure no strands are cut or damaged. All strands should be intact and clean."
+            },
+            "5": {
+              "title": "Twist conductor (if stranded)",
+              "description": "Gently twist stranded wire clockwise to keep strands together"
+            }
+          }
+        },
+        "goodStrip": {
+          "title": "Good Strip",
+          "items": {
+            "1": "Clean, straight cut",
+            "2": "No damaged strands",
+            "3": "Proper length (5-6mm)",
+            "4": "No insulation nicks"
+          }
+        },
+        "badStrip": {
+          "title": "Bad Strip",
+          "items": {
+            "1": "Ragged or uneven cut",
+            "2": "Cut/missing strands",
+            "3": "Wrong length",
+            "4": "Damaged insulation"
+          }
+        }
+      },
+      "step3": {
+        "badge": "Step 3",
+        "title": "Terminal Crimping",
+        "criticalQuality": {
+          "title": "Critical Quality Step",
+          "message": "Proper crimping is essential for reliable electrical connections. A good crimp provides both electrical conductivity and mechanical strength. Take your time and inspect every crimp."
+        },
+        "toolSelection": {
+          "title": "Crimp Tool Selection",
+          "recommended": {
+            "title": "Recommended: RAST 5-Specific Tool",
+            "description": "Purpose-built tools ensure proper crimp geometry and force"
+          },
+          "acceptable": {
+            "title": "Acceptable: Precision Crimping Pliers",
+            "description": "Must have correct die set for terminal size"
+          },
+          "notRecommended": {
+            "title": "Not Recommended: Standard Pliers",
+            "description": "Will not provide proper crimp quality or reliability"
+          }
+        },
+        "procedure": {
+          "title": "Crimping Procedure",
+          "items": {
+            "1": {
+              "title": "Position terminal in crimp tool",
+              "description": "Ensure terminal is fully seated in the correct die position"
+            },
+            "2": {
+              "title": "Insert prepared wire",
+              "description": "Wire should extend fully into terminal barrel. Insulation should NOT enter crimp area."
+            },
+            "3": {
+              "title": "Apply crimp force",
+              "description": "Squeeze handles completely until tool releases (ratcheting tools) or until handles touch (non-ratcheting)"
+            },
+            "4": {
+              "title": "Remove crimped terminal",
+              "description": "Carefully release tool and remove terminal without bending"
+            },
+            "5": {
+              "title": "Inspect crimp quality",
+              "description": "See inspection criteria below - reject any questionable crimps"
+            }
+          }
+        },
+        "inspection": {
+          "title": "Crimp Quality Inspection",
+          "tabs": {
+            "good": "Good Crimp",
+            "bad": "Bad Crimp"
+          },
+          "goodCrimp": {
+            "title": "Characteristics of a Good Crimp:",
+            "items": {
+              "1": "Terminal barrel is uniformly compressed around wire",
+              "2": "Wire strands are visible at end of terminal barrel",
+              "3": "No gaps between wire and terminal barrel walls",
+              "4": "Insulation crimp grips wire jacket without cutting it",
+              "5": "Wire cannot be pulled out with moderate force",
+              "6": "Terminal contact area is undamaged and properly shaped"
+            },
+            "tip": "Use a magnifying glass or loupe to inspect crimp area. The barrel should show slight indentation from the crimp dies but no cracks or sharp edges."
+          },
+          "badCrimp": {
+            "title": "Signs of a Bad Crimp (Reject These):",
+            "items": {
+              "1": "Under-crimped: Terminal barrel not fully compressed, wire pulls out easily",
+              "2": "Over-crimped: Terminal barrel cracked, cut wire strands, or damaged contact",
+              "3": "Misaligned: Wire not fully inserted, strands visible outside barrel",
+              "4": "Insulation in crimp area: Wire jacket crimped into conductor area",
+              "5": "Bent or damaged terminal contact area",
+              "6": "Visible cracks or splits in terminal barrel"
+            },
+            "warning": "When in doubt, cut off the terminal and re-crimp with a new terminal. Bad crimps can cause intermittent connections, increased resistance, heat generation, and eventual failure."
+          }
+        },
+        "pullTest": {
+          "title": "Pull Test (Optional but Recommended)",
+          "description": "After crimping, perform a gentle pull test to verify mechanical integrity:",
+          "steps": {
+            "1": "1. Grip terminal body (not contact area)",
+            "2": "2. Grip wire insulation 25-50mm from terminal",
+            "3": "3. Pull with moderate force (approximately 5-10 lbs / 2-5 kg)",
+            "4": "4. Wire should not pull out or show any movement in terminal barrel"
+          }
+        }
+      },
+      "step4": {
+        "badge": "Step 4",
+        "title": "Terminal Insertion",
+        "orientationVerification": {
+          "title": "Orientation Verification",
+          "description": "Before inserting terminals, verify correct orientation:",
+          "items": {
+            "1": "Terminal contact must face the correct direction for mating",
+            "2": "Retention lance (if present) must engage housing lock",
+            "3": "Check connector housing for insertion direction guides"
+          }
+        },
+        "procedure": {
+          "title": "Insertion Procedure",
+          "items": {
+            "1": {
+              "title": "Position housing correctly",
+              "description": "Orient connector housing with keyway up and insertion side facing you"
+            },
+            "2": {
+              "title": "Align terminal with cavity",
+              "description": "Match terminal position with correct cavity number. Reference wiring diagram if available."
+            },
+            "3": {
+              "title": "Insert terminal with firm pressure",
+              "description": "Push terminal straight in until you hear/feel a distinct \"click\" indicating lock engagement"
+            },
+            "4": {
+              "title": "Verify retention",
+              "description": "Gently pull wire backward. Terminal should be solidly retained and not move."
+            },
+            "5": {
+              "title": "Repeat for all positions",
+              "description": "Continue inserting terminals in correct sequence per wiring diagram"
+            }
+          }
+        },
+        "commonProblems": {
+          "title": "Common Insertion Problems",
+          "problem1": {
+            "title": "Problem: Terminal won't insert fully",
+            "solution": "Solution: Check terminal orientation, ensure retention lance is not bent, verify correct terminal type for housing"
+          },
+          "problem2": {
+            "title": "Problem: Terminal inserts but doesn't lock",
+            "solution": "Solution: Retention lance may be damaged. Use new terminal. Check for obstructions in housing cavity."
+          },
+          "problem3": {
+            "title": "Problem: Terminal pulls out easily",
+            "solution": "Solution: Terminal not fully inserted. Remove and re-insert until positive click/lock is achieved."
+          }
+        },
+        "terminalRemoval": {
+          "title": "Terminal Removal (If Needed)",
+          "description": "If you need to remove or reposition a terminal:",
+          "steps": {
+            "1": "Use proper terminal release tool designed for RAST 5 connectors",
+            "2": "Insert release tool alongside terminal to depress retention lance",
+            "3": "While holding release tool in position, gently pull wire to extract terminal",
+            "4": "Inspect terminal for damage before re-insertion. Replace if lance is bent or damaged."
+          },
+          "warning": "Never attempt to remove terminals with screwdrivers or other improvised tools. This can damage both the terminal and housing."
+        }
+      },
+      "step5": {
+        "badge": "Step 5",
+        "title": "Connector Assembly",
+        "keyingVerification": {
+          "title": "Keying Verification",
+          "description": "RAST 5 connectors use mechanical keying to prevent incorrect mating:",
+          "items": {
+            "1": "Verify keying code matches between mating connectors",
+            "2": "Check polarization features align correctly",
+            "3": "Ensure pole count and pin numbering matches application wiring"
+          }
+        },
+        "housingAlignment": {
+          "title": "Housing Alignment",
+          "items": {
+            "1": {
+              "title": "Check all terminals are fully inserted",
+              "description": "Verify each terminal is locked and no cavities are empty (unless intentionally unpopulated)"
+            },
+            "2": {
+              "title": "Route wires appropriately",
+              "description": "Arrange wires to exit connector housing cleanly without sharp bends or crossovers"
+            },
+            "3": {
+              "title": "Apply strain relief (if applicable)",
+              "description": "Install cable clamps, zip ties, or strain relief boots to protect wire-to-terminal interface"
+            },
+            "4": {
+              "title": "Install secondary locks (if present)",
+              "description": "Some connectors have additional locking features. Ensure these are properly engaged."
+            }
+          }
+        },
+        "strainRelief": {
+          "title": "Strain Relief Considerations",
+          "why": {
+            "title": "Why Strain Relief Matters:",
+            "items": {
+              "1": "• Prevents mechanical stress from transferring to crimp connection",
+              "2": "• Protects against vibration-induced fatigue",
+              "3": "• Maintains wire alignment and prevents pulling",
+              "4": "• Extends service life in harsh environments"
+            }
+          },
+          "methods": {
+            "title": "Strain Relief Methods:",
+            "items": {
+              "1": "• Cable ties securing wire bundle near connector (most common)",
+              "2": "• Connector-specific strain relief boots or clips",
+              "3": "• Cable clamps mounted to equipment chassis",
+              "4": "• Flexible conduit for additional protection"
+            }
+          }
+        },
+        "finalChecklist": {
+          "title": "Final Assembly Checklist",
+          "items": {
+            "1": "All terminals properly crimped and inspected",
+            "2": "All terminals fully inserted and locked in housing",
+            "3": "Wire routing is clean and organized",
+            "4": "Strain relief applied appropriately",
+            "5": "Keying and polarization verified",
+            "6": "No foreign material or debris in connector",
+            "7": "Housing is undamaged and clean"
+          }
+        }
+      }
+    },
+    "advancedTopics": {
+      "title": "Advanced Topics",
+      "sealedConnectors": {
+        "title": "Sealed Connector Assembly",
+        "description": "Sealed connectors provide protection against moisture, dust, and contaminants:",
+        "steps": {
+          "1": "Use only specified sealed terminals and wire seals for your connector model",
+          "2": "Install wire seal onto cable before crimping terminal (cannot be added after)",
+          "3": "Ensure wire seal is properly sized for cable outer diameter",
+          "4": "After terminal insertion, position seal against rear of connector housing",
+          "5": "Install connector seal/gasket if required (some models use separate housing seals)",
+          "6": "Verify seal integrity - no gaps, proper compression when mated"
+        },
+        "note": "IP (Ingress Protection) ratings are only valid when connectors are properly mated and all seals are correctly installed. Unmated sealed connectors should be protected with dust caps."
+      },
+      "highVibration": {
+        "title": "High-Vibration Applications",
+        "description": "Applications with significant vibration (automotive, industrial machinery, transportation) require additional considerations:",
+        "connectorSelection": {
+          "title": "Connector Selection:",
+          "items": {
+            "1": "• Use connectors with positive locking mechanisms",
+            "2": "• Consider connectors with secondary locks or locking clips",
+            "3": "• Specify connectors rated for vibration resistance"
+          }
+        },
+        "bestPractices": {
+          "title": "Assembly Best Practices:",
+          "items": {
+            "1": "• Ensure all terminals are fully locked with positive click",
+            "2": "• Apply additional strain relief close to connector (within 50mm)",
+            "3": "• Use flexible wire to absorb vibration before connector",
+            "4": "• Mount connectors to rigid points, not to vibrating components",
+            "5": "• Consider using vibration-dampening mounts or grommets"
+          }
+        },
+        "maintenance": {
+          "title": "Maintenance:",
+          "items": {
+            "1": "• Inspect connections regularly for signs of fretting or wear",
+            "2": "• Check for backed-out terminals or loose connections",
+            "3": "• Monitor contact resistance over time"
+          }
+        }
+      },
+      "temperature": {
+        "title": "Temperature Considerations",
+        "standardRating": "Standard RAST 5 connectors are typically rated for -40°C to +105°C (-40°F to +221°F). Operating outside this range requires special considerations:",
+        "highTemp": {
+          "title": "High Temperature (Above 105°C):",
+          "items": {
+            "1": "• Verify connector housing material is rated for application temperature",
+            "2": "• Use high-temperature wire insulation (Teflon, PTFE, silicone)",
+            "3": "• Derate current capacity per manufacturer specifications",
+            "4": "• Consider thermal expansion effects on terminal retention",
+            "5": "• Increase inspection frequency for degradation"
+          }
+        },
+        "lowTemp": {
+          "title": "Low Temperature (Below -40°C):",
+          "items": {
+            "1": "• Verify housing material remains flexible at low temperature",
+            "2": "• Use cold-rated wire insulation that won't crack or become brittle",
+            "3": "• Test mating/unmating forces at operating temperature",
+            "4": "• Account for thermal contraction in tight spaces"
+          }
+        },
+        "thermalCycling": {
+          "title": "Thermal Cycling:",
+          "items": {
+            "1": "• Repeated temperature cycles can cause fretting corrosion",
+            "2": "• Different expansion rates between materials may affect retention",
+            "3": "• Consider gold-plated terminals for improved reliability",
+            "4": "• Allow stress relief in wire routing to accommodate expansion"
+          }
+        },
+        "note": "Always consult manufacturer datasheets for specific temperature ratings and derating requirements. Contact your RAST 5 supplier for high-temperature or low-temperature connector options if needed."
+      },
+      "maintenanceSchedules": {
+        "title": "Maintenance & Inspection Schedules",
+        "description": "Regular inspection and maintenance extends connector service life and prevents unexpected failures:",
+        "initial": {
+          "title": "Initial Installation (0 Hours):",
+          "items": {
+            "1": "• Visual inspection of all crimps and connections",
+            "2": "• Continuity testing of all circuits",
+            "3": "• Contact resistance measurement (if critical application)",
+            "4": "• Verify proper mating and locking",
+            "5": "• Document as-built configuration"
+          }
+        },
+        "periodic": {
+          "title": "Periodic Inspection (Every 6-12 Months):",
+          "items": {
+            "1": "• Visual inspection for physical damage or contamination",
+            "2": "• Check for backed-out or loose terminals",
+            "3": "• Verify locking features still engaged",
+            "4": "• Inspect strain relief for wear or damage",
+            "5": "• Check for signs of overheating (discoloration, melting)",
+            "6": "• Clean contacts if necessary (per manufacturer guidelines)"
+          }
+        },
+        "harsh": {
+          "title": "Harsh Environment (Every 3-6 Months):",
+          "items": {
+            "1": "• All items from periodic inspection",
+            "2": "• Contact resistance trending",
+            "3": "• Seal integrity verification (sealed connectors)",
+            "4": "• Corrosion inspection",
+            "5": "• Fretting wear assessment",
+            "6": "• Consider preventive replacement based on lifecycle"
+          }
+        },
+        "warningSigns": {
+          "title": "Warning Signs Requiring Immediate Action:",
+          "items": {
+            "1": "• Intermittent connections or circuit dropouts",
+            "2": "• Elevated contact resistance",
+            "3": "• Visible corrosion on contacts or terminals",
+            "4": "• Cracked, melted, or damaged housing",
+            "5": "• Loose or backed-out terminals",
+            "6": "• Burning smell or discoloration from heat",
+            "7": "• Broken latches or locking features"
+          }
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Troubleshooting Guide",
+      "description": "Solutions to common assembly problems and how to fix mistakes",
+      "problem1": {
+        "title": "Problem: Wire pulls out of crimped terminal",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Under-crimped terminal",
+            "2": "• Wrong terminal size for wire gauge",
+            "3": "• Damaged or cut wire strands"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Cut off terminal and re-crimp with new terminal",
+            "2": "• Verify correct crimp tool and die size",
+            "3": "• Ensure full tool closure for complete crimp",
+            "4": "• Use fresh wire end if strands are damaged"
+          }
+        }
+      },
+      "problem2": {
+        "title": "Problem: Terminal won't insert into housing",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Wrong terminal type for housing",
+            "2": "• Terminal retention lance bent or damaged",
+            "3": "• Incorrect orientation",
+            "4": "• Obstruction in housing cavity"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Verify terminal type matches connector specification",
+            "2": "• Inspect retention lance - replace terminal if damaged",
+            "3": "• Check terminal orientation guide on housing",
+            "4": "• Inspect cavity for debris or previous terminal remnants"
+          }
+        }
+      },
+      "problem3": {
+        "title": "Problem: High contact resistance or intermittent connection",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Poor crimp quality (inadequate metal-to-metal contact)",
+            "2": "• Oxidation or contamination on terminals",
+            "3": "• Terminal not fully inserted in housing",
+            "4": "• Damaged contact area"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Remove and replace with properly crimped terminal",
+            "2": "• Clean contacts with electronic contact cleaner",
+            "3": "• Verify terminal is fully locked (should hear/feel click)",
+            "4": "• Inspect for bent or damaged contact springs",
+            "5": "• Measure contact resistance - should be less than 5 milliohms"
+          }
+        }
+      },
+      "problem4": {
+        "title": "Problem: Connectors won't mate properly",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Mismatched keying codes",
+            "2": "• Bent or damaged pins/terminals",
+            "3": "• Foreign material in connector",
+            "4": "• Incorrect connector pairing"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Verify keying codes match (check connector markings)",
+            "2": "• Inspect for bent pins - carefully straighten if possible",
+            "3": "• Clean both connectors with compressed air",
+            "4": "• Confirm connector types are compatible (check part numbers)",
+            "5": "• Ensure correct alignment during mating"
+          }
+        }
+      },
+      "problem5": {
+        "title": "Problem: Terminal backs out after insertion",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Terminal not fully seated (incomplete insertion)",
+            "2": "• Damaged retention lance",
+            "3": "• Excessive wire tension or pulling",
+            "4": "• Wrong terminal type"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Remove terminal and re-insert, ensuring positive click/lock",
+            "2": "• Replace terminal if lance is damaged",
+            "3": "• Add strain relief to prevent wire tension",
+            "4": "• Verify correct terminal part number for housing",
+            "5": "• Check that locking feature fully engages"
+          }
+        }
+      },
+      "problem6": {
+        "title": "Problem: Overheating or melted connector",
+        "causes": {
+          "title": "Causes:",
+          "items": {
+            "1": "• Excessive current for wire/terminal rating",
+            "2": "• Poor crimp creating high resistance",
+            "3": "• Corroded or contaminated contacts",
+            "4": "• Loose connection"
+          }
+        },
+        "solutions": {
+          "title": "Solutions:",
+          "items": {
+            "1": "• Verify current load is within connector rating",
+            "2": "• Replace connector and re-terminate with quality crimps",
+            "3": "• Use larger wire gauge if current is near limit",
+            "4": "• Check for high resistance with multimeter",
+            "5": "• Ensure proper terminal insertion and locking",
+            "6": "• Consider parallel circuits for high-current applications"
+          }
+        }
+      },
+      "stillHavingProblems": {
+        "title": "Still Having Problems?",
+        "description": "If you've tried these solutions and still experiencing issues:",
+        "items": {
+          "1": "• Review the complete installation guide from Step 1",
+          "2": "• Verify you have correct components for your application",
+          "3": "• Consult manufacturer datasheets for specific requirements",
+          "4": "• Consider replacing all components with fresh parts"
+        },
+        "contactSupport": "Contact Technical Support"
+      }
+    },
+    "sidebar": {
+      "installationChecklist": {
+        "title": "Installation Checklist",
+        "description": "Track your progress",
+        "items": {
+          "tools": "Gathered all required tools and materials",
+          "safety": "Read and understood all safety precautions",
+          "terminal-selection": "Selected correct terminals",
+          "wire-prep": "Prepared wires to correct specifications",
+          "crimping": "Crimped terminals and inspected quality",
+          "insertion": "Inserted terminals into connector housing",
+          "assembly": "Completed connector assembly",
+          "inspection": "Performed final inspection"
+        }
+      },
+      "quickLinks": {
+        "title": "Quick Links",
+        "allResources": "All Resources",
+        "connectorGuide": "Connector Selection Guide",
+        "technicalSupport": "Technical Support"
+      },
+      "qualityStandards": {
+        "title": "Quality Standards",
+        "compliantWith": "Compliant With:",
+        "items": {
+          "1": "• IEC 60352 (Crimping)",
+          "2": "• IEC 60603 (Connectors)",
+          "3": "• UL 310 (Wire Terminals)",
+          "4": "• ISO 8092 (Contact Retention)"
+        }
+      },
+      "versionInfo": {
+        "documentVersion": "Document Version:",
+        "version": "2.1",
+        "lastUpdated": "Last Updated:",
+        "lastUpdatedDate": "March 2025",
+        "nextReview": "Next Review:",
+        "nextReviewDate": "September 2025"
+      }
+    },
+    "contactSupport": {
+      "title": "Need Additional Help?",
+      "description": "Our technical support team is here to assist with connector selection, installation questions, and troubleshooting.",
+      "buttons": {
+        "contactSupport": "Contact Support",
+        "downloadDocumentation": "Download Full Documentation"
+      }
+    }
+  },
+  "LanguageSwitcher": {
+    "selectLanguage": "Select Language",
+    "currentLanguage": "Current Language"
+  }
+}

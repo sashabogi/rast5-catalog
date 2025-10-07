@@ -1,31 +1,34 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Cable, Search, Book, Zap, Lightbulb, Compass } from 'lucide-react'
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'HomePage' })
+
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Cable className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-          <h1 className="text-5xl font-bold mb-6">RAST 5 Connector Catalog</h1>
+          <h1 className="text-5xl font-bold mb-6">{t('hero.title')}</h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Professional catalog of RAST 5 electrical connectors with detailed specifications,
-            360° interactive views, and complete compatibility information.
+            {t('hero.description')}
           </p>
           <div className="flex gap-4 justify-center">
-            <Link href="/catalog">
+            <Link href={`/${locale}/catalog`}>
               <Button size="lg" className="gap-2">
                 <Search className="h-5 w-5" />
-                Browse Catalog
+                {t('hero.browseCatalog')}
               </Button>
             </Link>
-            <Link href="/resources">
+            <Link href={`/${locale}/resources`}>
               <Button size="lg" variant="outline" className="gap-2">
                 <Book className="h-5 w-5" />
-                Resources
+                {t('hero.resources')}
               </Button>
             </Link>
           </div>
@@ -34,15 +37,15 @@ export default function HomePage() {
 
       {/* Features Section */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center mb-12">Why Use This Catalog?</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">{t('features.title')}</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           <Card>
             <CardHeader>
               <Zap className="h-10 w-10 text-blue-600 mb-2" />
-              <CardTitle>360° Views</CardTitle>
+              <CardTitle>{t('features.view360.title')}</CardTitle>
               <CardDescription>
-                Interactive 360° videos of every connector. Drag to rotate and explore from all angles.
+                {t('features.view360.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -50,9 +53,9 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Cable className="h-10 w-10 text-orange-600 mb-2" />
-              <CardTitle>Complete Compatibility</CardTitle>
+              <CardTitle>{t('features.compatibility.title')}</CardTitle>
               <CardDescription>
-                See which connectors mate with each other, required terminal components, and assembly variants.
+                {t('features.compatibility.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -60,9 +63,9 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Book className="h-10 w-10 text-green-600 mb-2" />
-              <CardTitle>Detailed Documentation</CardTitle>
+              <CardTitle>{t('features.documentation.title')}</CardTitle>
               <CardDescription>
-                Access keying guides, technical specifications, and installation resources.
+                {t('features.documentation.description')}
               </CardDescription>
             </CardHeader>
           </Card>
@@ -74,16 +77,15 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Lightbulb className="h-12 w-12 text-white mx-auto mb-4" />
           <h2 className="text-3xl font-bold text-white mb-4">
-            Not Sure Which Connector You Need?
+            {t('selectionGuide.title')}
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Our interactive guide walks you through selecting the perfect connector
-            based on your application, pole count, and specific requirements.
+            {t('selectionGuide.description')}
           </p>
-          <Link href="/resources/connector-guide">
+          <Link href={`/${locale}/resources/connector-guide`}>
             <Button size="lg" variant="secondary" className="gap-2 text-lg px-8 py-6 h-auto">
               <Compass className="h-5 w-5" />
-              Launch Selection Guide
+              {t('selectionGuide.launchGuide')}
             </Button>
           </Link>
         </div>
@@ -92,46 +94,46 @@ export default function HomePage() {
       {/* Categories Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Connector Categories</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t('categories.title')}</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/catalog?category=X-For+socket+terminals">
+            <Link href={`/${locale}/catalog?category=X-For+socket+terminals`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <div className="h-3 w-3 rounded-full bg-blue-500" />
-                    Socket Connectors (Female)
+                    {t('categories.socket.title')}
                   </CardTitle>
                   <CardDescription>
-                    34 female socket housings for receiving tab terminals
+                    {t('categories.socket.description')}
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
-            <Link href="/catalog?category=X-For+tab+terminals">
+            <Link href={`/${locale}/catalog?category=X-For+tab+terminals`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <div className="h-3 w-3 rounded-full bg-orange-500" />
-                    Tab Connectors (Male)
+                    {t('categories.tab.title')}
                   </CardTitle>
                   <CardDescription>
-                    16 male tab housings that insert into socket connectors
+                    {t('categories.tab.description')}
                   </CardDescription>
                 </CardHeader>
               </Card>
             </Link>
 
-            <Link href="/catalog?category=X-Printed+circuit+board+headers">
+            <Link href={`/${locale}/catalog?category=X-Printed+circuit+board+headers`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <div className="h-3 w-3 rounded-full bg-green-500" />
-                    PCB Headers
+                    {t('categories.pcb.title')}
                   </CardTitle>
                   <CardDescription>
-                    6 printed circuit board mounted headers
+                    {t('categories.pcb.description')}
                   </CardDescription>
                 </CardHeader>
               </Card>

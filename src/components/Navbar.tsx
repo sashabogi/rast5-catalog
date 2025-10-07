@@ -2,13 +2,17 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { Cable, Book, Search } from 'lucide-react'
+import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Navbar() {
   const pathname = usePathname()
+  const locale = useLocale()
+  const t = useTranslations('Navbar')
 
   const isActive = (path: string) => {
-    return pathname === path || pathname?.startsWith(path + '/')
+    return pathname === `/${locale}${path}` || pathname?.startsWith(`/${locale}${path}/`)
   }
 
   return (
@@ -16,15 +20,15 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={`/${locale}`} className="flex items-center space-x-2">
               <Cable className="h-8 w-8 text-blue-600" />
-              <span className="font-bold text-xl">RAST 5 Catalog</span>
+              <span className="font-bold text-xl">{t('brandName')}</span>
             </Link>
           </div>
 
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4">
             <Link
-              href="/catalog"
+              href={`/${locale}/catalog`}
               className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
                 isActive('/catalog')
                   ? 'text-blue-600'
@@ -32,11 +36,11 @@ export function Navbar() {
               }`}
             >
               <Search className="h-4 w-4" />
-              <span>Browse Catalog</span>
+              <span>{t('browseCatalog')}</span>
             </Link>
 
             <Link
-              href="/resources"
+              href={`/${locale}/resources`}
               className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
                 isActive('/resources')
                   ? 'text-blue-600'
@@ -44,8 +48,10 @@ export function Navbar() {
               }`}
             >
               <Book className="h-4 w-4" />
-              <span>Resources</span>
+              <span>{t('resources')}</span>
             </Link>
+
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

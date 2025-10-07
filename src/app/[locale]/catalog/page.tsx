@@ -1,11 +1,15 @@
 import { Suspense } from 'react'
+import { getTranslations } from 'next-intl/server'
 import { supabase } from '@/lib/supabase/client'
 import { AlertCircle } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { CatalogFilters } from '@/components/CatalogFilters'
 import { CatalogContent } from '@/components/CatalogContent'
 
-export default async function CatalogPage() {
+export default async function CatalogPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('CatalogPage');
+
   // Fetch all connectors from Supabase
   const { data: connectors, error } = await supabase
     .from('connectors')
@@ -60,10 +64,7 @@ export default async function CatalogPage() {
       {/* Page Header */}
       <div className="bg-background border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-4xl font-bold">Connector Catalog</h1>
-          <p className="text-muted-foreground mt-2">
-            Browse our complete collection of RAST 5 connectors
-          </p>
+          <CatalogHeader />
         </div>
       </div>
 
@@ -97,5 +98,18 @@ export default async function CatalogPage() {
         <CatalogContent connectors={connectors} />
       </Suspense>
     </div>
+  )
+}
+
+async function CatalogHeader() {
+  const t = await getTranslations('CatalogPage')
+
+  return (
+    <>
+      <h1 className="text-4xl font-bold">{t('title')}</h1>
+      <p className="text-muted-foreground mt-2">
+        {t('description')}
+      </p>
+    </>
   )
 }

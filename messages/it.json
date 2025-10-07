@@ -1,0 +1,1363 @@
+{
+  "Navbar": {
+    "brandName": "Catalogo RAST 5",
+    "browseCatalog": "Sfoglia Catalogo",
+    "resources": "Risorse"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "Catalogo Connettori RAST 5",
+      "description": "Catalogo professionale di connettori elettrici RAST 5 con specifiche dettagliate, viste interattive a 360° e informazioni complete sulla compatibilità.",
+      "browseCatalog": "Sfoglia Catalogo",
+      "resources": "Risorse"
+    },
+    "features": {
+      "title": "Perché Usare Questo Catalogo?",
+      "view360": {
+        "title": "Viste a 360°",
+        "description": "Video interattivi a 360° di ogni connettore. Trascina per ruotare ed esplorare da tutte le angolazioni."
+      },
+      "compatibility": {
+        "title": "Compatibilità Completa",
+        "description": "Vedi quali connettori si accoppiano tra loro, componenti terminali richiesti e varianti di assemblaggio."
+      },
+      "documentation": {
+        "title": "Documentazione Dettagliata",
+        "description": "Accedi a guide di codifica, specifiche tecniche e risorse di installazione."
+      }
+    },
+    "selectionGuide": {
+      "title": "Non Sei Sicuro di Quale Connettore Ti Serve?",
+      "description": "La nostra guida interattiva ti accompagna nella selezione del connettore perfetto in base alla tua applicazione, numero di poli e requisiti specifici.",
+      "launchGuide": "Avvia Guida alla Selezione"
+    },
+    "categories": {
+      "title": "Categorie di Connettori",
+      "socket": {
+        "title": "Connettori Socket (Femmina)",
+        "description": "34 alloggiamenti femmina per ricevere terminali maschio"
+      },
+      "tab": {
+        "title": "Connettori Tab (Maschio)",
+        "description": "16 alloggiamenti maschio che si inseriscono nei connettori socket"
+      },
+      "pcb": {
+        "title": "Intestazioni PCB",
+        "description": "6 intestazioni montate su circuito stampato"
+      }
+    }
+  },
+  "CatalogPage": {
+    "title": "Catalogo Connettori",
+    "description": "Sfoglia tutti i connettori RAST 5 con filtri",
+    "filters": {
+      "title": "Filtri",
+      "search": "Cerca connettori...",
+      "category": "Categoria",
+      "allCategories": "Tutte le Categorie",
+      "poleCount": "Numero di Poli",
+      "allPoles": "Tutti i Poli",
+      "poles": "poli",
+      "reset": "Ripristina Filtri"
+    },
+    "results": {
+      "showing": "Mostrando {count} connettori",
+      "noResults": "Nessun connettore trovato",
+      "tryAdjusting": "Prova a regolare i tuoi filtri"
+    },
+    "card": {
+      "poles": "poli",
+      "viewDetails": "Visualizza Dettagli"
+    }
+  },
+  "ConnectorDetailPage": {
+    "backToCatalog": "Torna al Catalogo",
+    "breadcrumbs": {
+      "home": "Home",
+      "catalog": "Catalogo"
+    },
+    "video": {
+      "badge360": "Vista 360°"
+    },
+    "badges": {
+      "specialVersion": "Versione Speciale"
+    },
+    "product": {
+      "defaultDisplayName": "Connettore {gender} da {poleCount} Poli"
+    },
+    "specs": {
+      "title": "Specifiche",
+      "model": "Modello",
+      "series": "Serie",
+      "gender": "Genere",
+      "poleCount": "Numero di Poli",
+      "orientation": "Orientamento",
+      "orientationStandard": "Standard",
+      "terminalType": "Tipo di Terminale",
+      "category": "Categoria"
+    },
+    "status": {
+      "inStock": "Disponibile",
+      "contactForAvailability": "Contattare per disponibilità"
+    },
+    "quickSpecs": {
+      "poles": "Poli",
+      "type": "Tipo",
+      "typeSocket": "Socket",
+      "typeTab": "Tab",
+      "typePCB": "PCB",
+      "orientation": "Orientamento",
+      "orientationStandard": "Standard",
+      "series": "Serie"
+    },
+    "tabs": {
+      "overview": "Panoramica",
+      "compatibility": "Compatibilità",
+      "documentation": "Documentazione"
+    },
+    "overview": {
+      "highlights": {
+        "title": "Caratteristiche del Prodotto",
+        "quality": {
+          "title": "Costruzione di Alta Qualità",
+          "description": "Materiali durevoli per prestazioni durature"
+        },
+        "configuration": {
+          "title": "Configurazione a {poleCount} Poli",
+          "description": "Ottimale per trasmissione di potenza e segnali"
+        },
+        "standard": {
+          "title": "Standard del Settore",
+          "description": "Compatibile con specifiche serie CS"
+        }
+      },
+      "terminals": {
+        "title": "Requisiti Terminali",
+        "requires": "Richiede terminali {terminalSuffix}",
+        "specifications": "Specifiche dei terminali",
+        "contactForDetails": "Contattare per dettagli"
+      }
+    },
+    "compatibility": {
+      "mating": {
+        "title": "Connettori di Accoppiamento Compatibili",
+        "description": "Partner di accoppiamento diretto per questo connettore"
+      },
+      "variants": {
+        "title": "Varianti di Assemblaggio",
+        "description": "Orientamenti e configurazioni alternative"
+      },
+      "card": {
+        "poleBadge": "{count} Poli"
+      },
+      "noInfo": {
+        "title": "Informazioni di Compatibilità Non Disponibili",
+        "description": "Contattare il nostro team di supporto tecnico per dettagli sulla compatibilità"
+      }
+    },
+    "documentation": {
+      "keying": {
+        "title": "Documentazione di Codifica",
+        "description": "Specifiche e configurazioni di codifica dettagliate",
+        "noAvailable": "Nessuna documentazione di codifica disponibile per questo connettore"
+      },
+      "drawings": {
+        "title": "Disegni Tecnici",
+        "comingSoon": "Disegni tecnici disponibili a breve"
+      },
+      "pdfDocument": "Documento PDF",
+      "resources": {
+        "title": "Risorse Aggiuntive",
+        "description": "Hai bisogno di maggiori informazioni? Contatta il nostro team di supporto tecnico",
+        "datasheet": "Scheda Tecnica",
+        "model3d": "Modello 3D",
+        "applicationNotes": "Note Applicative"
+      }
+    },
+    "actions": {
+      "addToProject": "Aggiungi al Progetto",
+      "comingSoon": "Disponibile a Breve",
+      "requestQuote": "Richiedi Preventivo"
+    }
+  },
+  "ResourcesPage": {
+    "title": "Risorse",
+    "description": "Documentazione e guide per connettori RAST 5",
+    "selectionGuide": {
+      "title": "Guida Interattiva alla Selezione dei Connettori",
+      "description": "Guida passo-passo per aiutarti a scegliere il connettore giusto per la tua applicazione"
+    },
+    "terminals": {
+      "title": "Guida ai Componenti Terminali",
+      "description": "Riferimento completo per tutti i tipi di terminali e le loro applicazioni"
+    },
+    "installation": {
+      "title": "Guida all'Installazione",
+      "description": "Procedure corrette di assemblaggio e installazione per connettori RAST 5"
+    },
+    "keyingDocs": {
+      "title": "Documentazione di Codifica",
+      "description": "Scarica guide di codifica specifiche per polo che mostrano gli accoppiamenti compatibili dei connettori",
+      "details": "Disponibile per connettori da 2 a 12 poli, incluse versioni speciali"
+    }
+  },
+  "ConnectorGuide": {
+    "pageTitle": "Guida alla Selezione dei Connettori",
+    "pageDescription": "Trova il connettore perfetto per la tua applicazione in 5 semplici passi",
+    "progress": {
+      "step": "Passo",
+      "of": "di",
+      "complete": "Completato"
+    },
+    "step1": {
+      "title": "Che tipo di connessione ti serve?",
+      "description": "Seleziona l'applicazione che descrive meglio il tuo progetto",
+      "wireToWire": {
+        "title": "Connessione Filo-Filo",
+        "description": "Collega due cablaggi insieme utilizzando una coppia di connettori socket e tab",
+        "socketBadge": "Socket (Femmina)",
+        "tabBadge": "Tab (Maschio)"
+      },
+      "wireToBoard": {
+        "title": "Connessione Filo-Scheda",
+        "description": "Collega il cablaggio a un circuito stampato utilizzando socket e intestazione PCB",
+        "socketBadge": "Socket (Femmina)",
+        "pcbBadge": "Intestazione PCB"
+      },
+      "boardToBoard": {
+        "title": "Connessione Scheda-Scheda",
+        "description": "Collega due circuiti stampati insieme utilizzando intestazioni PCB",
+        "pcbBadge1": "Intestazione PCB",
+        "pcbBadge2": "Intestazione PCB"
+      }
+    },
+    "step2": {
+      "title": "Quanti circuiti ti servono?",
+      "description": "Seleziona il numero di poli (circuiti/fili) per la tua connessione",
+      "pole": "polo",
+      "poles": "poli"
+    },
+    "step3": {
+      "title": "Quale orientamento funziona meglio?",
+      "description": "Scegli come il connettore deve montarsi rispetto alla scheda o al filo",
+      "horizontal": {
+        "title": "Orizzontale (Parallelo)",
+        "description": "Il corpo del connettore è parallelo alla scheda o al filo. Ideale per design con vincoli di spazio."
+      },
+      "vertical": {
+        "title": "Verticale (Perpendicolare)",
+        "description": "Il corpo del connettore è perpendicolare alla scheda o al filo. Gestione cavi più semplice."
+      },
+      "either": {
+        "title": "Mostra Entrambe le Opzioni",
+        "description": "Non sei sicuro? Visualizza entrambe le opzioni orizzontali e verticali per confrontare."
+      }
+    },
+    "step4": {
+      "title": "Requisiti speciali?",
+      "description": "Funzionalità opzionali per perfezionare la tua selezione (puoi saltare questo passaggio)",
+      "locking": {
+        "title": "Meccanismo di Bloccaggio Richiesto",
+        "description": "Garantisce una connessione sicura in ambienti ad alta vibrazione"
+      },
+      "specialVersion": {
+        "title": "Versione Speciale (FR, VR, VS, VT, FT)",
+        "description": "Varianti con caratteristiche specifiche come flange o orientamenti invertiti"
+      },
+      "keying": {
+        "title": "Requisiti di Codifica Specifici",
+        "description": "Necessità di codifica personalizzata per prevenire accoppiamenti errati"
+      },
+      "infoMessage": "Questi sono filtri opzionali. Lasciali deselezionati per vedere tutte le opzioni disponibili."
+    },
+    "step5": {
+      "loading": "Ricerca connettori corrispondenti...",
+      "resultsTitle": "I Tuoi Connettori Corrispondenti",
+      "basedOn": "In base alle tue selezioni: {poleCount} poli, {orientation}, {applicationType}",
+      "sockets": {
+        "femaleBadge": "Femmina",
+        "title": "Connettori Socket",
+        "found": "{count} socket corrispondente trovato",
+        "foundPlural": "{count} socket corrispondenti trovati"
+      },
+      "tabs": {
+        "maleBadge": "Maschio",
+        "title": "Connettori Tab",
+        "found": "{count} tab corrispondente trovato",
+        "foundPlural": "{count} tab corrispondenti trovati"
+      },
+      "headers": {
+        "pcbBadge": "PCB",
+        "title": "Intestazioni PCB",
+        "found": "{count} intestazione corrispondente trovata",
+        "foundPlural": "{count} intestazioni corrispondenti trovate"
+      },
+      "noResults": {
+        "title": "Nessun Connettore Corrisponde ai Tuoi Criteri",
+        "description": "Prova a modificare i tuoi requisiti o rimuovi i filtri opzionali",
+        "buttonText": "Ricomincia"
+      }
+    },
+    "connectorCard": {
+      "view360": "Vista 360°",
+      "poleLabel": "{count} Poli",
+      "poleConnector": "Connettore {gender} da {count} Poli",
+      "specialVersion": "Versione Speciale",
+      "viewDetails": "Visualizza Dettagli"
+    },
+    "navigation": {
+      "back": "Indietro",
+      "next": "Avanti",
+      "showResults": "Mostra Risultati",
+      "refineSelection": "Perfeziona Selezione",
+      "startOver": "Ricomincia"
+    }
+  },
+  "TerminalsPage": {
+    "title": "Guida ai Componenti Terminali",
+    "description": "Riferimento completo per i tipi di terminali RAST 5",
+    "categories": {
+      "socket": "Terminali Socket (Femmina)",
+      "tab": "Terminali Tab (Maschio)"
+    }
+  },
+  "TerminalsGuide": {
+    "hero": {
+      "badge": "Riferimento Tecnico",
+      "title": "Guida ai Componenti Terminali",
+      "description": "Riferimento tecnico completo per i componenti terminali RAST 5. Scopri i terminali socket, tab e PCB, le loro specifiche e le tecniche di installazione corrette.",
+      "exploreButton": "Esplora i Tipi di Terminali",
+      "installationButton": "Guida all'Installazione"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "resources": "Risorse",
+      "current": "Guida ai Componenti Terminali"
+    },
+    "overview": {
+      "sectionTitle": "Comprendere i Terminali RAST 5",
+      "sectionDescription": "I terminali sono i componenti metallici conduttivi che creano la connessione elettrica all'interno dei connettori RAST 5. Ogni tipo di connettore richiede varianti terminali specifiche.",
+      "whatAreTerminals": {
+        "title": "Cosa sono i Terminali?",
+        "description": "I terminali sono contatti metallici di precisione che si crimpano sui fili o si montano su PCB. Forniscono la connessione fisica ed elettrica tra il filo e l'alloggiamento del connettore."
+      },
+      "whyDifferentTypes": {
+        "title": "Perché Diversi Tipi?",
+        "description": "Diversi orientamenti (verticale/orizzontale), tipi di montaggio (filo/PCB) e stili di accoppiamento (socket/tab) richiedono design terminali specifici per garantire un adattamento corretto e connessioni affidabili."
+      },
+      "namingConvention": {
+        "title": "Convenzione di Denominazione",
+        "description": "I terminali sono identificati da codici suffisso (FR, VR, VS, VT, FT, PC) che indicano il tipo di terminale. Abbina sempre il suffisso del terminale ai requisiti del tuo connettore."
+      }
+    },
+    "terminalTypes": {
+      "sectionTitle": "Tipi di Terminali e Specifiche",
+      "sectionDescription": "Esplora le tre categorie principali di terminali RAST 5",
+      "socketTab": "Terminali Socket",
+      "tabTab": "Terminali Tab",
+      "pcbTab": "Terminali PCB",
+      "socket": {
+        "categoryTitle": "Terminali Socket (Femmina)",
+        "categoryDescription": "Terminali a ricettacolo che accettano terminali tab per connessioni elettriche sicure",
+        "badge": "Femmina",
+        "FR": {
+          "name": "Ricettacolo Femmina",
+          "description": "Terminale socket femmina standard con orientamento di montaggio piatto",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Connessioni filo-filo",
+            "2": "Ricettacoli per uso generale",
+            "3": "Montaggio orizzontale"
+          },
+          "features": {
+            "1": "Design ricettacolo piatto",
+            "2": "Meccanismo di bloccaggio standard",
+            "3": "Connessione a crimpatura"
+          }
+        },
+        "VR": {
+          "name": "Ricettacolo Verticale",
+          "description": "Terminale socket femmina con orientamento verticale per connessioni perpendicolari",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Montaggio verticale su scheda",
+            "2": "Design salvaspazio",
+            "3": "Connessioni ad angolo retto"
+          },
+          "features": {
+            "1": "Orientamento verticale",
+            "2": "Ingombro compatto",
+            "3": "Ritenzione sicura"
+          }
+        },
+        "VS": {
+          "name": "Socket Verticale",
+          "description": "Terminale socket verticale specializzato con area di contatto migliorata",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Applicazioni ad alta affidabilità",
+            "2": "Montaggio verticale su PCB",
+            "3": "Connessioni industriali"
+          },
+          "features": {
+            "1": "Design di contatto migliorato",
+            "2": "Ritenzione superiore",
+            "3": "Resistente alle vibrazioni"
+          }
+        }
+      },
+      "tab": {
+        "categoryTitle": "Terminali Tab (Maschio)",
+        "categoryDescription": "Terminali a lama che si inseriscono nei terminali socket per connessioni di accoppiamento",
+        "badge": "Maschio",
+        "VT": {
+          "name": "Tab Verticale",
+          "description": "Terminale tab maschio con orientamento lama verticale",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Accoppiamento verticale",
+            "2": "Intestazioni PCB",
+            "3": "Connessioni ad angolo retto"
+          },
+          "features": {
+            "1": "Design lama verticale",
+            "2": "Contatti placcati in oro",
+            "3": "Inserimento affidabile"
+          }
+        },
+        "FT": {
+          "name": "Tab Piatto",
+          "description": "Terminale tab maschio con orientamento lama piatto",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Filo-filo standard",
+            "2": "Accoppiamento orizzontale",
+            "3": "Uso generale"
+          },
+          "features": {
+            "1": "Design lama piatta",
+            "2": "Dimensioni standard",
+            "3": "Crimpatura facile"
+          }
+        }
+      },
+      "pcb": {
+        "categoryTitle": "Terminali PCB",
+        "categoryDescription": "Terminali a foro passante progettati per il montaggio diretto su PCB e la saldatura",
+        "badge": "PCB",
+        "PC": {
+          "name": "Circuito Stampato",
+          "description": "Terminale a foro passante per montaggio diretto su PCB",
+          "wireGauge": "N/A (montaggio PCB)",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Intestazioni PCB",
+            "2": "Connessioni scheda-scheda",
+            "3": "Connessioni saldate"
+          },
+          "features": {
+            "1": "Montaggio a foro passante",
+            "2": "Saldabile a onda",
+            "3": "Opzioni pin multiple"
+          }
+        }
+      },
+      "labels": {
+        "technicalSpecifications": "Specifiche Tecniche",
+        "wireGauge": "Calibro Filo:",
+        "currentRating": "Corrente Nominale:",
+        "connectionType": "Tipo di Connessione:",
+        "keyFeatures": "Caratteristiche Principali",
+        "typicalApplications": "Applicazioni Tipiche",
+        "availableTerminals": "Terminali Disponibili"
+      }
+    },
+    "technicalSpecs": {
+      "sectionTitle": "Specifiche Tecniche",
+      "sectionDescription": "Specifiche universali applicabili a tutti i tipi di terminali RAST 5",
+      "currentRating": {
+        "title": "Corrente Nominale",
+        "value": "7A per contatto",
+        "description": "Corrente continua massima a 25°C di temperatura ambiente"
+      },
+      "voltageRating": {
+        "title": "Tensione Nominale",
+        "value": "250V AC/DC",
+        "description": "Tensione di lavoro massima secondo gli standard IEC"
+      },
+      "wireRange": {
+        "title": "Gamma Fili",
+        "value": "16-22 AWG",
+        "description": "Calibro filo compatibile per terminali a crimpatura"
+      },
+      "contactMaterial": {
+        "title": "Materiale Contatto",
+        "value": "Ottone (Stagnato)",
+        "description": "Finitura resistente alla corrosione per affidabilità a lungo termine"
+      },
+      "materialDetails": {
+        "title": "Dettagli Materiale e Placcatura",
+        "contactMaterial": {
+          "heading": "Materiale Contatto",
+          "baseMaterial": "Materiale Base: Lega di ottone (CuZn37)",
+          "plating": "Placcatura: Stagno (Sn) spessore 3-5 μm",
+          "matingArea": "Area di Accoppiamento: Flash d'oro disponibile su richiesta"
+        },
+        "performanceCharacteristics": {
+          "heading": "Caratteristiche Prestazionali",
+          "contactResistance": "Resistenza di Contatto: < 5mΩ iniziale",
+          "insertionForce": "Forza di Inserimento: 1-3N tipica",
+          "operatingTemperature": "Temperatura di Esercizio: -40°C a +105°C"
+        }
+      }
+    },
+    "installation": {
+      "sectionTitle": "Guida all'Installazione",
+      "sectionDescription": "Istruzioni passo-passo per la crimpatura e l'inserimento corretti dei terminali",
+      "requiredTools": {
+        "title": "Strumenti Necessari",
+        "crimpingTool": {
+          "title": "Pinza Crimpatrice",
+          "description": "Crimpatrice a cricchetto calibrata con set di matrici appropriato per terminali RAST 5"
+        },
+        "wireStripper": {
+          "title": "Spelafili",
+          "description": "Spelafili regolabile per calibro filo 16-22 AWG"
+        },
+        "insertionTool": {
+          "title": "Strumento Inserimento/Rimozione",
+          "description": "Strumento speciale per l'inserimento del terminale e la rimozione sicura se necessario"
+        }
+      },
+      "steps": {
+        "1": {
+          "title": "Spelare il Filo",
+          "description": "Spelare l'isolamento per esporre 5-6mm di conduttore",
+          "warning": "Non spelare eccessivamente o danneggiare i fili"
+        },
+        "2": {
+          "title": "Inserire nel Terminale",
+          "description": "Posizionare il filo nell'area di crimpatura del terminale",
+          "warning": "Assicurarsi che il filo sia completamente inserito prima di crimpare"
+        },
+        "3": {
+          "title": "Crimpare il Terminale",
+          "description": "Utilizzare la pinza crimpatrice appropriata per fissare il terminale",
+          "warning": "Controllare la qualità della crimpatura - nessun filo si deve estrarre"
+        },
+        "4": {
+          "title": "Inserire nell'Alloggiamento",
+          "description": "Spingere il terminale nell'alloggiamento del connettore fino al clic",
+          "warning": "Il terminale deve essere completamente inserito e bloccato"
+        },
+        "5": {
+          "title": "Verificare il Bloccaggio",
+          "description": "Tirare delicatamente il filo per confermare che il terminale sia fissato",
+          "warning": "Il terminale non deve uscire dall'alloggiamento"
+        }
+      },
+      "importantLabel": "Importante:",
+      "terminalRemoval": {
+        "title": "Procedura di Rimozione Terminale",
+        "description": "Se è necessario rimuovere un terminale dall'alloggiamento",
+        "steps": {
+          "1": "Utilizzare lo strumento di rimozione terminale appropriato - non forzare mai con pinze o cacciavite",
+          "2": "Inserire lo strumento di rimozione accanto al terminale per rilasciare la linguetta di bloccaggio",
+          "3": "Tirare delicatamente il filo tenendo lo strumento di rimozione in posizione",
+          "4": "Ispezionare il terminale per danni prima del riutilizzo - i terminali danneggiati devono essere sostituiti"
+        }
+      }
+    },
+    "commonMistakes": {
+      "sectionTitle": "Errori Comuni da Evitare",
+      "sectionDescription": "Impara da questi errori comuni per garantire connessioni affidabili",
+      "consequenceLabel": "Conseguenza:",
+      "solutionLabel": "Soluzione:",
+      "mistakes": {
+        "1": {
+          "mistake": "Spelatura eccessiva dell'isolamento del filo",
+          "consequence": "Il conduttore esposto crea rischio di cortocircuito",
+          "solution": "Spelare solo 5-6mm come specificato"
+        },
+        "2": {
+          "mistake": "Crimpatura insufficiente o eccessiva",
+          "consequence": "Connessione elettrica scadente o filo danneggiato",
+          "solution": "Utilizzare pinza crimpatrice calibrata con matrice appropriata"
+        },
+        "3": {
+          "mistake": "Forzatura del tipo di terminale sbagliato",
+          "consequence": "Alloggiamento danneggiato o contatto scadente",
+          "solution": "Verificare che il suffisso del terminale corrisponda ai requisiti del connettore"
+        },
+        "4": {
+          "mistake": "Mancata verifica del bloccaggio del terminale",
+          "consequence": "Il terminale si ritrae durante l'uso",
+          "solution": "Eseguire sempre un test di trazione dopo l'inserimento"
+        }
+      }
+    },
+    "downloadResources": {
+      "title": "Documentazione Tecnica",
+      "description": "Scarica schede di specifiche dettagliate e guide all'installazione",
+      "specsPdf": "PDF Specifiche Terminali",
+      "installationPdf": "PDF Guida all'Installazione"
+    },
+    "relatedResources": {
+      "sectionTitle": "Risorse Correlate",
+      "browseCatalog": {
+        "title": "Sfoglia Connettori",
+        "description": "Visualizza il nostro catalogo completo di connettori RAST 5",
+        "button": "Visualizza Catalogo"
+      },
+      "selectionGuide": {
+        "title": "Guida alla Selezione",
+        "description": "Procedura guidata interattiva per trovare il connettore giusto",
+        "button": "Avvia Guida"
+      },
+      "allResources": {
+        "title": "Tutte le Risorse",
+        "description": "Accedi a tutta la documentazione e alle guide",
+        "button": "Visualizza Risorse"
+      }
+    }
+  },
+  "InstallationGuide": {
+    "hero": {
+      "breadcrumb": {
+        "resources": "Risorse",
+        "current": "Guida all'Installazione"
+      },
+      "title": "Guida all'Installazione Connettori RAST 5",
+      "subtitle": "Istruzioni complete passo-passo per l'assemblaggio, la crimpatura e l'installazione professionale dei connettori RAST 5",
+      "badges": {
+        "version": "Versione 2.1",
+        "lastUpdated": "Ultimo Aggiornamento: Marzo 2025"
+      }
+    },
+    "quickActions": {
+      "printGuide": "Stampa Guida",
+      "downloadPdf": "Scarica PDF",
+      "progress": "Progresso:"
+    },
+    "safetyWarning": {
+      "title": "AVVISO DI SICUREZZA - LEGGERE PRIMA DI PROCEDERE",
+      "items": {
+        "1": "Scollegare sempre l'alimentazione prima di lavorare su connessioni elettriche",
+        "2": "Utilizzare utensili e attrezzature con capacità nominale appropriata per la propria applicazione",
+        "3": "Indossare dispositivi di protezione individuale adeguati (occhiali di sicurezza, guanti isolanti)",
+        "4": "Seguire tutti i codici e le normative elettriche locali",
+        "5": "In caso di dubbio, consultare un elettricista o ingegnere qualificato"
+      }
+    },
+    "gettingStarted": {
+      "title": "Iniziare",
+      "description": "Cosa ti serve e come preparare il tuo spazio di lavoro",
+      "requiredTools": {
+        "title": "Utensili e Materiali Necessari",
+        "items": {
+          "1": {
+            "name": "Pinza Crimpatrice RAST 5",
+            "description": "Utensile appropriato per la dimensione del terminale"
+          },
+          "2": {
+            "name": "Spelafili",
+            "description": "Tipo regolabile e di precisione"
+          },
+          "3": {
+            "name": "Tronchesi",
+            "description": "Lame di taglio pulite e affilate"
+          },
+          "4": {
+            "name": "Strumento di Rimozione Terminali",
+            "description": "Per rimuovere/riposizionare i terminali"
+          },
+          "5": {
+            "name": "Lente d'Ingrandimento",
+            "description": "Per l'ispezione della qualità della crimpatura"
+          },
+          "6": {
+            "name": "Multimetro (Opzionale)",
+            "description": "Per il test di continuità"
+          }
+        }
+      },
+      "workspaceSetup": {
+        "title": "Configurazione dello Spazio di Lavoro",
+        "items": {
+          "1": "Spazio di lavoro pulito e ben illuminato con spazio adeguato per utensili e materiali",
+          "2": "Tappetino antistatico se si lavora con componenti elettronici sensibili",
+          "3": "Organizzare connettori, terminali e fili per tipo e dimensione",
+          "4": "Tenere questa guida all'installazione facilmente accessibile per riferimento"
+        }
+      }
+    },
+    "steps": {
+      "title": "Procedura di Installazione Passo-Passo",
+      "description": "Seguire attentamente questi passaggi per un assemblaggio affidabile e professionale",
+      "step1": {
+        "badge": "Passo 1",
+        "title": "Selezione del Terminale",
+        "understandingTypes": {
+          "title": "Comprendere i Tipi di Terminali",
+          "description": "I connettori RAST 5 utilizzano diversi tipi di terminali in base al suffisso del connettore:",
+          "types": {
+            "FR": "FR (Flange, Right Angle) - Terminali femmina con montaggio a flangia",
+            "FT": "FT (Flange, Through-hole) - Terminali femmina per montaggio su PCB",
+            "VR": "VR (Vertical, Right Angle) - Terminali con orientamento verticale",
+            "VT": "VT (Vertical, Through-hole) - Terminali maschio verticali",
+            "VS": "VS (Vertical, Surface Mount) - Terminali SMT per PCB",
+            "PC": "PC (Print Circuit) - Terminali per intestazioni PCB"
+          }
+        },
+        "wireGaugeCompatibility": {
+          "title": "Compatibilità Calibro Filo",
+          "table": {
+            "headers": {
+              "awg": "Calibro Filo (AWG)",
+              "mm": "Calibro Filo (mm²)",
+              "compatible": "Terminali Compatibili"
+            },
+            "rows": {
+              "1": {
+                "awg": "24-22 AWG",
+                "mm": "0.25-0.34 mm²",
+                "compatible": "Terminali RAST 5 standard"
+              },
+              "2": {
+                "awg": "20-18 AWG",
+                "mm": "0.5-0.75 mm²",
+                "compatible": "Terminali RAST 5 standard"
+              },
+              "3": {
+                "awg": "16 AWG",
+                "mm": "1.0-1.5 mm²",
+                "compatible": "Verificare le specifiche del terminale"
+              }
+            }
+          }
+        },
+        "important": {
+          "title": "Importante",
+          "message": "Verificare sempre la compatibilità del terminale con il modello specifico del connettore. L'uso di terminali non corretti può causare connessioni scadenti e potenziali guasti."
+        },
+        "checklist": {
+          "title": "Lista di Controllo per la Selezione",
+          "items": {
+            "1": "Verificare il modello del connettore e il suffisso del terminale",
+            "2": "Confermare che il calibro del filo corrisponda alle specifiche del terminale",
+            "3": "Verificare i requisiti di corrente nominale per la propria applicazione",
+            "4": "Assicurarsi di avere una quantità sufficiente di terminali per tutte le posizioni"
+          }
+        }
+      },
+      "step2": {
+        "badge": "Passo 2",
+        "title": "Preparazione del Filo",
+        "stripLength": {
+          "title": "Requisiti di Lunghezza di Spelatura",
+          "recommended": "5-6 mm",
+          "recommendedLabel": "Lunghezza di spelatura consigliata",
+          "imperial": "0.20-0.24 in",
+          "imperialLabel": "Equivalente imperiale",
+          "diagram": {
+            "insulation": "Isolamento",
+            "strippedConductor": "Conduttore Spelato",
+            "stripHere": "Spelare Qui"
+          }
+        },
+        "preparationSteps": {
+          "title": "Passaggi di Preparazione del Filo",
+          "items": {
+            "1": {
+              "title": "Tagliare il filo alla lunghezza richiesta",
+              "description": "Aggiungere lunghezza extra per instradamento e scarico tensione (tipicamente 50-100mm extra)"
+            },
+            "2": {
+              "title": "Ispezionare l'isolamento",
+              "description": "Verificare la presenza di tacche, tagli o danni. Scartare il filo danneggiato."
+            },
+            "3": {
+              "title": "Spelare l'isolamento",
+              "description": "Utilizzare spelafili appropriati impostati sul calibro corretto. Spelare 5-6mm dall'estremità."
+            },
+            "4": {
+              "title": "Ispezionare il conduttore",
+              "description": "Assicurarsi che nessun filo sia tagliato o danneggiato. Tutti i fili devono essere intatti e puliti."
+            },
+            "5": {
+              "title": "Torcere il conduttore (se multifilo)",
+              "description": "Torcere delicatamente il filo multifilo in senso orario per tenere i fili insieme"
+            }
+          }
+        },
+        "goodStrip": {
+          "title": "Buona Spelatura",
+          "items": {
+            "1": "Taglio pulito e dritto",
+            "2": "Nessun filo danneggiato",
+            "3": "Lunghezza corretta (5-6mm)",
+            "4": "Nessuna tacca nell'isolamento"
+          }
+        },
+        "badStrip": {
+          "title": "Cattiva Spelatura",
+          "items": {
+            "1": "Taglio irregolare o non uniforme",
+            "2": "Fili tagliati/mancanti",
+            "3": "Lunghezza errata",
+            "4": "Isolamento danneggiato"
+          }
+        }
+      },
+      "step3": {
+        "badge": "Passo 3",
+        "title": "Crimpatura del Terminale",
+        "criticalQuality": {
+          "title": "Passaggio Critico per la Qualità",
+          "message": "Una crimpatura corretta è essenziale per connessioni elettriche affidabili. Una buona crimpatura fornisce sia conduttività elettrica che resistenza meccanica. Prendersi il proprio tempo e ispezionare ogni crimpatura."
+        },
+        "toolSelection": {
+          "title": "Selezione dell'Utensile per Crimpare",
+          "recommended": {
+            "title": "Consigliato: Utensile Specifico per RAST 5",
+            "description": "Gli utensili appositamente progettati garantiscono geometria e forza di crimpatura corrette"
+          },
+          "acceptable": {
+            "title": "Accettabile: Pinza Crimpatrice di Precisione",
+            "description": "Deve avere il set di matrici corretto per la dimensione del terminale"
+          },
+          "notRecommended": {
+            "title": "Non Consigliato: Pinze Standard",
+            "description": "Non fornirà una qualità di crimpatura o affidabilità adeguate"
+          }
+        },
+        "procedure": {
+          "title": "Procedura di Crimpatura",
+          "items": {
+            "1": {
+              "title": "Posizionare il terminale nella pinza crimpatrice",
+              "description": "Assicurarsi che il terminale sia completamente inserito nella posizione corretta della matrice"
+            },
+            "2": {
+              "title": "Inserire il filo preparato",
+              "description": "Il filo deve estendersi completamente nel cilindro del terminale. L'isolamento NON deve entrare nell'area di crimpatura."
+            },
+            "3": {
+              "title": "Applicare la forza di crimpatura",
+              "description": "Premere completamente le maniglie fino al rilascio dell'utensile (utensili a cricchetto) o fino al contatto delle maniglie (non a cricchetto)"
+            },
+            "4": {
+              "title": "Rimuovere il terminale crimpato",
+              "description": "Rilasciare con cura l'utensile e rimuovere il terminale senza piegarlo"
+            },
+            "5": {
+              "title": "Ispezionare la qualità della crimpatura",
+              "description": "Vedere i criteri di ispezione qui sotto - rifiutare qualsiasi crimpatura dubbia"
+            }
+          }
+        },
+        "inspection": {
+          "title": "Ispezione della Qualità della Crimpatura",
+          "tabs": {
+            "good": "Buona Crimpatura",
+            "bad": "Cattiva Crimpatura"
+          },
+          "goodCrimp": {
+            "title": "Caratteristiche di una Buona Crimpatura:",
+            "items": {
+              "1": "Il cilindro del terminale è compresso uniformemente attorno al filo",
+              "2": "I fili sono visibili all'estremità del cilindro del terminale",
+              "3": "Nessuno spazio tra il filo e le pareti del cilindro del terminale",
+              "4": "La crimpatura dell'isolamento afferra la guaina del filo senza tagliarla",
+              "5": "Il filo non può essere estratto con forza moderata",
+              "6": "L'area di contatto del terminale è intatta e correttamente sagomata"
+            },
+            "tip": "Utilizzare una lente d'ingrandimento per ispezionare l'area di crimpatura. Il cilindro deve mostrare una leggera rientranza dalle matrici di crimpatura ma nessuna crepa o bordo tagliente."
+          },
+          "badCrimp": {
+            "title": "Segni di una Cattiva Crimpatura (Rifiutare Queste):",
+            "items": {
+              "1": "Sotto-crimpata: Cilindro del terminale non completamente compresso, il filo si estrae facilmente",
+              "2": "Sovra-crimpata: Cilindro del terminale crepato, fili tagliati o contatto danneggiato",
+              "3": "Disallineata: Filo non completamente inserito, fili visibili fuori dal cilindro",
+              "4": "Isolamento nell'area di crimpatura: Guaina del filo crimpata nell'area del conduttore",
+              "5": "Area di contatto del terminale piegata o danneggiata",
+              "6": "Crepe o spaccature visibili nel cilindro del terminale"
+            },
+            "warning": "In caso di dubbio, tagliare il terminale e ricrimpare con un nuovo terminale. Le cattive crimpature possono causare connessioni intermittenti, aumento della resistenza, generazione di calore e guasto finale."
+          }
+        },
+        "pullTest": {
+          "title": "Test di Trazione (Opzionale ma Consigliato)",
+          "description": "Dopo la crimpatura, eseguire un test di trazione delicato per verificare l'integrità meccanica:",
+          "steps": {
+            "1": "1. Afferrare il corpo del terminale (non l'area di contatto)",
+            "2": "2. Afferrare l'isolamento del filo 25-50mm dal terminale",
+            "3": "3. Tirare con forza moderata (circa 5-10 lbs / 2-5 kg)",
+            "4": "4. Il filo non deve uscire o mostrare alcun movimento nel cilindro del terminale"
+          }
+        }
+      },
+      "step4": {
+        "badge": "Passo 4",
+        "title": "Inserimento del Terminale",
+        "orientationVerification": {
+          "title": "Verifica dell'Orientamento",
+          "description": "Prima di inserire i terminali, verificare l'orientamento corretto:",
+          "items": {
+            "1": "Il contatto del terminale deve essere rivolto nella direzione corretta per l'accoppiamento",
+            "2": "La linguetta di ritenzione (se presente) deve impegnare il blocco dell'alloggiamento",
+            "3": "Verificare le guide di direzione di inserimento sull'alloggiamento del connettore"
+          }
+        },
+        "procedure": {
+          "title": "Procedura di Inserimento",
+          "items": {
+            "1": {
+              "title": "Posizionare correttamente l'alloggiamento",
+              "description": "Orientare l'alloggiamento del connettore con la chiave verso l'alto e il lato di inserimento rivolto verso di sé"
+            },
+            "2": {
+              "title": "Allineare il terminale con la cavità",
+              "description": "Far corrispondere la posizione del terminale con il numero di cavità corretto. Consultare lo schema di cablaggio se disponibile."
+            },
+            "3": {
+              "title": "Inserire il terminale con pressione decisa",
+              "description": "Spingere il terminale dritto fino a sentire/percepire un distinto \"clic\" che indica l'aggancio del blocco"
+            },
+            "4": {
+              "title": "Verificare la ritenzione",
+              "description": "Tirare delicatamente il filo all'indietro. Il terminale deve essere saldamente trattenuto e non muoversi."
+            },
+            "5": {
+              "title": "Ripetere per tutte le posizioni",
+              "description": "Continuare a inserire i terminali nella sequenza corretta secondo lo schema di cablaggio"
+            }
+          }
+        },
+        "commonProblems": {
+          "title": "Problemi Comuni di Inserimento",
+          "problem1": {
+            "title": "Problema: Il terminale non si inserisce completamente",
+            "solution": "Soluzione: Verificare l'orientamento del terminale, assicurarsi che la linguetta di ritenzione non sia piegata, verificare il tipo di terminale corretto per l'alloggiamento"
+          },
+          "problem2": {
+            "title": "Problema: Il terminale si inserisce ma non si blocca",
+            "solution": "Soluzione: La linguetta di ritenzione potrebbe essere danneggiata. Utilizzare un nuovo terminale. Verificare la presenza di ostruzioni nella cavità dell'alloggiamento."
+          },
+          "problem3": {
+            "title": "Problema: Il terminale si estrae facilmente",
+            "solution": "Soluzione: Terminale non completamente inserito. Rimuovere e reinserire fino al raggiungimento di un clic/blocco positivo."
+          }
+        },
+        "terminalRemoval": {
+          "title": "Rimozione del Terminale (Se Necessario)",
+          "description": "Se è necessario rimuovere o riposizionare un terminale:",
+          "steps": {
+            "1": "Utilizzare lo strumento di rimozione terminale appropriato progettato per connettori RAST 5",
+            "2": "Inserire lo strumento di rimozione accanto al terminale per premere la linguetta di ritenzione",
+            "3": "Tenendo lo strumento di rimozione in posizione, tirare delicatamente il filo per estrarre il terminale",
+            "4": "Ispezionare il terminale per danni prima del reinserimento. Sostituire se la linguetta è piegata o danneggiata."
+          },
+          "warning": "Non tentare mai di rimuovere i terminali con cacciaviti o altri utensili improvvisati. Ciò può danneggiare sia il terminale che l'alloggiamento."
+        }
+      },
+      "step5": {
+        "badge": "Passo 5",
+        "title": "Assemblaggio del Connettore",
+        "keyingVerification": {
+          "title": "Verifica della Codifica",
+          "description": "I connettori RAST 5 utilizzano la codifica meccanica per prevenire accoppiamenti errati:",
+          "items": {
+            "1": "Verificare che il codice di codifica corrisponda tra i connettori accoppiati",
+            "2": "Verificare che le caratteristiche di polarizzazione si allineino correttamente",
+            "3": "Assicurarsi che il conteggio dei poli e la numerazione dei pin corrispondano al cablaggio dell'applicazione"
+          }
+        },
+        "housingAlignment": {
+          "title": "Allineamento dell'Alloggiamento",
+          "items": {
+            "1": {
+              "title": "Verificare che tutti i terminali siano completamente inseriti",
+              "description": "Verificare che ogni terminale sia bloccato e che nessuna cavità sia vuota (a meno che non sia intenzionalmente non popolata)"
+            },
+            "2": {
+              "title": "Instradare i fili in modo appropriato",
+              "description": "Disporre i fili in modo che escano dall'alloggiamento del connettore in modo pulito senza piegature brusche o incroci"
+            },
+            "3": {
+              "title": "Applicare lo scarico tensione (se applicabile)",
+              "description": "Installare morsetti per cavi, fascette o guaine di scarico tensione per proteggere l'interfaccia filo-terminale"
+            },
+            "4": {
+              "title": "Installare i blocchi secondari (se presenti)",
+              "description": "Alcuni connettori hanno caratteristiche di bloccaggio aggiuntive. Assicurarsi che siano adeguatamente agganciate."
+            }
+          }
+        },
+        "strainRelief": {
+          "title": "Considerazioni sullo Scarico Tensione",
+          "why": {
+            "title": "Perché lo Scarico Tensione è Importante:",
+            "items": {
+              "1": "• Previene il trasferimento dello stress meccanico alla connessione crimpata",
+              "2": "• Protegge dalla fatica indotta da vibrazioni",
+              "3": "• Mantiene l'allineamento del filo e previene la trazione",
+              "4": "• Estende la durata di servizio in ambienti difficili"
+            }
+          },
+          "methods": {
+            "title": "Metodi di Scarico Tensione:",
+            "items": {
+              "1": "• Fascette che fissano il fascio di fili vicino al connettore (più comune)",
+              "2": "• Guaine o clip di scarico tensione specifiche per il connettore",
+              "3": "• Morsetti per cavi montati sul telaio dell'apparecchiatura",
+              "4": "• Condotto flessibile per protezione aggiuntiva"
+            }
+          }
+        },
+        "finalChecklist": {
+          "title": "Lista di Controllo Finale dell'Assemblaggio",
+          "items": {
+            "1": "Tutti i terminali correttamente crimpati e ispezionati",
+            "2": "Tutti i terminali completamente inseriti e bloccati nell'alloggiamento",
+            "3": "L'instradamento dei fili è pulito e organizzato",
+            "4": "Scarico tensione applicato in modo appropriato",
+            "5": "Codifica e polarizzazione verificate",
+            "6": "Nessun materiale estraneo o detriti nel connettore",
+            "7": "L'alloggiamento è integro e pulito"
+          }
+        }
+      }
+    },
+    "advancedTopics": {
+      "title": "Argomenti Avanzati",
+      "sealedConnectors": {
+        "title": "Assemblaggio di Connettori Sigillati",
+        "description": "I connettori sigillati forniscono protezione contro umidità, polvere e contaminanti:",
+        "steps": {
+          "1": "Utilizzare solo terminali sigillati specificati e guarnizioni per fili per il proprio modello di connettore",
+          "2": "Installare la guarnizione per fili sul cavo prima di crimpare il terminale (non può essere aggiunta dopo)",
+          "3": "Assicurarsi che la guarnizione per fili sia correttamente dimensionata per il diametro esterno del cavo",
+          "4": "Dopo l'inserimento del terminale, posizionare la guarnizione contro la parte posteriore dell'alloggiamento del connettore",
+          "5": "Installare la guarnizione/gasket del connettore se richiesto (alcuni modelli utilizzano guarnizioni separate per l'alloggiamento)",
+          "6": "Verificare l'integrità della guarnizione - nessuno spazio, compressione adeguata quando accoppiato"
+        },
+        "note": "Le classificazioni IP (Ingress Protection) sono valide solo quando i connettori sono correttamente accoppiati e tutte le guarnizioni sono installate correttamente. I connettori sigillati non accoppiati devono essere protetti con cappucci antipolvere."
+      },
+      "highVibration": {
+        "title": "Applicazioni ad Alta Vibrazione",
+        "description": "Le applicazioni con vibrazioni significative (automotive, macchinari industriali, trasporti) richiedono considerazioni aggiuntive:",
+        "connectorSelection": {
+          "title": "Selezione del Connettore:",
+          "items": {
+            "1": "• Utilizzare connettori con meccanismi di bloccaggio positivi",
+            "2": "• Considerare connettori con blocchi secondari o clip di bloccaggio",
+            "3": "• Specificare connettori classificati per la resistenza alle vibrazioni"
+          }
+        },
+        "bestPractices": {
+          "title": "Migliori Pratiche di Assemblaggio:",
+          "items": {
+            "1": "• Assicurarsi che tutti i terminali siano completamente bloccati con clic positivo",
+            "2": "• Applicare scarico tensione aggiuntivo vicino al connettore (entro 50mm)",
+            "3": "• Utilizzare filo flessibile per assorbire le vibrazioni prima del connettore",
+            "4": "• Montare i connettori su punti rigidi, non su componenti vibranti",
+            "5": "• Considerare l'uso di supporti o gommini ammortizzanti"
+          }
+        },
+        "maintenance": {
+          "title": "Manutenzione:",
+          "items": {
+            "1": "• Ispezionare regolarmente le connessioni per segni di fretting o usura",
+            "2": "• Verificare la presenza di terminali arretrati o connessioni allentate",
+            "3": "• Monitorare la resistenza di contatto nel tempo"
+          }
+        }
+      },
+      "temperature": {
+        "title": "Considerazioni sulla Temperatura",
+        "standardRating": "I connettori RAST 5 standard sono tipicamente classificati per -40°C a +105°C (-40°F a +221°F). L'operatività al di fuori di questo intervallo richiede considerazioni speciali:",
+        "highTemp": {
+          "title": "Alta Temperatura (Sopra 105°C):",
+          "items": {
+            "1": "• Verificare che il materiale dell'alloggiamento del connettore sia classificato per la temperatura dell'applicazione",
+            "2": "• Utilizzare isolamento del filo ad alta temperatura (Teflon, PTFE, silicone)",
+            "3": "• Declassare la capacità di corrente secondo le specifiche del produttore",
+            "4": "• Considerare gli effetti dell'espansione termica sulla ritenzione del terminale",
+            "5": "• Aumentare la frequenza di ispezione per il degrado"
+          }
+        },
+        "lowTemp": {
+          "title": "Bassa Temperatura (Sotto -40°C):",
+          "items": {
+            "1": "• Verificare che il materiale dell'alloggiamento rimanga flessibile a bassa temperatura",
+            "2": "• Utilizzare isolamento del filo classificato per il freddo che non si crepi o diventi fragile",
+            "3": "• Testare le forze di accoppiamento/disaccoppiamento alla temperatura di esercizio",
+            "4": "• Tenere conto della contrazione termica in spazi ristretti"
+          }
+        },
+        "thermalCycling": {
+          "title": "Cicli Termici:",
+          "items": {
+            "1": "• I cicli di temperatura ripetuti possono causare corrosione da fretting",
+            "2": "• Diversi tassi di espansione tra i materiali possono influenzare la ritenzione",
+            "3": "• Considerare terminali placcati in oro per una maggiore affidabilità",
+            "4": "• Consentire lo scarico tensione nell'instradamento dei fili per accogliere l'espansione"
+          }
+        },
+        "note": "Consultare sempre le schede tecniche del produttore per le classificazioni di temperatura specifiche e i requisiti di declassamento. Contattare il proprio fornitore RAST 5 per opzioni di connettori ad alta o bassa temperatura se necessario."
+      },
+      "maintenanceSchedules": {
+        "title": "Programmi di Manutenzione e Ispezione",
+        "description": "L'ispezione e la manutenzione regolari estendono la durata di servizio del connettore e prevengono guasti imprevisti:",
+        "initial": {
+          "title": "Installazione Iniziale (0 Ore):",
+          "items": {
+            "1": "• Ispezione visiva di tutte le crimpature e le connessioni",
+            "2": "• Test di continuità di tutti i circuiti",
+            "3": "• Misurazione della resistenza di contatto (se applicazione critica)",
+            "4": "• Verificare il corretto accoppiamento e bloccaggio",
+            "5": "• Documentare la configurazione come costruita"
+          }
+        },
+        "periodic": {
+          "title": "Ispezione Periodica (Ogni 6-12 Mesi):",
+          "items": {
+            "1": "• Ispezione visiva per danni fisici o contaminazione",
+            "2": "• Verificare la presenza di terminali arretrati o allentati",
+            "3": "• Verificare che le caratteristiche di bloccaggio siano ancora agganciate",
+            "4": "• Ispezionare lo scarico tensione per usura o danni",
+            "5": "• Verificare la presenza di segni di surriscaldamento (scolorimento, fusione)",
+            "6": "• Pulire i contatti se necessario (secondo le linee guida del produttore)"
+          }
+        },
+        "harsh": {
+          "title": "Ambiente Difficile (Ogni 3-6 Mesi):",
+          "items": {
+            "1": "• Tutti gli elementi dell'ispezione periodica",
+            "2": "• Tendenza della resistenza di contatto",
+            "3": "• Verifica dell'integrità della guarnizione (connettori sigillati)",
+            "4": "• Ispezione della corrosione",
+            "5": "• Valutazione dell'usura da fretting",
+            "6": "• Considerare la sostituzione preventiva in base al ciclo di vita"
+          }
+        },
+        "warningSigns": {
+          "title": "Segnali di Avvertimento che Richiedono Azione Immediata:",
+          "items": {
+            "1": "• Connessioni intermittenti o interruzioni di circuito",
+            "2": "• Resistenza di contatto elevata",
+            "3": "• Corrosione visibile su contatti o terminali",
+            "4": "• Alloggiamento crepato, fuso o danneggiato",
+            "5": "• Terminali allentati o arretrati",
+            "6": "• Odore di bruciato o scolorimento da calore",
+            "7": "• Chiusure o caratteristiche di bloccaggio rotte"
+          }
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Guida alla Risoluzione dei Problemi",
+      "description": "Soluzioni ai problemi comuni di assemblaggio e come correggere gli errori",
+      "problem1": {
+        "title": "Problema: Il filo si estrae dal terminale crimpato",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Terminale sotto-crimpato",
+            "2": "• Dimensione terminale errata per il calibro del filo",
+            "3": "• Fili danneggiati o tagliati"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Tagliare il terminale e ricrimpare con un nuovo terminale",
+            "2": "• Verificare la pinza crimpatrice e la dimensione della matrice corrette",
+            "3": "• Assicurarsi della chiusura completa dell'utensile per una crimpatura completa",
+            "4": "• Utilizzare un'estremità di filo fresca se i fili sono danneggiati"
+          }
+        }
+      },
+      "problem2": {
+        "title": "Problema: Il terminale non si inserisce nell'alloggiamento",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Tipo di terminale errato per l'alloggiamento",
+            "2": "• Linguetta di ritenzione del terminale piegata o danneggiata",
+            "3": "• Orientamento errato",
+            "4": "• Ostruzione nella cavità dell'alloggiamento"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Verificare che il tipo di terminale corrisponda alle specifiche del connettore",
+            "2": "• Ispezionare la linguetta di ritenzione - sostituire il terminale se danneggiato",
+            "3": "• Verificare la guida di orientamento del terminale sull'alloggiamento",
+            "4": "• Ispezionare la cavità per detriti o residui di terminali precedenti"
+          }
+        }
+      },
+      "problem3": {
+        "title": "Problema: Alta resistenza di contatto o connessione intermittente",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Scarsa qualità della crimpatura (contatto metallo-metallo inadeguato)",
+            "2": "• Ossidazione o contaminazione sui terminali",
+            "3": "• Terminale non completamente inserito nell'alloggiamento",
+            "4": "• Area di contatto danneggiata"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Rimuovere e sostituire con un terminale correttamente crimpato",
+            "2": "• Pulire i contatti con detergente per contatti elettronici",
+            "3": "• Verificare che il terminale sia completamente bloccato (si deve sentire/percepire il clic)",
+            "4": "• Ispezionare per molle di contatto piegate o danneggiate",
+            "5": "• Misurare la resistenza di contatto - dovrebbe essere inferiore a 5 milliohm"
+          }
+        }
+      },
+      "problem4": {
+        "title": "Problema: I connettori non si accoppiano correttamente",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Codici di codifica non corrispondenti",
+            "2": "• Pin/terminali piegati o danneggiati",
+            "3": "• Materiale estraneo nel connettore",
+            "4": "• Accoppiamento di connettori errato"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Verificare che i codici di codifica corrispondano (controllare le marcature del connettore)",
+            "2": "• Ispezionare per pin piegati - raddrizzare con cura se possibile",
+            "3": "• Pulire entrambi i connettori con aria compressa",
+            "4": "• Confermare che i tipi di connettore siano compatibili (controllare i codici articolo)",
+            "5": "• Assicurare il corretto allineamento durante l'accoppiamento"
+          }
+        }
+      },
+      "problem5": {
+        "title": "Problema: Il terminale si arretra dopo l'inserimento",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Terminale non completamente inserito (inserimento incompleto)",
+            "2": "• Linguetta di ritenzione danneggiata",
+            "3": "• Tensione o trazione eccessiva del filo",
+            "4": "• Tipo di terminale errato"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Rimuovere il terminale e reinserire, assicurando clic/blocco positivo",
+            "2": "• Sostituire il terminale se la linguetta è danneggiata",
+            "3": "• Aggiungere scarico tensione per prevenire la tensione del filo",
+            "4": "• Verificare il codice articolo corretto del terminale per l'alloggiamento",
+            "5": "• Verificare che la caratteristica di bloccaggio si agganci completamente"
+          }
+        }
+      },
+      "problem6": {
+        "title": "Problema: Surriscaldamento o connettore fuso",
+        "causes": {
+          "title": "Cause:",
+          "items": {
+            "1": "• Corrente eccessiva per la classificazione del filo/terminale",
+            "2": "• Crimpatura scadente che crea alta resistenza",
+            "3": "• Contatti corrosi o contaminati",
+            "4": "• Connessione allentata"
+          }
+        },
+        "solutions": {
+          "title": "Soluzioni:",
+          "items": {
+            "1": "• Verificare che il carico di corrente sia entro la classificazione del connettore",
+            "2": "• Sostituire il connettore e riconnettere con crimpature di qualità",
+            "3": "• Utilizzare un calibro di filo più grande se la corrente è vicino al limite",
+            "4": "• Verificare la presenza di alta resistenza con un multimetro",
+            "5": "• Assicurare il corretto inserimento e bloccaggio del terminale",
+            "6": "• Considerare circuiti paralleli per applicazioni ad alta corrente"
+          }
+        }
+      },
+      "stillHavingProblems": {
+        "title": "Hai Ancora Problemi?",
+        "description": "Se hai provato queste soluzioni e stai ancora riscontrando problemi:",
+        "items": {
+          "1": "• Rivedere la guida completa all'installazione dal Passo 1",
+          "2": "• Verificare di avere i componenti corretti per la tua applicazione",
+          "3": "• Consultare le schede tecniche del produttore per requisiti specifici",
+          "4": "• Considerare la sostituzione di tutti i componenti con parti nuove"
+        },
+        "contactSupport": "Contatta il Supporto Tecnico"
+      }
+    },
+    "sidebar": {
+      "installationChecklist": {
+        "title": "Lista di Controllo Installazione",
+        "description": "Traccia il tuo progresso",
+        "items": {
+          "tools": "Raccolti tutti gli utensili e materiali necessari",
+          "safety": "Lette e comprese tutte le precauzioni di sicurezza",
+          "terminal-selection": "Selezionati i terminali corretti",
+          "wire-prep": "Preparati i fili secondo le specifiche corrette",
+          "crimping": "Crimpati i terminali e ispezionata la qualità",
+          "insertion": "Inseriti i terminali nell'alloggiamento del connettore",
+          "assembly": "Completato l'assemblaggio del connettore",
+          "inspection": "Eseguita l'ispezione finale"
+        }
+      },
+      "quickLinks": {
+        "title": "Link Rapidi",
+        "allResources": "Tutte le Risorse",
+        "connectorGuide": "Guida alla Selezione dei Connettori",
+        "technicalSupport": "Supporto Tecnico"
+      },
+      "qualityStandards": {
+        "title": "Standard di Qualità",
+        "compliantWith": "Conforme a:",
+        "items": {
+          "1": "• IEC 60352 (Crimpatura)",
+          "2": "• IEC 60603 (Connettori)",
+          "3": "• UL 310 (Terminali per Fili)",
+          "4": "• ISO 8092 (Ritenzione Contatto)"
+        }
+      },
+      "versionInfo": {
+        "documentVersion": "Versione Documento:",
+        "version": "2.1",
+        "lastUpdated": "Ultimo Aggiornamento:",
+        "lastUpdatedDate": "Marzo 2025",
+        "nextReview": "Prossima Revisione:",
+        "nextReviewDate": "Settembre 2025"
+      }
+    },
+    "contactSupport": {
+      "title": "Hai Bisogno di Ulteriore Aiuto?",
+      "description": "Il nostro team di supporto tecnico è qui per assistere con la selezione dei connettori, domande sull'installazione e risoluzione dei problemi.",
+      "buttons": {
+        "contactSupport": "Contatta il Supporto",
+        "downloadDocumentation": "Scarica la Documentazione Completa"
+      }
+    }
+  },
+  "LanguageSwitcher": {
+    "selectLanguage": "Seleziona Lingua",
+    "currentLanguage": "Lingua Corrente"
+  }
+}

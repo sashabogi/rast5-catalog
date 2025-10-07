@@ -1,3 +1,8 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,172 +28,233 @@ import {
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Terminal suffix explanations
-const TERMINAL_SUFFIXES = [
+// Terminal suffix explanations - function that takes translation function
+const getTerminalSuffixes = (t: any) => [
   {
     suffix: 'FR',
-    name: 'Female Receptacle',
+    name: t('terminalTypes.socket.FR.name'),
     category: 'socket',
-    description: 'Standard female socket terminal with flat mounting orientation',
-    applications: ['Wire-to-wire connections', 'General purpose receptacles', 'Horizontal mounting'],
-    wireGauge: '16-22 AWG',
-    currentRating: '7A',
-    features: ['Flat receptacle design', 'Standard locking mechanism', 'Crimp-style connection']
+    description: t('terminalTypes.socket.FR.description'),
+    applications: [
+      t('terminalTypes.socket.FR.applications.1'),
+      t('terminalTypes.socket.FR.applications.2'),
+      t('terminalTypes.socket.FR.applications.3')
+    ],
+    wireGauge: t('terminalTypes.socket.FR.wireGauge'),
+    currentRating: t('terminalTypes.socket.FR.currentRating'),
+    features: [
+      t('terminalTypes.socket.FR.features.1'),
+      t('terminalTypes.socket.FR.features.2'),
+      t('terminalTypes.socket.FR.features.3')
+    ]
   },
   {
     suffix: 'VR',
-    name: 'Vertical Receptacle',
+    name: t('terminalTypes.socket.VR.name'),
     category: 'socket',
-    description: 'Female socket terminal with vertical orientation for perpendicular connections',
-    applications: ['Vertical board mounting', 'Space-saving designs', 'Right-angle connections'],
-    wireGauge: '16-22 AWG',
-    currentRating: '7A',
-    features: ['Vertical orientation', 'Compact footprint', 'Secure retention']
+    description: t('terminalTypes.socket.VR.description'),
+    applications: [
+      t('terminalTypes.socket.VR.applications.1'),
+      t('terminalTypes.socket.VR.applications.2'),
+      t('terminalTypes.socket.VR.applications.3')
+    ],
+    wireGauge: t('terminalTypes.socket.VR.wireGauge'),
+    currentRating: t('terminalTypes.socket.VR.currentRating'),
+    features: [
+      t('terminalTypes.socket.VR.features.1'),
+      t('terminalTypes.socket.VR.features.2'),
+      t('terminalTypes.socket.VR.features.3')
+    ]
   },
   {
     suffix: 'VS',
-    name: 'Vertical Socket',
+    name: t('terminalTypes.socket.VS.name'),
     category: 'socket',
-    description: 'Specialized vertical socket terminal with enhanced contact area',
-    applications: ['High-reliability applications', 'Vertical PCB mounting', 'Industrial connections'],
-    wireGauge: '16-22 AWG',
-    currentRating: '7A',
-    features: ['Enhanced contact design', 'Superior retention', 'Vibration resistant']
+    description: t('terminalTypes.socket.VS.description'),
+    applications: [
+      t('terminalTypes.socket.VS.applications.1'),
+      t('terminalTypes.socket.VS.applications.2'),
+      t('terminalTypes.socket.VS.applications.3')
+    ],
+    wireGauge: t('terminalTypes.socket.VS.wireGauge'),
+    currentRating: t('terminalTypes.socket.VS.currentRating'),
+    features: [
+      t('terminalTypes.socket.VS.features.1'),
+      t('terminalTypes.socket.VS.features.2'),
+      t('terminalTypes.socket.VS.features.3')
+    ]
   },
   {
     suffix: 'VT',
-    name: 'Vertical Tab',
+    name: t('terminalTypes.tab.VT.name'),
     category: 'tab',
-    description: 'Male tab terminal with vertical blade orientation',
-    applications: ['Vertical mating', 'PCB headers', 'Right-angle connections'],
-    wireGauge: '16-22 AWG',
-    currentRating: '7A',
-    features: ['Vertical blade design', 'Gold-plated contacts', 'Reliable insertion']
+    description: t('terminalTypes.tab.VT.description'),
+    applications: [
+      t('terminalTypes.tab.VT.applications.1'),
+      t('terminalTypes.tab.VT.applications.2'),
+      t('terminalTypes.tab.VT.applications.3')
+    ],
+    wireGauge: t('terminalTypes.tab.VT.wireGauge'),
+    currentRating: t('terminalTypes.tab.VT.currentRating'),
+    features: [
+      t('terminalTypes.tab.VT.features.1'),
+      t('terminalTypes.tab.VT.features.2'),
+      t('terminalTypes.tab.VT.features.3')
+    ]
   },
   {
     suffix: 'FT',
-    name: 'Flat Tab',
+    name: t('terminalTypes.tab.FT.name'),
     category: 'tab',
-    description: 'Male tab terminal with flat blade orientation',
-    applications: ['Standard wire-to-wire', 'Horizontal mating', 'General purpose'],
-    wireGauge: '16-22 AWG',
-    currentRating: '7A',
-    features: ['Flat blade design', 'Standard dimensions', 'Easy crimping']
+    description: t('terminalTypes.tab.FT.description'),
+    applications: [
+      t('terminalTypes.tab.FT.applications.1'),
+      t('terminalTypes.tab.FT.applications.2'),
+      t('terminalTypes.tab.FT.applications.3')
+    ],
+    wireGauge: t('terminalTypes.tab.FT.wireGauge'),
+    currentRating: t('terminalTypes.tab.FT.currentRating'),
+    features: [
+      t('terminalTypes.tab.FT.features.1'),
+      t('terminalTypes.tab.FT.features.2'),
+      t('terminalTypes.tab.FT.features.3')
+    ]
   },
   {
     suffix: 'PC',
-    name: 'Printed Circuit',
+    name: t('terminalTypes.pcb.PC.name'),
     category: 'pcb',
-    description: 'Through-hole terminal for direct PCB mounting',
-    applications: ['PCB headers', 'Board-to-board connections', 'Soldered connections'],
-    wireGauge: 'N/A (PCB mount)',
-    currentRating: '7A',
-    features: ['Through-hole mounting', 'Wave solderable', 'Multiple pin options']
+    description: t('terminalTypes.pcb.PC.description'),
+    applications: [
+      t('terminalTypes.pcb.PC.applications.1'),
+      t('terminalTypes.pcb.PC.applications.2'),
+      t('terminalTypes.pcb.PC.applications.3')
+    ],
+    wireGauge: t('terminalTypes.pcb.PC.wireGauge'),
+    currentRating: t('terminalTypes.pcb.PC.currentRating'),
+    features: [
+      t('terminalTypes.pcb.PC.features.1'),
+      t('terminalTypes.pcb.PC.features.2'),
+      t('terminalTypes.pcb.PC.features.3')
+    ]
   }
 ]
 
-// Technical specifications
-const TECHNICAL_SPECS = [
+// Technical specifications - function that takes translation function
+const getTechnicalSpecs = (t: any) => [
   {
     icon: Gauge,
-    title: 'Current Rating',
-    value: '7A per contact',
-    description: 'Maximum continuous current at 25°C ambient temperature'
+    title: t('technicalSpecs.currentRating.title'),
+    value: t('technicalSpecs.currentRating.value'),
+    description: t('technicalSpecs.currentRating.description')
   },
   {
     icon: Zap,
-    title: 'Voltage Rating',
-    value: '250V AC/DC',
-    description: 'Maximum working voltage per IEC standards'
+    title: t('technicalSpecs.voltageRating.title'),
+    value: t('technicalSpecs.voltageRating.value'),
+    description: t('technicalSpecs.voltageRating.description')
   },
   {
     icon: Ruler,
-    title: 'Wire Range',
-    value: '16-22 AWG',
-    description: 'Compatible wire gauge for crimp terminals'
+    title: t('technicalSpecs.wireRange.title'),
+    value: t('technicalSpecs.wireRange.value'),
+    description: t('technicalSpecs.wireRange.description')
   },
   {
     icon: ShieldCheck,
-    title: 'Contact Material',
-    value: 'Brass (Tin-plated)',
-    description: 'Corrosion-resistant finish for long-term reliability'
+    title: t('technicalSpecs.contactMaterial.title'),
+    value: t('technicalSpecs.contactMaterial.value'),
+    description: t('technicalSpecs.contactMaterial.description')
   }
 ]
 
-// Installation steps
-const INSTALLATION_STEPS = [
+// Installation steps - function that takes translation function
+const getInstallationSteps = (t: any) => [
   {
     step: 1,
-    title: 'Strip Wire',
-    description: 'Strip insulation to expose 5-6mm of conductor',
-    warning: 'Do not over-strip or damage strands'
+    title: t('installation.steps.1.title'),
+    description: t('installation.steps.1.description'),
+    warning: t('installation.steps.1.warning')
   },
   {
     step: 2,
-    title: 'Insert into Terminal',
-    description: 'Place wire into terminal crimp area',
-    warning: 'Ensure wire is fully inserted before crimping'
+    title: t('installation.steps.2.title'),
+    description: t('installation.steps.2.description'),
+    warning: t('installation.steps.2.warning')
   },
   {
     step: 3,
-    title: 'Crimp Terminal',
-    description: 'Use proper crimping tool to secure terminal',
-    warning: 'Check crimp quality - no strand pullout'
+    title: t('installation.steps.3.title'),
+    description: t('installation.steps.3.description'),
+    warning: t('installation.steps.3.warning')
   },
   {
     step: 4,
-    title: 'Insert into Housing',
-    description: 'Push terminal into connector housing until it clicks',
-    warning: 'Terminal must be fully seated and locked'
+    title: t('installation.steps.4.title'),
+    description: t('installation.steps.4.description'),
+    warning: t('installation.steps.4.warning')
   },
   {
     step: 5,
-    title: 'Verify Lock',
-    description: 'Gently tug wire to confirm terminal is secured',
-    warning: 'Terminal should not pull out of housing'
+    title: t('installation.steps.5.title'),
+    description: t('installation.steps.5.description'),
+    warning: t('installation.steps.5.warning')
   }
 ]
 
-// Common mistakes
-const COMMON_MISTAKES = [
+// Common mistakes - function that takes translation function
+const getCommonMistakes = (t: any) => [
   {
-    mistake: 'Over-stripping wire insulation',
-    consequence: 'Exposed conductor creates short circuit risk',
-    solution: 'Strip only 5-6mm as specified'
+    mistake: t('commonMistakes.mistakes.1.mistake'),
+    consequence: t('commonMistakes.mistakes.1.consequence'),
+    solution: t('commonMistakes.mistakes.1.solution')
   },
   {
-    mistake: 'Under-crimping or over-crimping',
-    consequence: 'Poor electrical connection or damaged wire',
-    solution: 'Use calibrated crimp tool with proper die'
+    mistake: t('commonMistakes.mistakes.2.mistake'),
+    consequence: t('commonMistakes.mistakes.2.consequence'),
+    solution: t('commonMistakes.mistakes.2.solution')
   },
   {
-    mistake: 'Forcing wrong terminal type',
-    consequence: 'Damaged housing or poor contact',
-    solution: 'Verify terminal suffix matches connector requirements'
+    mistake: t('commonMistakes.mistakes.3.mistake'),
+    consequence: t('commonMistakes.mistakes.3.consequence'),
+    solution: t('commonMistakes.mistakes.3.solution')
   },
   {
-    mistake: 'Not verifying terminal lock',
-    consequence: 'Terminal backs out during use',
-    solution: 'Always pull-test after insertion'
+    mistake: t('commonMistakes.mistakes.4.mistake'),
+    consequence: t('commonMistakes.mistakes.4.consequence'),
+    solution: t('commonMistakes.mistakes.4.solution')
   }
 ]
 
-async function getTerminals() {
-  const { data: terminals, error } = await supabase
-    .from('terminals')
-    .select('*')
-    .order('terminal_type')
+export default function TerminalsPage() {
+  const params = useParams()
+  const locale = params.locale as string
+  const t = useTranslations('TerminalsGuide')
+  const [terminals, setTerminals] = useState<Terminal[]>([])
 
-  if (error) {
-    console.error('Error fetching terminals:', error)
-    return []
-  }
+  // Initialize translated data
+  const TERMINAL_SUFFIXES = getTerminalSuffixes(t)
+  const TECHNICAL_SPECS = getTechnicalSpecs(t)
+  const INSTALLATION_STEPS = getInstallationSteps(t)
+  const COMMON_MISTAKES = getCommonMistakes(t)
 
-  return terminals as Terminal[]
-}
+  useEffect(() => {
+    async function fetchTerminals() {
+      const { data, error } = await supabase
+        .from('terminals')
+        .select('*')
+        .order('terminal_type')
 
-export default async function TerminalsPage() {
-  const terminals = await getTerminals()
+      if (error) {
+        console.error('Error fetching terminals:', error)
+        return
+      }
+
+      setTerminals(data as Terminal[])
+    }
+
+    fetchTerminals()
+  }, [])
 
   // Group terminals by category
   const terminalsByCategory = {
@@ -204,25 +270,24 @@ export default async function TerminalsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="max-w-3xl">
             <Badge className="bg-white/20 text-white border-white/30 mb-4">
-              Technical Reference
+              {t('hero.badge')}
             </Badge>
             <h1 className="text-5xl font-bold mb-4">
-              Terminal Components Guide
+              {t('hero.title')}
             </h1>
             <p className="text-xl text-blue-100 mb-6">
-              Complete technical reference for RAST 5 terminal components. Learn about socket, tab, and PCB terminals,
-              their specifications, and proper installation techniques.
+              {t('hero.description')}
             </p>
             <div className="flex flex-wrap gap-4">
               <Button variant="secondary" size="lg" asChild>
                 <a href="#terminal-types">
-                  Explore Terminal Types
+                  {t('hero.exploreButton')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20" asChild>
                 <a href="#installation">
-                  Installation Guide
+                  {t('hero.installationButton')}
                   <WrenchIcon className="ml-2 h-5 w-5" />
                 </a>
               </Button>
@@ -235,11 +300,11 @@ export default async function TerminalsPage() {
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
+            <Link href={`/${locale}`} className="hover:text-blue-600">{t('breadcrumb.home')}</Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href="/resources" className="hover:text-blue-600">Resources</Link>
+            <Link href={`/${locale}/resources`} className="hover:text-blue-600">{t('breadcrumb.resources')}</Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-gray-900 font-medium">Terminal Components Guide</span>
+            <span className="text-gray-900 font-medium">{t('breadcrumb.current')}</span>
           </div>
         </div>
       </div>
@@ -249,11 +314,10 @@ export default async function TerminalsPage() {
         <section className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Understanding RAST 5 Terminals
+              {t('overview.sectionTitle')}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Terminals are the conductive metal components that create the electrical connection inside RAST 5 connectors.
-              Each connector type requires specific terminal variants.
+              {t('overview.sectionDescription')}
             </p>
           </div>
 
@@ -261,12 +325,11 @@ export default async function TerminalsPage() {
             <Card className="border-blue-200 bg-blue-50">
               <CardHeader>
                 <Cable className="h-10 w-10 text-blue-600 mb-2" />
-                <CardTitle>What are Terminals?</CardTitle>
+                <CardTitle>{t('overview.whatAreTerminals.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-700">
-                  Terminals are precision-formed metal contacts that crimp onto wires or mount to PCBs. They provide
-                  the physical and electrical connection between wire and connector housing.
+                  {t('overview.whatAreTerminals.description')}
                 </p>
               </CardContent>
             </Card>
@@ -274,12 +337,11 @@ export default async function TerminalsPage() {
             <Card className="border-green-200 bg-green-50">
               <CardHeader>
                 <Info className="h-10 w-10 text-green-600 mb-2" />
-                <CardTitle>Why Different Types?</CardTitle>
+                <CardTitle>{t('overview.whyDifferentTypes.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-700">
-                  Different orientations (vertical/horizontal), mounting types (wire/PCB), and mating styles (socket/tab)
-                  require specific terminal designs to ensure proper fit and reliable connections.
+                  {t('overview.whyDifferentTypes.description')}
                 </p>
               </CardContent>
             </Card>
@@ -287,12 +349,11 @@ export default async function TerminalsPage() {
             <Card className="border-purple-200 bg-purple-50">
               <CardHeader>
                 <CheckCircle className="h-10 w-10 text-purple-600 mb-2" />
-                <CardTitle>Naming Convention</CardTitle>
+                <CardTitle>{t('overview.namingConvention.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-700">
-                  Terminals are identified by suffix codes (FR, VR, VS, VT, FT, PC) which indicate the terminal type.
-                  Always match the terminal suffix to your connector requirements.
+                  {t('overview.namingConvention.description')}
                 </p>
               </CardContent>
             </Card>
@@ -303,10 +364,10 @@ export default async function TerminalsPage() {
         <section id="terminal-types" className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Terminal Types & Specifications
+              {t('terminalTypes.sectionTitle')}
             </h2>
             <p className="text-lg text-gray-600">
-              Explore the three main categories of RAST 5 terminals
+              {t('terminalTypes.sectionDescription')}
             </p>
           </div>
 
@@ -314,15 +375,15 @@ export default async function TerminalsPage() {
             <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="socket" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
                 <Cable className="h-4 w-4 mr-2" />
-                Socket Terminals
+                {t('terminalTypes.socketTab')}
               </TabsTrigger>
               <TabsTrigger value="tab" className="data-[state=active]:bg-orange-500 data-[state=active]:text-white">
                 <Zap className="h-4 w-4 mr-2" />
-                Tab Terminals
+                {t('terminalTypes.tabTab')}
               </TabsTrigger>
               <TabsTrigger value="pcb" className="data-[state=active]:bg-green-500 data-[state=active]:text-white">
                 <CircuitBoard className="h-4 w-4 mr-2" />
-                PCB Terminals
+                {t('terminalTypes.pcbTab')}
               </TabsTrigger>
             </TabsList>
 
@@ -332,12 +393,12 @@ export default async function TerminalsPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-2xl">Socket Terminals (Female)</CardTitle>
+                      <CardTitle className="text-2xl">{t('terminalTypes.socket.categoryTitle')}</CardTitle>
                       <CardDescription className="text-base mt-2">
-                        Receptacle-style terminals that accept tab terminals for secure electrical connections
+                        {t('terminalTypes.socket.categoryDescription')}
                       </CardDescription>
                     </div>
-                    <Badge className="bg-blue-500 text-white text-lg px-4 py-2">Female</Badge>
+                    <Badge className="bg-blue-500 text-white text-lg px-4 py-2">{t('terminalTypes.socket.badge')}</Badge>
                   </div>
                 </CardHeader>
               </Card>
@@ -365,21 +426,21 @@ export default async function TerminalsPage() {
                         {/* Left Column - Specs & Features */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Technical Specifications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Wire Gauge:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.wireGauge')}</span>
                                 <span className="text-sm font-medium">{terminal.wireGauge}</span>
                               </div>
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Current Rating:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
                                 <span className="text-sm font-medium">{terminal.currentRating}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Key Features</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
                             <ul className="space-y-1">
                               {terminal.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -394,7 +455,7 @@ export default async function TerminalsPage() {
                         {/* Right Column - Applications */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Typical Applications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
                             <ul className="space-y-2">
                               {terminal.applications.map((app, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -407,7 +468,7 @@ export default async function TerminalsPage() {
 
                           {/* Terminal Images */}
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Available Terminals</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
                             <div className="grid grid-cols-2 gap-2">
                               {terminalsByCategory.socket
                                 .filter(t => t.terminal_type.includes(terminal.suffix))
@@ -447,12 +508,12 @@ export default async function TerminalsPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-2xl">Tab Terminals (Male)</CardTitle>
+                      <CardTitle className="text-2xl">{t('terminalTypes.tab.categoryTitle')}</CardTitle>
                       <CardDescription className="text-base mt-2">
-                        Blade-style terminals that insert into socket terminals for mating connections
+                        {t('terminalTypes.tab.categoryDescription')}
                       </CardDescription>
                     </div>
-                    <Badge className="bg-orange-500 text-white text-lg px-4 py-2">Male</Badge>
+                    <Badge className="bg-orange-500 text-white text-lg px-4 py-2">{t('terminalTypes.tab.badge')}</Badge>
                   </div>
                 </CardHeader>
               </Card>
@@ -480,21 +541,21 @@ export default async function TerminalsPage() {
                         {/* Left Column - Specs & Features */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Technical Specifications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Wire Gauge:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.wireGauge')}</span>
                                 <span className="text-sm font-medium">{terminal.wireGauge}</span>
                               </div>
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Current Rating:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
                                 <span className="text-sm font-medium">{terminal.currentRating}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Key Features</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
                             <ul className="space-y-1">
                               {terminal.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -509,7 +570,7 @@ export default async function TerminalsPage() {
                         {/* Right Column - Applications */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Typical Applications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
                             <ul className="space-y-2">
                               {terminal.applications.map((app, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -522,7 +583,7 @@ export default async function TerminalsPage() {
 
                           {/* Terminal Images */}
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Available Terminals</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
                             <div className="grid grid-cols-2 gap-2">
                               {terminalsByCategory.tab
                                 .filter(t => t.terminal_type.includes(terminal.suffix))
@@ -562,12 +623,12 @@ export default async function TerminalsPage() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <div>
-                      <CardTitle className="text-2xl">PCB Terminals</CardTitle>
+                      <CardTitle className="text-2xl">{t('terminalTypes.pcb.categoryTitle')}</CardTitle>
                       <CardDescription className="text-base mt-2">
-                        Through-hole terminals designed for direct PCB mounting and soldering
+                        {t('terminalTypes.pcb.categoryDescription')}
                       </CardDescription>
                     </div>
-                    <Badge className="bg-green-500 text-white text-lg px-4 py-2">PCB</Badge>
+                    <Badge className="bg-green-500 text-white text-lg px-4 py-2">{t('terminalTypes.pcb.badge')}</Badge>
                   </div>
                 </CardHeader>
               </Card>
@@ -595,21 +656,21 @@ export default async function TerminalsPage() {
                         {/* Left Column - Specs & Features */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Technical Specifications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
                             <div className="space-y-2">
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Connection Type:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.connectionType')}</span>
                                 <span className="text-sm font-medium">{terminal.wireGauge}</span>
                               </div>
                               <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">Current Rating:</span>
+                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
                                 <span className="text-sm font-medium">{terminal.currentRating}</span>
                               </div>
                             </div>
                           </div>
 
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Key Features</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
                             <ul className="space-y-1">
                               {terminal.features.map((feature, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -624,7 +685,7 @@ export default async function TerminalsPage() {
                         {/* Right Column - Applications */}
                         <div className="space-y-4">
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Typical Applications</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
                             <ul className="space-y-2">
                               {terminal.applications.map((app, idx) => (
                                 <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -637,7 +698,7 @@ export default async function TerminalsPage() {
 
                           {/* Terminal Images */}
                           <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">Available Terminals</h4>
+                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
                             <div className="grid grid-cols-2 gap-2">
                               {terminalsByCategory.pcb
                                 .slice(0, 4)
@@ -676,10 +737,10 @@ export default async function TerminalsPage() {
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Technical Specifications
+              {t('technicalSpecs.sectionTitle')}
             </h2>
             <p className="text-lg text-gray-600">
-              Universal specifications applicable to all RAST 5 terminal types
+              {t('technicalSpecs.sectionDescription')}
             </p>
           </div>
 
@@ -701,41 +762,41 @@ export default async function TerminalsPage() {
           {/* Additional Technical Details */}
           <Card className="mt-8 border-blue-200">
             <CardHeader>
-              <CardTitle>Material & Plating Details</CardTitle>
+              <CardTitle>{t('technicalSpecs.materialDetails.title')}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="font-semibold mb-3">Contact Material</h4>
+                  <h4 className="font-semibold mb-3">{t('technicalSpecs.materialDetails.contactMaterial.heading')}</h4>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Base Material: Brass alloy (CuZn37)</span>
+                      <span>{t('technicalSpecs.materialDetails.contactMaterial.baseMaterial')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Plating: Tin (Sn) 3-5 μm thickness</span>
+                      <span>{t('technicalSpecs.materialDetails.contactMaterial.plating')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Mating Area: Gold flash available on request</span>
+                      <span>{t('technicalSpecs.materialDetails.contactMaterial.matingArea')}</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-3">Performance Characteristics</h4>
+                  <h4 className="font-semibold mb-3">{t('technicalSpecs.materialDetails.performanceCharacteristics.heading')}</h4>
                   <ul className="space-y-2 text-sm text-gray-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Contact Resistance: &lt; 5mΩ initial</span>
+                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.contactResistance')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Insertion Force: 1-3N typical</span>
+                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.insertionForce')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>Operating Temperature: -40°C to +105°C</span>
+                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.operatingTemperature')}</span>
                     </li>
                   </ul>
                 </div>
@@ -748,10 +809,10 @@ export default async function TerminalsPage() {
         <section id="installation" className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Installation Guide
+              {t('installation.sectionTitle')}
             </h2>
             <p className="text-lg text-gray-600">
-              Step-by-step instructions for proper terminal crimping and insertion
+              {t('installation.sectionDescription')}
             </p>
           </div>
 
@@ -760,27 +821,27 @@ export default async function TerminalsPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <WrenchIcon className="h-6 w-6 text-purple-600" />
-                Required Tools
+                {t('installation.requiredTools.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">Crimping Tool</h4>
+                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.crimpingTool.title')}</h4>
                   <p className="text-sm text-gray-600">
-                    Calibrated ratcheting crimper with proper die set for RAST 5 terminals
+                    {t('installation.requiredTools.crimpingTool.description')}
                   </p>
                 </div>
                 <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">Wire Stripper</h4>
+                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.wireStripper.title')}</h4>
                   <p className="text-sm text-gray-600">
-                    Adjustable wire stripper for 16-22 AWG wire gauge
+                    {t('installation.requiredTools.wireStripper.description')}
                   </p>
                 </div>
                 <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">Insertion/Removal Tool</h4>
+                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.insertionTool.title')}</h4>
                   <p className="text-sm text-gray-600">
-                    Special tool for terminal insertion and safe removal if needed
+                    {t('installation.requiredTools.insertionTool.description')}
                   </p>
                 </div>
               </div>
@@ -804,7 +865,7 @@ export default async function TerminalsPage() {
                       <div className="flex items-start gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
                         <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
                         <div>
-                          <p className="text-sm font-medium text-amber-900">Important:</p>
+                          <p className="text-sm font-medium text-amber-900">{t('installation.importantLabel')}</p>
                           <p className="text-sm text-amber-800">{step.warning}</p>
                         </div>
                       </div>
@@ -818,28 +879,28 @@ export default async function TerminalsPage() {
           {/* Terminal Removal */}
           <Card className="border-red-200 bg-red-50">
             <CardHeader>
-              <CardTitle className="text-red-900">Terminal Removal Procedure</CardTitle>
+              <CardTitle className="text-red-900">{t('installation.terminalRemoval.title')}</CardTitle>
               <CardDescription className="text-red-700">
-                If you need to remove a terminal from the housing
+                {t('installation.terminalRemoval.description')}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <ol className="space-y-3 text-sm text-gray-700">
                 <li className="flex items-start gap-3">
                   <span className="font-bold text-red-600 flex-shrink-0">1.</span>
-                  <span>Use proper terminal removal tool - never force with pliers or screwdriver</span>
+                  <span>{t('installation.terminalRemoval.steps.1')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="font-bold text-red-600 flex-shrink-0">2.</span>
-                  <span>Insert removal tool alongside terminal to release locking tab</span>
+                  <span>{t('installation.terminalRemoval.steps.2')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="font-bold text-red-600 flex-shrink-0">3.</span>
-                  <span>Gently pull wire while holding removal tool in place</span>
+                  <span>{t('installation.terminalRemoval.steps.3')}</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="font-bold text-red-600 flex-shrink-0">4.</span>
-                  <span>Inspect terminal for damage before reuse - damaged terminals must be replaced</span>
+                  <span>{t('installation.terminalRemoval.steps.4')}</span>
                 </li>
               </ol>
             </CardContent>
@@ -850,10 +911,10 @@ export default async function TerminalsPage() {
         <section className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Common Mistakes to Avoid
+              {t('commonMistakes.sectionTitle')}
             </h2>
             <p className="text-lg text-gray-600">
-              Learn from these common errors to ensure reliable connections
+              {t('commonMistakes.sectionDescription')}
             </p>
           </div>
 
@@ -870,12 +931,12 @@ export default async function TerminalsPage() {
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div>
-                    <h4 className="font-semibold text-sm text-red-700 mb-1">Consequence:</h4>
+                    <h4 className="font-semibold text-sm text-red-700 mb-1">{t('commonMistakes.consequenceLabel')}</h4>
                     <p className="text-sm text-gray-700">{item.consequence}</p>
                   </div>
                   <Separator />
                   <div>
-                    <h4 className="font-semibold text-sm text-green-700 mb-1">Solution:</h4>
+                    <h4 className="font-semibold text-sm text-green-700 mb-1">{t('commonMistakes.solutionLabel')}</h4>
                     <p className="text-sm text-gray-700">{item.solution}</p>
                   </div>
                 </CardContent>
@@ -890,18 +951,18 @@ export default async function TerminalsPage() {
             <CardContent className="p-8">
               <div className="flex items-center justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">Technical Documentation</h2>
+                  <h2 className="text-2xl font-bold mb-2">{t('downloadResources.title')}</h2>
                   <p className="text-blue-100 mb-4">
-                    Download detailed specification sheets and installation guides
+                    {t('downloadResources.description')}
                   </p>
                   <div className="flex gap-4">
                     <Button variant="secondary" size="lg">
                       <Download className="mr-2 h-5 w-5" />
-                      Terminal Specifications PDF
+                      {t('downloadResources.specsPdf')}
                     </Button>
                     <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
                       <Download className="mr-2 h-5 w-5" />
-                      Installation Guide PDF
+                      {t('downloadResources.installationPdf')}
                     </Button>
                   </div>
                 </div>
@@ -915,59 +976,59 @@ export default async function TerminalsPage() {
         <section>
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Related Resources
+              {t('relatedResources.sectionTitle')}
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/catalog">
+            <Link href={`/${locale}/catalog`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
                 <CardHeader>
                   <Cable className="h-10 w-10 text-blue-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>Browse Connectors</CardTitle>
+                  <CardTitle>{t('relatedResources.browseCatalog.title')}</CardTitle>
                   <CardDescription>
-                    View our complete catalog of RAST 5 connectors
+                    {t('relatedResources.browseCatalog.description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="outline" className="w-full">
-                    View Catalog
+                    {t('relatedResources.browseCatalog.button')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link href="/resources/connector-guide">
+            <Link href={`/${locale}/resources/connector-guide`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
                 <CardHeader>
                   <Info className="h-10 w-10 text-green-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>Selection Guide</CardTitle>
+                  <CardTitle>{t('relatedResources.selectionGuide.title')}</CardTitle>
                   <CardDescription>
-                    Interactive wizard to find the right connector
+                    {t('relatedResources.selectionGuide.description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="outline" className="w-full">
-                    Launch Guide
+                    {t('relatedResources.selectionGuide.button')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link href="/resources">
+            <Link href={`/${locale}/resources`}>
               <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
                 <CardHeader>
                   <Download className="h-10 w-10 text-purple-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>All Resources</CardTitle>
+                  <CardTitle>{t('relatedResources.allResources.title')}</CardTitle>
                   <CardDescription>
-                    Access all documentation and guides
+                    {t('relatedResources.allResources.description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Button variant="outline" className="w-full">
-                    View Resources
+                    {t('relatedResources.allResources.button')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>

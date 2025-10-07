@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useLocale } from 'next-intl'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Video360Player } from './Video360Player'
@@ -14,6 +15,7 @@ interface ConnectorCardProps {
 
 export function ConnectorCard({ connector }: ConnectorCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const locale = useLocale()
 
   const genderColor =
     connector.gender === 'Female' ? 'bg-blue-500' :
@@ -21,7 +23,7 @@ export function ConnectorCard({ connector }: ConnectorCardProps) {
     'bg-green-500'
 
   return (
-    <Link href={`/connector/${connector.id}`}>
+    <Link href={`/${locale}/connector/${connector.id}`}>
       <Card
         className="overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full"
         onMouseEnter={() => setIsHovered(true)}

@@ -52,7 +52,10 @@ export function CatalogFilters() {
     if (filters.specialVersion) params.set('special', 'true')
 
     const queryString = params.toString()
-    router.push(`/catalog${queryString ? `?${queryString}` : ''}`, { scroll: false })
+    // Extract locale from current path
+    const pathSegments = window.location.pathname.split('/')
+    const locale = pathSegments[1] // Assumes /{locale}/catalog structure
+    router.push(`/${locale}/catalog${queryString ? `?${queryString}` : ''}`, { scroll: false })
   }, [filters, router])
 
   const handleSearchChange = (value: string) => {

@@ -1,0 +1,1363 @@
+{
+  "Navbar": {
+    "brandName": "RAST 5 Katalog",
+    "browseCatalog": "Katalog Durchsuchen",
+    "resources": "Ressourcen"
+  },
+  "HomePage": {
+    "hero": {
+      "title": "RAST 5 Steckverbinder-Katalog",
+      "description": "Professioneller Katalog für elektrische RAST 5 Steckverbinder mit detaillierten Spezifikationen, interaktiven 360°-Ansichten und vollständigen Kompatibilitätsinformationen.",
+      "browseCatalog": "Katalog Durchsuchen",
+      "resources": "Ressourcen"
+    },
+    "features": {
+      "title": "Warum Diesen Katalog Verwenden?",
+      "view360": {
+        "title": "360°-Ansichten",
+        "description": "Interaktive 360°-Videos von jedem Steckverbinder. Ziehen Sie, um zu drehen und aus allen Winkeln zu erkunden."
+      },
+      "compatibility": {
+        "title": "Vollständige Kompatibilität",
+        "description": "Sehen Sie, welche Steckverbinder zusammenpassen, erforderliche Anschlusskomponenten und Montagevarianten."
+      },
+      "documentation": {
+        "title": "Detaillierte Dokumentation",
+        "description": "Zugriff auf Kodierungsanleitungen, technische Spezifikationen und Installationsressourcen."
+      }
+    },
+    "selectionGuide": {
+      "title": "Nicht Sicher, Welchen Steckverbinder Sie Benötigen?",
+      "description": "Unser interaktiver Leitfaden führt Sie durch die Auswahl des perfekten Steckverbinders basierend auf Ihrer Anwendung, Polzahl und spezifischen Anforderungen.",
+      "launchGuide": "Auswahlhilfe Starten"
+    },
+    "categories": {
+      "title": "Steckverbinder-Kategorien",
+      "socket": {
+        "title": "Buchsen-Steckverbinder (Weiblich)",
+        "description": "34 weibliche Buchsengehäuse für den Empfang von Tab-Kontakten"
+      },
+      "tab": {
+        "title": "Tab-Steckverbinder (Männlich)",
+        "description": "16 männliche Tab-Gehäuse, die in Buchsen-Steckverbinder eingesteckt werden"
+      },
+      "pcb": {
+        "title": "Leiterplatten-Stiftleisten",
+        "description": "6 auf Leiterplatten montierte Stiftleisten"
+      }
+    }
+  },
+  "CatalogPage": {
+    "title": "Steckverbinder-Katalog",
+    "description": "Durchsuchen Sie alle RAST 5 Steckverbinder mit Filtern",
+    "filters": {
+      "title": "Filter",
+      "search": "Steckverbinder suchen...",
+      "category": "Kategorie",
+      "allCategories": "Alle Kategorien",
+      "poleCount": "Polzahl",
+      "allPoles": "Alle Pole",
+      "poles": "Pole",
+      "reset": "Filter Zurücksetzen"
+    },
+    "results": {
+      "showing": "{count} Steckverbinder angezeigt",
+      "noResults": "Keine Steckverbinder gefunden",
+      "tryAdjusting": "Versuchen Sie, Ihre Filter anzupassen"
+    },
+    "card": {
+      "poles": "Pole",
+      "viewDetails": "Details Anzeigen"
+    }
+  },
+  "ConnectorDetailPage": {
+    "backToCatalog": "Zurück zum Katalog",
+    "breadcrumbs": {
+      "home": "Startseite",
+      "catalog": "Katalog"
+    },
+    "video": {
+      "badge360": "360°-Ansicht"
+    },
+    "badges": {
+      "specialVersion": "Spezialversion"
+    },
+    "product": {
+      "defaultDisplayName": "{poleCount}-poliger {gender} Steckverbinder"
+    },
+    "specs": {
+      "title": "Spezifikationen",
+      "model": "Modell",
+      "series": "Serie",
+      "gender": "Geschlecht",
+      "poleCount": "Polzahl",
+      "orientation": "Ausrichtung",
+      "orientationStandard": "Standard",
+      "terminalType": "Anschlusstyp",
+      "category": "Kategorie"
+    },
+    "status": {
+      "inStock": "Auf Lager",
+      "contactForAvailability": "Für Verfügbarkeit kontaktieren"
+    },
+    "quickSpecs": {
+      "poles": "Pole",
+      "type": "Typ",
+      "typeSocket": "Buchse",
+      "typeTab": "Stecker",
+      "typePCB": "PCB",
+      "orientation": "Ausrichtung",
+      "orientationStandard": "Standard",
+      "series": "Serie"
+    },
+    "tabs": {
+      "overview": "Übersicht",
+      "compatibility": "Kompatibilität",
+      "documentation": "Dokumentation"
+    },
+    "overview": {
+      "highlights": {
+        "title": "Produktmerkmale",
+        "quality": {
+          "title": "Hochwertige Konstruktion",
+          "description": "Langlebige Materialien für dauerhafte Leistung"
+        },
+        "configuration": {
+          "title": "{poleCount}-Pol-Konfiguration",
+          "description": "Optimal für Leistungs- und Signalübertragung"
+        },
+        "standard": {
+          "title": "Industriestandard",
+          "description": "Kompatibel mit CS-Serien-Spezifikationen"
+        }
+      },
+      "terminals": {
+        "title": "Anschlussanforderungen",
+        "requires": "Erfordert {terminalSuffix} Anschlüsse",
+        "specifications": "Anschlussspezifikationen",
+        "contactForDetails": "Für Details kontaktieren"
+      }
+    },
+    "compatibility": {
+      "mating": {
+        "title": "Kompatible Gegensteckverbinder",
+        "description": "Direkte Steckpartner für diesen Steckverbinder"
+      },
+      "variants": {
+        "title": "Montagevarianten",
+        "description": "Alternative Ausrichtungen und Konfigurationen"
+      },
+      "card": {
+        "poleBadge": "{count}-Polig"
+      },
+      "noInfo": {
+        "title": "Keine Kompatibilitätsinformationen Verfügbar",
+        "description": "Kontaktieren Sie unser technisches Support-Team für Kompatibilitätsdetails"
+      }
+    },
+    "documentation": {
+      "keying": {
+        "title": "Kodierungsdokumentation",
+        "description": "Detaillierte Kodierungsspezifikationen und Konfigurationen",
+        "noAvailable": "Keine Kodierungsdokumentation für diesen Steckverbinder verfügbar"
+      },
+      "drawings": {
+        "title": "Technische Zeichnungen",
+        "comingSoon": "Technische Zeichnungen in Kürze"
+      },
+      "pdfDocument": "PDF-Dokument",
+      "resources": {
+        "title": "Zusätzliche Ressourcen",
+        "description": "Benötigen Sie weitere Informationen? Kontaktieren Sie unser technisches Support-Team",
+        "datasheet": "Datenblatt",
+        "model3d": "3D-Modell",
+        "applicationNotes": "Anwendungshinweise"
+      }
+    },
+    "actions": {
+      "addToProject": "Zum Projekt Hinzufügen",
+      "comingSoon": "In Kürze",
+      "requestQuote": "Angebot Anfordern"
+    }
+  },
+  "ResourcesPage": {
+    "title": "Ressourcen",
+    "description": "Dokumentation und Anleitungen für RAST 5 Steckverbinder",
+    "selectionGuide": {
+      "title": "Interaktive Steckverbinder-Auswahlhilfe",
+      "description": "Schritt-für-Schritt-Anleitung zur Auswahl des richtigen Steckverbinders für Ihre Anwendung"
+    },
+    "terminals": {
+      "title": "Anleitung für Anschlusskomponenten",
+      "description": "Vollständige Referenz für alle Anschlusstypen und deren Anwendungen"
+    },
+    "installation": {
+      "title": "Installationsanleitung",
+      "description": "Ordnungsgemäße Montage- und Installationsverfahren für RAST 5 Steckverbinder"
+    },
+    "keyingDocs": {
+      "title": "Kodierungsdokumentation",
+      "description": "Laden Sie polspezifische Kodierungsanleitungen herunter, die kompatible Steckverbinderpaarungen zeigen",
+      "details": "Verfügbar für 2- bis 12-polige Steckverbinder, einschließlich Spezialversionen"
+    }
+  },
+  "ConnectorGuide": {
+    "pageTitle": "Steckverbinder-Auswahlhilfe",
+    "pageDescription": "Finden Sie den perfekten Steckverbinder für Ihre Anwendung in 5 einfachen Schritten",
+    "progress": {
+      "step": "Schritt",
+      "of": "von",
+      "complete": "Abgeschlossen"
+    },
+    "step1": {
+      "title": "Welche Art von Verbindung benötigen Sie?",
+      "description": "Wählen Sie die Anwendung, die Ihr Projekt am besten beschreibt",
+      "wireToWire": {
+        "title": "Draht-zu-Draht-Verbindung",
+        "description": "Verbinden Sie zwei Kabelbäume mit einem Buchsen- und Stecker-Paar",
+        "socketBadge": "Buchse (Weiblich)",
+        "tabBadge": "Stecker (Männlich)"
+      },
+      "wireToBoard": {
+        "title": "Draht-zu-Platine-Verbindung",
+        "description": "Verbinden Sie Kabelbaum mit einer Leiterplatte mit Buchse und PCB-Stiftleiste",
+        "socketBadge": "Buchse (Weiblich)",
+        "pcbBadge": "PCB-Stiftleiste"
+      },
+      "boardToBoard": {
+        "title": "Platine-zu-Platine-Verbindung",
+        "description": "Verbinden Sie zwei Leiterplatten mit PCB-Stiftleisten",
+        "pcbBadge1": "PCB-Stiftleiste",
+        "pcbBadge2": "PCB-Stiftleiste"
+      }
+    },
+    "step2": {
+      "title": "Wie viele Stromkreise benötigen Sie?",
+      "description": "Wählen Sie die Anzahl der Pole (Stromkreise/Drähte) für Ihre Verbindung",
+      "pole": "Pol",
+      "poles": "Pole"
+    },
+    "step3": {
+      "title": "Welche Ausrichtung funktioniert am besten?",
+      "description": "Wählen Sie, wie der Steckverbinder relativ zu Ihrer Platine oder Draht montiert werden soll",
+      "horizontal": {
+        "title": "Horizontal (Parallel)",
+        "description": "Das Steckverbindergehäuse ist parallel zur Platine oder zum Draht. Am besten für platzsparende Designs."
+      },
+      "vertical": {
+        "title": "Vertikal (Senkrecht)",
+        "description": "Das Steckverbindergehäuse ist senkrecht zur Platine oder zum Draht. Einfachere Kabelführung."
+      },
+      "either": {
+        "title": "Beide Optionen Anzeigen",
+        "description": "Nicht sicher? Sehen Sie beide horizontale und vertikale Optionen zum Vergleich."
+      }
+    },
+    "step4": {
+      "title": "Besondere Anforderungen?",
+      "description": "Optionale Funktionen zur Verfeinerung Ihrer Auswahl (Sie können diesen Schritt überspringen)",
+      "locking": {
+        "title": "Verriegelungsmechanismus Erforderlich",
+        "description": "Gewährleistet sichere Verbindung in hochvibrations-Umgebungen"
+      },
+      "specialVersion": {
+        "title": "Spezialversion (FR, VR, VS, VT, FT)",
+        "description": "Varianten mit spezifischen Merkmalen wie Flanschen oder umgekehrten Ausrichtungen"
+      },
+      "keying": {
+        "title": "Spezifische Kodierungsanforderungen",
+        "description": "Benötigen Sie benutzerdefinierte Kodierung, um falsche Paarung zu verhindern"
+      },
+      "infoMessage": "Dies sind optionale Filter. Lassen Sie sie deaktiviert, um alle verfügbaren Optionen zu sehen."
+    },
+    "step5": {
+      "loading": "Suche nach passenden Steckverbindern...",
+      "resultsTitle": "Ihre Passenden Steckverbinder",
+      "basedOn": "Basierend auf Ihren Auswahlen: {poleCount}-polig, {orientation}, {applicationType}",
+      "sockets": {
+        "femaleBadge": "Weiblich",
+        "title": "Buchsen-Steckverbinder",
+        "found": "{count} passende Buchse gefunden",
+        "foundPlural": "{count} passende Buchsen gefunden"
+      },
+      "tabs": {
+        "maleBadge": "Männlich",
+        "title": "Stecker-Verbinder",
+        "found": "{count} passender Stecker gefunden",
+        "foundPlural": "{count} passende Stecker gefunden"
+      },
+      "headers": {
+        "pcbBadge": "PCB",
+        "title": "PCB-Stiftleisten",
+        "found": "{count} passende Stiftleiste gefunden",
+        "foundPlural": "{count} passende Stiftleisten gefunden"
+      },
+      "noResults": {
+        "title": "Keine Steckverbinder Entsprechen Ihren Kriterien",
+        "description": "Versuchen Sie, Ihre Anforderungen anzupassen oder optionale Filter zu entfernen",
+        "buttonText": "Neu Beginnen"
+      }
+    },
+    "connectorCard": {
+      "view360": "360°-Ansicht",
+      "poleLabel": "{count}-Polig",
+      "poleConnector": "{count}-poliger {gender} Steckverbinder",
+      "specialVersion": "Spezialversion",
+      "viewDetails": "Details Anzeigen"
+    },
+    "navigation": {
+      "back": "Zurück",
+      "next": "Weiter",
+      "showResults": "Ergebnisse Anzeigen",
+      "refineSelection": "Auswahl Verfeinern",
+      "startOver": "Neu Beginnen"
+    }
+  },
+  "TerminalsPage": {
+    "title": "Anleitung für Anschlusskomponenten",
+    "description": "Vollständige Referenz für RAST 5 Anschlusstypen",
+    "categories": {
+      "socket": "Buchsen-Anschlüsse (Weiblich)",
+      "tab": "Tab-Anschlüsse (Männlich)"
+    }
+  },
+  "TerminalsGuide": {
+    "hero": {
+      "badge": "Technische Referenz",
+      "title": "Anleitung für Anschlusskomponenten",
+      "description": "Vollständige technische Referenz für RAST 5 Anschlusskomponenten. Erfahren Sie mehr über Buchsen-, Tab- und PCB-Anschlüsse, ihre Spezifikationen und ordnungsgemäße Installationstechniken.",
+      "exploreButton": "Anschlusstypen Erkunden",
+      "installationButton": "Installationsanleitung"
+    },
+    "breadcrumb": {
+      "home": "Startseite",
+      "resources": "Ressourcen",
+      "current": "Anleitung für Anschlusskomponenten"
+    },
+    "overview": {
+      "sectionTitle": "RAST 5 Anschlüsse Verstehen",
+      "sectionDescription": "Anschlüsse sind die leitfähigen Metallkomponenten, die die elektrische Verbindung innerhalb von RAST 5 Steckverbindern herstellen. Jeder Steckverbindertyp erfordert spezifische Anschlussvarianten.",
+      "whatAreTerminals": {
+        "title": "Was sind Anschlüsse?",
+        "description": "Anschlüsse sind präzisionsgefertigte Metallkontakte, die auf Drähte gecrimpt oder auf Leiterplatten montiert werden. Sie stellen die physische und elektrische Verbindung zwischen Draht und Steckverbindergehäuse her."
+      },
+      "whyDifferentTypes": {
+        "title": "Warum Verschiedene Typen?",
+        "description": "Unterschiedliche Ausrichtungen (vertikal/horizontal), Montagearten (Draht/PCB) und Verbindungsstile (Buchse/Tab) erfordern spezifische Anschlussdesigns, um eine ordnungsgemäße Passform und zuverlässige Verbindungen zu gewährleisten."
+      },
+      "namingConvention": {
+        "title": "Namenskonvention",
+        "description": "Anschlüsse werden durch Suffixcodes (FR, VR, VS, VT, FT, PC) identifiziert, die den Anschlusstyp angeben. Passen Sie immer das Anschlusssuffix an Ihre Steckverbinderanforderungen an."
+      }
+    },
+    "terminalTypes": {
+      "sectionTitle": "Anschlusstypen und Spezifikationen",
+      "sectionDescription": "Erkunden Sie die drei Hauptkategorien von RAST 5 Anschlüssen",
+      "socketTab": "Buchsen-Anschlüsse",
+      "tabTab": "Tab-Anschlüsse",
+      "pcbTab": "PCB-Anschlüsse",
+      "socket": {
+        "categoryTitle": "Buchsen-Anschlüsse (Weiblich)",
+        "categoryDescription": "Buchsenförmige Anschlüsse, die Tab-Anschlüsse für sichere elektrische Verbindungen aufnehmen",
+        "badge": "Weiblich",
+        "FR": {
+          "name": "Weibliche Buchse",
+          "description": "Standard-Buchsenanschluss mit flacher Montageausrichtung",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Draht-zu-Draht-Verbindungen",
+            "2": "Universalbuchsen",
+            "3": "Horizontale Montage"
+          },
+          "features": {
+            "1": "Flaches Buchsendesign",
+            "2": "Standard-Verriegelungsmechanismus",
+            "3": "Crimp-Verbindung"
+          }
+        },
+        "VR": {
+          "name": "Vertikale Buchse",
+          "description": "Weiblicher Buchsenanschluss mit vertikaler Ausrichtung für senkrechte Verbindungen",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Vertikale Plattenmontage",
+            "2": "Platzsparende Designs",
+            "3": "Rechtwinklige Verbindungen"
+          },
+          "features": {
+            "1": "Vertikale Ausrichtung",
+            "2": "Kompakte Grundfläche",
+            "3": "Sichere Halterung"
+          }
+        },
+        "VS": {
+          "name": "Vertikale Buchse",
+          "description": "Spezialisierter vertikaler Buchsenanschluss mit verbesserter Kontaktfläche",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Hochzuverlässige Anwendungen",
+            "2": "Vertikale PCB-Montage",
+            "3": "Industrieverbindungen"
+          },
+          "features": {
+            "1": "Verbessertes Kontaktdesign",
+            "2": "Überlegene Halterung",
+            "3": "Vibrationsfest"
+          }
+        }
+      },
+      "tab": {
+        "categoryTitle": "Tab-Anschlüsse (Männlich)",
+        "categoryDescription": "Klingenförmige Anschlüsse, die in Buchsenanschlüsse für Steckverbindungen eingesteckt werden",
+        "badge": "Männlich",
+        "VT": {
+          "name": "Vertikaler Tab",
+          "description": "Männlicher Tab-Anschluss mit vertikaler Klingenausrichtung",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Vertikale Verbindung",
+            "2": "PCB-Stiftleisten",
+            "3": "Rechtwinklige Verbindungen"
+          },
+          "features": {
+            "1": "Vertikales Klingendesign",
+            "2": "Goldplattierte Kontakte",
+            "3": "Zuverlässiges Einstecken"
+          }
+        },
+        "FT": {
+          "name": "Flacher Tab",
+          "description": "Männlicher Tab-Anschluss mit flacher Klingenausrichtung",
+          "wireGauge": "16-22 AWG",
+          "currentRating": "7A",
+          "applications": {
+            "1": "Standard Draht-zu-Draht",
+            "2": "Horizontale Verbindung",
+            "3": "Allgemeiner Zweck"
+          },
+          "features": {
+            "1": "Flaches Klingendesign",
+            "2": "Standardabmessungen",
+            "3": "Einfaches Crimpen"
+          }
+        }
+      },
+      "pcb": {
+        "categoryTitle": "PCB-Anschlüsse",
+        "categoryDescription": "Durchsteckanschlüsse für direkte PCB-Montage und Löten",
+        "badge": "PCB",
+        "PC": {
+          "name": "Leiterplatte",
+          "description": "Durchsteckanschluss für direkte PCB-Montage",
+          "wireGauge": "N/A (PCB-Montage)",
+          "currentRating": "7A",
+          "applications": {
+            "1": "PCB-Stiftleisten",
+            "2": "Platine-zu-Platine-Verbindungen",
+            "3": "Gelötete Verbindungen"
+          },
+          "features": {
+            "1": "Durchsteckmontage",
+            "2": "Wellenlötbar",
+            "3": "Mehrere Pin-Optionen"
+          }
+        }
+      },
+      "labels": {
+        "technicalSpecifications": "Technische Spezifikationen",
+        "wireGauge": "Drahtquerschnitt:",
+        "currentRating": "Nennstrom:",
+        "connectionType": "Verbindungstyp:",
+        "keyFeatures": "Hauptmerkmale",
+        "typicalApplications": "Typische Anwendungen",
+        "availableTerminals": "Verfügbare Anschlüsse"
+      }
+    },
+    "technicalSpecs": {
+      "sectionTitle": "Technische Spezifikationen",
+      "sectionDescription": "Universelle Spezifikationen für alle RAST 5 Anschlusstypen",
+      "currentRating": {
+        "title": "Nennstrom",
+        "value": "7A pro Kontakt",
+        "description": "Maximaler Dauerstrom bei 25°C Umgebungstemperatur"
+      },
+      "voltageRating": {
+        "title": "Nennspannung",
+        "value": "250V AC/DC",
+        "description": "Maximale Betriebsspannung gemäß IEC-Normen"
+      },
+      "wireRange": {
+        "title": "Drahtbereich",
+        "value": "16-22 AWG",
+        "description": "Kompatibler Drahtquerschnitt für Crimp-Anschlüsse"
+      },
+      "contactMaterial": {
+        "title": "Kontaktmaterial",
+        "value": "Messing (Verzinnt)",
+        "description": "Korrosionsbeständige Oberfläche für langfristige Zuverlässigkeit"
+      },
+      "materialDetails": {
+        "title": "Material- und Beschichtungsdetails",
+        "contactMaterial": {
+          "heading": "Kontaktmaterial",
+          "baseMaterial": "Basismaterial: Messinglegierung (CuZn37)",
+          "plating": "Beschichtung: Zinn (Sn) 3-5 μm Dicke",
+          "matingArea": "Kontaktbereich: Goldauflage auf Anfrage erhältlich"
+        },
+        "performanceCharacteristics": {
+          "heading": "Leistungsmerkmale",
+          "contactResistance": "Kontaktwiderstand: < 5mΩ initial",
+          "insertionForce": "Einsteckkraft: 1-3N typisch",
+          "operatingTemperature": "Betriebstemperatur: -40°C bis +105°C"
+        }
+      }
+    },
+    "installation": {
+      "sectionTitle": "Installationsanleitung",
+      "sectionDescription": "Schritt-für-Schritt-Anleitung für ordnungsgemäßes Crimpen und Einsetzen von Anschlüssen",
+      "requiredTools": {
+        "title": "Erforderliche Werkzeuge",
+        "crimpingTool": {
+          "title": "Crimpzange",
+          "description": "Kalibrierte Ratschenzange mit geeignetem Matrizensatz für RAST 5 Anschlüsse"
+        },
+        "wireStripper": {
+          "title": "Abisolierzange",
+          "description": "Einstellbare Abisolierzange für 16-22 AWG Drahtquerschnitt"
+        },
+        "insertionTool": {
+          "title": "Einsetz-/Entfernungswerkzeug",
+          "description": "Spezialwerkzeug zum Einsetzen von Anschlüssen und sicheres Entfernen bei Bedarf"
+        }
+      },
+      "steps": {
+        "1": {
+          "title": "Draht Abisolieren",
+          "description": "Isolierung abisolieren, um 5-6mm Leiter freizulegen",
+          "warning": "Nicht zu viel abisolieren oder Litzen beschädigen"
+        },
+        "2": {
+          "title": "In Anschluss Einführen",
+          "description": "Draht in Crimp-Bereich des Anschlusses einführen",
+          "warning": "Sicherstellen, dass der Draht vor dem Crimpen vollständig eingeführt ist"
+        },
+        "3": {
+          "title": "Anschluss Crimpen",
+          "description": "Geeignete Crimpzange verwenden, um Anschluss zu sichern",
+          "warning": "Crimp-Qualität überprüfen - kein Litzenausfall"
+        },
+        "4": {
+          "title": "In Gehäuse Einsetzen",
+          "description": "Anschluss in Steckverbindergehäuse drücken, bis es klickt",
+          "warning": "Anschluss muss vollständig eingesetzt und verriegelt sein"
+        },
+        "5": {
+          "title": "Verriegelung Überprüfen",
+          "description": "Sanft am Draht ziehen, um zu bestätigen, dass der Anschluss gesichert ist",
+          "warning": "Anschluss sollte nicht aus dem Gehäuse herausziehen"
+        }
+      },
+      "importantLabel": "Wichtig:",
+      "terminalRemoval": {
+        "title": "Anschluss-Entfernungsverfahren",
+        "description": "Wenn Sie einen Anschluss aus dem Gehäuse entfernen müssen",
+        "steps": {
+          "1": "Verwenden Sie das richtige Anschluss-Entfernungswerkzeug - niemals mit Zange oder Schraubendreher erzwingen",
+          "2": "Entfernungswerkzeug neben dem Anschluss einführen, um die Verriegelungslasche zu lösen",
+          "3": "Sanft am Draht ziehen, während das Entfernungswerkzeug an Ort und Stelle gehalten wird",
+          "4": "Anschluss vor Wiederverwendung auf Beschädigung prüfen - beschädigte Anschlüsse müssen ersetzt werden"
+        }
+      }
+    },
+    "commonMistakes": {
+      "sectionTitle": "Häufige Fehler zu Vermeiden",
+      "sectionDescription": "Lernen Sie aus diesen häufigen Fehlern, um zuverlässige Verbindungen zu gewährleisten",
+      "consequenceLabel": "Folge:",
+      "solutionLabel": "Lösung:",
+      "mistakes": {
+        "1": {
+          "mistake": "Übermäßiges Abisolieren der Drahtisolierung",
+          "consequence": "Freiliegender Leiter schafft Kurzschlussrisiko",
+          "solution": "Nur 5-6mm wie angegeben abisolieren"
+        },
+        "2": {
+          "mistake": "Zu wenig oder zu viel crimpen",
+          "consequence": "Schlechte elektrische Verbindung oder beschädigter Draht",
+          "solution": "Kalibrierte Crimpzange mit geeigneter Matrize verwenden"
+        },
+        "3": {
+          "mistake": "Falschen Anschlusstyp erzwingen",
+          "consequence": "Beschädigtes Gehäuse oder schlechter Kontakt",
+          "solution": "Überprüfen, ob Anschlusssuffix den Steckverbinderanforderungen entspricht"
+        },
+        "4": {
+          "mistake": "Anschlussverriegelung nicht überprüfen",
+          "consequence": "Anschluss löst sich während der Verwendung",
+          "solution": "Immer Zugtest nach dem Einsetzen durchführen"
+        }
+      }
+    },
+    "downloadResources": {
+      "title": "Technische Dokumentation",
+      "description": "Laden Sie detaillierte Spezifikationsblätter und Installationsanleitungen herunter",
+      "specsPdf": "Anschlussspezifikationen PDF",
+      "installationPdf": "Installationsanleitung PDF"
+    },
+    "relatedResources": {
+      "sectionTitle": "Verwandte Ressourcen",
+      "browseCatalog": {
+        "title": "Steckverbinder Durchsuchen",
+        "description": "Sehen Sie unseren vollständigen Katalog von RAST 5 Steckverbindern",
+        "button": "Katalog Anzeigen"
+      },
+      "selectionGuide": {
+        "title": "Auswahlhilfe",
+        "description": "Interaktiver Assistent zum Finden des richtigen Steckverbinders",
+        "button": "Leitfaden Starten"
+      },
+      "allResources": {
+        "title": "Alle Ressourcen",
+        "description": "Zugriff auf alle Dokumentationen und Anleitungen",
+        "button": "Ressourcen Anzeigen"
+      }
+    }
+  },
+  "InstallationGuide": {
+    "hero": {
+      "breadcrumb": {
+        "resources": "Ressourcen",
+        "current": "Installationsanleitung"
+      },
+      "title": "RAST 5 Steckverbinder Installationsanleitung",
+      "subtitle": "Umfassende Schritt-für-Schritt-Anleitung für professionelle Montage, Crimpen und Installation von RAST 5 Steckverbindern",
+      "badges": {
+        "version": "Version 2.1",
+        "lastUpdated": "Letzte Aktualisierung: März 2025"
+      }
+    },
+    "quickActions": {
+      "printGuide": "Anleitung Drucken",
+      "downloadPdf": "PDF Herunterladen",
+      "progress": "Fortschritt:"
+    },
+    "safetyWarning": {
+      "title": "SICHERHEITSWARNUNG - VOR BEGINN LESEN",
+      "items": {
+        "1": "Schalten Sie immer die Stromversorgung ab, bevor Sie an elektrischen Verbindungen arbeiten",
+        "2": "Verwenden Sie ordnungsgemäß ausgelegtes Werkzeug und Ausrüstung für Ihre Anwendung",
+        "3": "Tragen Sie geeignete persönliche Schutzausrüstung (Schutzbrille, isolierte Handschuhe)",
+        "4": "Befolgen Sie alle lokalen elektrischen Vorschriften und Normen",
+        "5": "Konsultieren Sie im Zweifelsfall einen qualifizierten Elektriker oder Ingenieur"
+      }
+    },
+    "gettingStarted": {
+      "title": "Erste Schritte",
+      "description": "Was Sie benötigen und wie Sie Ihren Arbeitsplatz vorbereiten",
+      "requiredTools": {
+        "title": "Erforderliche Werkzeuge & Materialien",
+        "items": {
+          "1": {
+            "name": "RAST 5 Crimpzange",
+            "description": "Geeignetes Werkzeug für Anschlussgröße"
+          },
+          "2": {
+            "name": "Abisolierzange",
+            "description": "Einstellbar, Präzisionstyp"
+          },
+          "3": {
+            "name": "Seitenschneider",
+            "description": "Saubere, scharfe Schneidkanten"
+          },
+          "4": {
+            "name": "Anschluss-Entfernungswerkzeug",
+            "description": "Zum Entfernen/Repositionieren von Anschlüssen"
+          },
+          "5": {
+            "name": "Vergrößerungsglas/Lupe",
+            "description": "Zur Crimp-Qualitätsprüfung"
+          },
+          "6": {
+            "name": "Multimeter (Optional)",
+            "description": "Für Durchgangsprüfung"
+          }
+        }
+      },
+      "workspaceSetup": {
+        "title": "Arbeitsplatzeinrichtung",
+        "items": {
+          "1": "Sauberer, gut beleuchteter Arbeitsplatz mit ausreichend Platz für Werkzeuge und Materialien",
+          "2": "ESD-sichere Unterlage bei Arbeit mit empfindlichen elektronischen Komponenten",
+          "3": "Steckverbinder, Anschlüsse und Drähte nach Typ und Größe organisieren",
+          "4": "Diese Installationsanleitung griffbereit zur Referenz halten"
+        }
+      }
+    },
+    "steps": {
+      "title": "Schritt-für-Schritt-Installationsverfahren",
+      "description": "Befolgen Sie diese Schritte sorgfältig für zuverlässige, professionelle Montage",
+      "step1": {
+        "badge": "Schritt 1",
+        "title": "Anschlussauswahl",
+        "understandingTypes": {
+          "title": "Anschlusstypen Verstehen",
+          "description": "RAST 5 Steckverbinder verwenden verschiedene Anschlusstypen basierend auf dem Steckverbindersuffix:",
+          "types": {
+            "FR": "FR (Flange, Right Angle) - Weibliche Anschlüsse mit Flanschmontage",
+            "FT": "FT (Flange, Through-hole) - Weibliche Anschlüsse für PCB-Montage",
+            "VR": "VR (Vertical, Right Angle) - Anschlüsse mit vertikaler Ausrichtung",
+            "VT": "VT (Vertical, Through-hole) - Männliche vertikale Anschlüsse",
+            "VS": "VS (Vertical, Surface Mount) - SMT-Anschlüsse für PCB",
+            "PC": "PC (Print Circuit) - PCB-Stiftleisten-Anschlüsse"
+          }
+        },
+        "wireGaugeCompatibility": {
+          "title": "Drahtquerschnitt-Kompatibilität",
+          "table": {
+            "headers": {
+              "awg": "Drahtquerschnitt (AWG)",
+              "mm": "Drahtquerschnitt (mm²)",
+              "compatible": "Kompatible Anschlüsse"
+            },
+            "rows": {
+              "1": {
+                "awg": "24-22 AWG",
+                "mm": "0.25-0.34 mm²",
+                "compatible": "Standard RAST 5 Anschlüsse"
+              },
+              "2": {
+                "awg": "20-18 AWG",
+                "mm": "0.5-0.75 mm²",
+                "compatible": "Standard RAST 5 Anschlüsse"
+              },
+              "3": {
+                "awg": "16 AWG",
+                "mm": "1.0-1.5 mm²",
+                "compatible": "Anschlussspezifikationen prüfen"
+              }
+            }
+          }
+        },
+        "important": {
+          "title": "Wichtig",
+          "message": "Überprüfen Sie immer die Anschlusskompatibilität mit Ihrem spezifischen Steckverbindermodell. Die Verwendung falscher Anschlüsse kann zu schlechten Verbindungen und potenziellem Ausfall führen."
+        },
+        "checklist": {
+          "title": "Auswahl-Checkliste",
+          "items": {
+            "1": "Steckverbindermodell und Anschlusssuffix überprüfen",
+            "2": "Bestätigen, dass Drahtquerschnitt den Anschlussspezifikationen entspricht",
+            "3": "Nennstromanforderungen für Ihre Anwendung prüfen",
+            "4": "Ausreichende Anzahl von Anschlüssen für alle Positionen sicherstellen"
+          }
+        }
+      },
+      "step2": {
+        "badge": "Schritt 2",
+        "title": "Drahtvorbereitung",
+        "stripLength": {
+          "title": "Abisolierlängen-Anforderungen",
+          "recommended": "5-6 mm",
+          "recommendedLabel": "Empfohlene Abisolierlänge",
+          "imperial": "0.20-0.24 in",
+          "imperialLabel": "Imperiales Äquivalent",
+          "diagram": {
+            "insulation": "Isolierung",
+            "strippedConductor": "Abisolierter Leiter",
+            "stripHere": "Hier Abisolieren"
+          }
+        },
+        "preparationSteps": {
+          "title": "Drahtvorbereitungsschritte",
+          "items": {
+            "1": {
+              "title": "Draht auf erforderliche Länge schneiden",
+              "description": "Zusätzliche Länge für Verlegung und Zugentlastung hinzufügen (typischerweise 50-100mm extra)"
+            },
+            "2": {
+              "title": "Isolierung prüfen",
+              "description": "Auf Kerben, Schnitte oder Beschädigungen prüfen. Beschädigten Draht verwerfen."
+            },
+            "3": {
+              "title": "Isolierung abisolieren",
+              "description": "Geeignete Abisolierzange auf korrekten Querschnitt einstellen. 5-6mm vom Ende abisolieren."
+            },
+            "4": {
+              "title": "Leiter prüfen",
+              "description": "Sicherstellen, dass keine Litzen geschnitten oder beschädigt sind. Alle Litzen sollten intakt und sauber sein."
+            },
+            "5": {
+              "title": "Leiter verdrehen (bei Litzendraht)",
+              "description": "Litzendraht vorsichtig im Uhrzeigersinn verdrehen, um Litzen zusammenzuhalten"
+            }
+          }
+        },
+        "goodStrip": {
+          "title": "Gutes Abisolieren",
+          "items": {
+            "1": "Sauberer, gerader Schnitt",
+            "2": "Keine beschädigten Litzen",
+            "3": "Richtige Länge (5-6mm)",
+            "4": "Keine Isolierungskerben"
+          }
+        },
+        "badStrip": {
+          "title": "Schlechtes Abisolieren",
+          "items": {
+            "1": "Ausgefranster oder ungleichmäßiger Schnitt",
+            "2": "Geschnittene/fehlende Litzen",
+            "3": "Falsche Länge",
+            "4": "Beschädigte Isolierung"
+          }
+        }
+      },
+      "step3": {
+        "badge": "Schritt 3",
+        "title": "Anschluss-Crimpen",
+        "criticalQuality": {
+          "title": "Kritischer Qualitätsschritt",
+          "message": "Ordnungsgemäßes Crimpen ist für zuverlässige elektrische Verbindungen unerlässlich. Ein guter Crimp bietet sowohl elektrische Leitfähigkeit als auch mechanische Festigkeit. Nehmen Sie sich Zeit und prüfen Sie jeden Crimp."
+        },
+        "toolSelection": {
+          "title": "Crimpwerkzeug-Auswahl",
+          "recommended": {
+            "title": "Empfohlen: RAST 5-Spezifisches Werkzeug",
+            "description": "Speziell entwickelte Werkzeuge gewährleisten korrekte Crimp-Geometrie und Kraft"
+          },
+          "acceptable": {
+            "title": "Akzeptabel: Präzisions-Crimpzange",
+            "description": "Muss korrekten Matrizensatz für Anschlussgröße haben"
+          },
+          "notRecommended": {
+            "title": "Nicht Empfohlen: Standard-Zange",
+            "description": "Wird keine ordnungsgemäße Crimp-Qualität oder Zuverlässigkeit bieten"
+          }
+        },
+        "procedure": {
+          "title": "Crimp-Verfahren",
+          "items": {
+            "1": {
+              "title": "Anschluss in Crimpzange positionieren",
+              "description": "Sicherstellen, dass Anschluss vollständig in der korrekten Matrizenposition sitzt"
+            },
+            "2": {
+              "title": "Vorbereiteten Draht einführen",
+              "description": "Draht sollte vollständig in Anschlusshülse hineinragen. Isolierung sollte NICHT in Crimp-Bereich eindringen."
+            },
+            "3": {
+              "title": "Crimp-Kraft aufbringen",
+              "description": "Griffe vollständig zusammendrücken, bis Werkzeug auslöst (Ratschenwerkzeuge) oder bis Griffe sich berühren (Nicht-Ratschenwerkzeuge)"
+            },
+            "4": {
+              "title": "Gecrimpten Anschluss entfernen",
+              "description": "Werkzeug vorsichtig lösen und Anschluss ohne Biegen entfernen"
+            },
+            "5": {
+              "title": "Crimp-Qualität prüfen",
+              "description": "Siehe Prüfkriterien unten - alle fragwürdigen Crimps zurückweisen"
+            }
+          }
+        },
+        "inspection": {
+          "title": "Crimp-Qualitätsprüfung",
+          "tabs": {
+            "good": "Guter Crimp",
+            "bad": "Schlechter Crimp"
+          },
+          "goodCrimp": {
+            "title": "Merkmale eines guten Crimps:",
+            "items": {
+              "1": "Anschlusshülse ist gleichmäßig um Draht komprimiert",
+              "2": "Drahtlitzen sind am Ende der Anschlusshülse sichtbar",
+              "3": "Keine Lücken zwischen Draht und Anschlusshülsenwänden",
+              "4": "Isolierungs-Crimp greift Drahtmantel, ohne ihn zu schneiden",
+              "5": "Draht kann nicht mit mäßiger Kraft herausgezogen werden",
+              "6": "Anschlusskontaktbereich ist unbeschädigt und richtig geformt"
+            },
+            "tip": "Verwenden Sie ein Vergrößerungsglas oder eine Lupe zur Prüfung des Crimp-Bereichs. Die Hülse sollte leichte Eindrücke von den Crimp-Matrizen zeigen, aber keine Risse oder scharfen Kanten."
+          },
+          "badCrimp": {
+            "title": "Anzeichen eines schlechten Crimps (Diese Zurückweisen):",
+            "items": {
+              "1": "Untercrimpt: Anschlusshülse nicht vollständig komprimiert, Draht zieht leicht heraus",
+              "2": "Übercrimpt: Anschlusshülse gerissen, Drahtlitzen geschnitten oder Kontakt beschädigt",
+              "3": "Fehlausgerichtet: Draht nicht vollständig eingeführt, Litzen außerhalb der Hülse sichtbar",
+              "4": "Isolierung im Crimp-Bereich: Drahtmantel in Leiterbereich gecrimpt",
+              "5": "Gebogener oder beschädigter Anschlusskontaktbereich",
+              "6": "Sichtbare Risse oder Spalten in Anschlusshülse"
+            },
+            "warning": "Im Zweifelsfall Anschluss abschneiden und mit neuem Anschluss neu crimpen. Schlechte Crimps können intermittierende Verbindungen, erhöhten Widerstand, Wärmeentwicklung und eventuellen Ausfall verursachen."
+          }
+        },
+        "pullTest": {
+          "title": "Zugtest (Optional aber Empfohlen)",
+          "description": "Nach dem Crimpen einen sanften Zugtest durchführen, um mechanische Integrität zu überprüfen:",
+          "steps": {
+            "1": "1. Anschlusskörper greifen (nicht Kontaktbereich)",
+            "2": "2. Drahtisolierung 25-50mm vom Anschluss greifen",
+            "3": "3. Mit mäßiger Kraft ziehen (ungefähr 5-10 lbs / 2-5 kg)",
+            "4": "4. Draht sollte nicht herausziehen oder Bewegung in Anschlusshülse zeigen"
+          }
+        }
+      },
+      "step4": {
+        "badge": "Schritt 4",
+        "title": "Anschluss-Einsetzen",
+        "orientationVerification": {
+          "title": "Ausrichtungsüberprüfung",
+          "description": "Vor dem Einsetzen der Anschlüsse korrekte Ausrichtung überprüfen:",
+          "items": {
+            "1": "Anschlusskontakt muss in korrekte Richtung für Paarung zeigen",
+            "2": "Haltelasche (falls vorhanden) muss Gehäusesperre einrasten",
+            "3": "Steckverbindergehäuse auf Einsetze-Richtungsführungen prüfen"
+          }
+        },
+        "procedure": {
+          "title": "Einsetz-Verfahren",
+          "items": {
+            "1": {
+              "title": "Gehäuse korrekt positionieren",
+              "description": "Steckverbindergehäuse mit Passfeder nach oben und Einsetze-Seite zu Ihnen ausrichten"
+            },
+            "2": {
+              "title": "Anschluss mit Hohlraum ausrichten",
+              "description": "Anschlussposition mit korrekter Hohlraumnummer abgleichen. Verdrahtungsplan falls verfügbar heranziehen."
+            },
+            "3": {
+              "title": "Anschluss mit festem Druck einsetzen",
+              "description": "Anschluss gerade hineindrücken, bis Sie ein deutliches \"Klick\" hören/fühlen, das Sperre eingerastet anzeigt"
+            },
+            "4": {
+              "title": "Halterung überprüfen",
+              "description": "Sanft am Draht nach hinten ziehen. Anschluss sollte fest gehalten werden und sich nicht bewegen."
+            },
+            "5": {
+              "title": "Für alle Positionen wiederholen",
+              "description": "Anschlüsse in korrekter Reihenfolge gemäß Verdrahtungsplan weiter einsetzen"
+            }
+          }
+        },
+        "commonProblems": {
+          "title": "Häufige Einsetze-Probleme",
+          "problem1": {
+            "title": "Problem: Anschluss lässt sich nicht vollständig einsetzen",
+            "solution": "Lösung: Anschlussausrichtung prüfen, sicherstellen dass Haltelasche nicht gebogen ist, korrekten Anschlusstyp für Gehäuse überprüfen"
+          },
+          "problem2": {
+            "title": "Problem: Anschluss setzt ein aber rastet nicht ein",
+            "solution": "Lösung: Haltelasche könnte beschädigt sein. Neuen Anschluss verwenden. Auf Hindernisse in Gehäusehohlraum prüfen."
+          },
+          "problem3": {
+            "title": "Problem: Anschluss zieht leicht heraus",
+            "solution": "Lösung: Anschluss nicht vollständig eingesetzt. Entfernen und erneut einsetzen, bis positives Klick/Sperre erreicht ist."
+          }
+        },
+        "terminalRemoval": {
+          "title": "Anschluss-Entfernung (Falls Erforderlich)",
+          "description": "Falls Sie einen Anschluss entfernen oder repositionieren müssen:",
+          "steps": {
+            "1": "Geeignetes Anschluss-Entfernungswerkzeug für RAST 5 Steckverbinder verwenden",
+            "2": "Entfernungswerkzeug neben Anschluss einführen, um Haltelasche zu drücken",
+            "3": "Während Entfernungswerkzeug in Position gehalten wird, sanft am Draht ziehen, um Anschluss zu extrahieren",
+            "4": "Anschluss vor Wiedereinsatz auf Beschädigung prüfen. Ersetzen, wenn Lasche gebogen oder beschädigt ist."
+          },
+          "warning": "Niemals versuchen, Anschlüsse mit Schraubenziehern oder anderen improvisierten Werkzeugen zu entfernen. Dies kann sowohl Anschluss als auch Gehäuse beschädigen."
+        }
+      },
+      "step5": {
+        "badge": "Schritt 5",
+        "title": "Steckverbinder-Montage",
+        "keyingVerification": {
+          "title": "Kodierungs-Überprüfung",
+          "description": "RAST 5 Steckverbinder verwenden mechanische Kodierung, um falsche Paarung zu verhindern:",
+          "items": {
+            "1": "Überprüfen, dass Kodierungscode zwischen paarenden Steckverbindern übereinstimmt",
+            "2": "Prüfen, dass Polarisationsmerkmale korrekt ausgerichtet sind",
+            "3": "Sicherstellen, dass Polzahl und Pin-Nummerierung der Anwendungsverdrahtung entspricht"
+          }
+        },
+        "housingAlignment": {
+          "title": "Gehäuse-Ausrichtung",
+          "items": {
+            "1": {
+              "title": "Prüfen, dass alle Anschlüsse vollständig eingesetzt sind",
+              "description": "Überprüfen, dass jeder Anschluss gesperrt ist und keine Hohlräume leer sind (außer absichtlich nicht bestückt)"
+            },
+            "2": {
+              "title": "Drähte angemessen verlegen",
+              "description": "Drähte so anordnen, dass sie Steckverbindergehäuse sauber verlassen, ohne scharfe Biegungen oder Kreuzungen"
+            },
+            "3": {
+              "title": "Zugentlastung anbringen (falls zutreffend)",
+              "description": "Kabelklemmen, Kabelbinder oder Zugentlastungstüllen installieren, um Draht-zu-Anschluss-Schnittstelle zu schützen"
+            },
+            "4": {
+              "title": "Sekundärsperren installieren (falls vorhanden)",
+              "description": "Einige Steckverbinder haben zusätzliche Sperrmerkmale. Sicherstellen, dass diese ordnungsgemäß eingerastet sind."
+            }
+          }
+        },
+        "strainRelief": {
+          "title": "Zugentlastungs-Überlegungen",
+          "why": {
+            "title": "Warum Zugentlastung Wichtig Ist:",
+            "items": {
+              "1": "• Verhindert Übertragung mechanischer Belastung auf Crimp-Verbindung",
+              "2": "• Schützt vor vibrationsinduzierter Ermüdung",
+              "3": "• Erhält Drahtausrichtung und verhindert Ziehen",
+              "4": "• Verlängert Lebensdauer in rauen Umgebungen"
+            }
+          },
+          "methods": {
+            "title": "Zugentlastungs-Methoden:",
+            "items": {
+              "1": "• Kabelbinder zur Sicherung des Drahtbündels nahe Steckverbinder (am häufigsten)",
+              "2": "• Steckverbinder-spezifische Zugentlastungstüllen oder Clips",
+              "3": "• Kabelklemmen am Gerätechassis montiert",
+              "4": "• Flexibler Schutzschlauch für zusätzlichen Schutz"
+            }
+          }
+        },
+        "finalChecklist": {
+          "title": "Abschluss-Montage-Checkliste",
+          "items": {
+            "1": "Alle Anschlüsse ordnungsgemäß gecrimpt und geprüft",
+            "2": "Alle Anschlüsse vollständig eingesetzt und im Gehäuse gesperrt",
+            "3": "Drahtverlegung ist sauber und organisiert",
+            "4": "Zugentlastung angemessen angebracht",
+            "5": "Kodierung und Polarisation überprüft",
+            "6": "Kein Fremdmaterial oder Schmutz im Steckverbinder",
+            "7": "Gehäuse ist unbeschädigt und sauber"
+          }
+        }
+      }
+    },
+    "advancedTopics": {
+      "title": "Erweiterte Themen",
+      "sealedConnectors": {
+        "title": "Montage Abgedichteter Steckverbinder",
+        "description": "Abgedichtete Steckverbinder bieten Schutz gegen Feuchtigkeit, Staub und Verunreinigungen:",
+        "steps": {
+          "1": "Nur spezifizierte abgedichtete Anschlüsse und Drahtdichtungen für Ihr Steckverbindermodell verwenden",
+          "2": "Drahtdichtung vor dem Crimpen des Anschlusses auf Kabel installieren (kann nachträglich nicht hinzugefügt werden)",
+          "3": "Sicherstellen, dass Drahtdichtung richtig für Kabelaußendurchmesser dimensioniert ist",
+          "4": "Nach Anschlusseinsatz Dichtung gegen Rückseite des Steckverbindergehäuses positionieren",
+          "5": "Steckverbinderdichtung/Dichtung falls erforderlich installieren (einige Modelle verwenden separate Gehäusedichtungen)",
+          "6": "Dichtungsintegrität überprüfen - keine Lücken, ordnungsgemäße Kompression bei Paarung"
+        },
+        "note": "IP (Ingress Protection) Schutzarten sind nur gültig, wenn Steckverbinder ordnungsgemäß gepaart und alle Dichtungen korrekt installiert sind. Nicht gepaarte abgedichtete Steckverbinder sollten mit Staubkappen geschützt werden."
+      },
+      "highVibration": {
+        "title": "Hochvibrations-Anwendungen",
+        "description": "Anwendungen mit erheblicher Vibration (Automobil, Industriemaschinen, Transport) erfordern zusätzliche Überlegungen:",
+        "connectorSelection": {
+          "title": "Steckverbinder-Auswahl:",
+          "items": {
+            "1": "• Steckverbinder mit positiven Sperrmechanismen verwenden",
+            "2": "• Steckverbinder mit Sekundärsperren oder Sperrclips in Betracht ziehen",
+            "3": "• Steckverbinder mit Vibrationsfestigkeit spezifizieren"
+          }
+        },
+        "bestPractices": {
+          "title": "Montage-Best-Practices:",
+          "items": {
+            "1": "• Sicherstellen, dass alle Anschlüsse vollständig mit positivem Klick gesperrt sind",
+            "2": "• Zusätzliche Zugentlastung nahe Steckverbinder anbringen (innerhalb 50mm)",
+            "3": "• Flexiblen Draht verwenden, um Vibration vor Steckverbinder zu absorbieren",
+            "4": "• Steckverbinder an starren Punkten montieren, nicht an vibrierenden Komponenten",
+            "5": "• Vibrationsdämpfende Halterungen oder Tüllen in Betracht ziehen"
+          }
+        },
+        "maintenance": {
+          "title": "Wartung:",
+          "items": {
+            "1": "• Verbindungen regelmäßig auf Anzeichen von Reibkorrosion oder Verschleiß prüfen",
+            "2": "• Auf zurückgezogene Anschlüsse oder lockere Verbindungen prüfen",
+            "3": "• Kontaktwiderstand über Zeit überwachen"
+          }
+        }
+      },
+      "temperature": {
+        "title": "Temperatur-Überlegungen",
+        "standardRating": "Standard RAST 5 Steckverbinder sind typischerweise für -40°C bis +105°C (-40°F bis +221°F) ausgelegt. Betrieb außerhalb dieses Bereichs erfordert besondere Überlegungen:",
+        "highTemp": {
+          "title": "Hohe Temperatur (Über 105°C):",
+          "items": {
+            "1": "• Überprüfen, dass Steckverbindergehäusematerial für Anwendungstemperatur ausgelegt ist",
+            "2": "• Hochtemperatur-Drahtisolierung verwenden (Teflon, PTFE, Silikon)",
+            "3": "• Strombelastbarkeit gemäß Herstellerspezifikationen herabsetzen",
+            "4": "• Wärmeausdehnungseffekte auf Anschlusshalterung berücksichtigen",
+            "5": "• Prüfhäufigkeit für Degradation erhöhen"
+          }
+        },
+        "lowTemp": {
+          "title": "Niedrige Temperatur (Unter -40°C):",
+          "items": {
+            "1": "• Überprüfen, dass Gehäusematerial bei niedriger Temperatur flexibel bleibt",
+            "2": "• Kältebeständige Drahtisolierung verwenden, die nicht reißt oder spröde wird",
+            "3": "• Paarungs-/Entpaarungskräfte bei Betriebstemperatur testen",
+            "4": "• Wärmekontraktion in engen Räumen berücksichtigen"
+          }
+        },
+        "thermalCycling": {
+          "title": "Temperaturwechsel:",
+          "items": {
+            "1": "• Wiederholte Temperaturzyklen können Reibkorrosion verursachen",
+            "2": "• Unterschiedliche Ausdehnungsraten zwischen Materialien können Halterung beeinträchtigen",
+            "3": "• Goldplattierte Anschlüsse für verbesserte Zuverlässigkeit in Betracht ziehen",
+            "4": "• Spannungsentlastung in Drahtverlegung ermöglichen, um Ausdehnung aufzunehmen"
+          }
+        },
+        "note": "Konsultieren Sie immer Hersteller-Datenblätter für spezifische Temperaturnennwerte und Derating-Anforderungen. Kontaktieren Sie Ihren RAST 5 Lieferanten für Hochtemperatur- oder Tieftemperatur-Steckverbinderoptionen bei Bedarf."
+      },
+      "maintenanceSchedules": {
+        "title": "Wartungs- & Prüfpläne",
+        "description": "Regelmäßige Prüfung und Wartung verlängert Steckverbinder-Lebensdauer und verhindert unerwartete Ausfälle:",
+        "initial": {
+          "title": "Erstinstallation (0 Stunden):",
+          "items": {
+            "1": "• Sichtprüfung aller Crimps und Verbindungen",
+            "2": "• Durchgangsprüfung aller Stromkreise",
+            "3": "• Kontaktwiderstandsmessung (bei kritischer Anwendung)",
+            "4": "• Ordnungsgemäße Paarung und Sperrung überprüfen",
+            "5": "• Wie-gebaut-Konfiguration dokumentieren"
+          }
+        },
+        "periodic": {
+          "title": "Regelmäßige Prüfung (Alle 6-12 Monate):",
+          "items": {
+            "1": "• Sichtprüfung auf physische Beschädigung oder Verunreinigung",
+            "2": "• Auf zurückgezogene oder lockere Anschlüsse prüfen",
+            "3": "• Überprüfen, dass Sperrmerkmale noch eingerastet sind",
+            "4": "• Zugentlastung auf Verschleiß oder Beschädigung prüfen",
+            "5": "• Auf Anzeichen von Überhitzung prüfen (Verfärbung, Schmelzen)",
+            "6": "• Kontakte bei Bedarf reinigen (gemäß Herstellerrichtlinien)"
+          }
+        },
+        "harsh": {
+          "title": "Raue Umgebung (Alle 3-6 Monate):",
+          "items": {
+            "1": "• Alle Punkte von regelmäßiger Prüfung",
+            "2": "• Kontaktwiderstandstrend",
+            "3": "• Dichtungsintegritätsüberprüfung (abgedichtete Steckverbinder)",
+            "4": "• Korrosionsprüfung",
+            "5": "• Reibverschleiß-Bewertung",
+            "6": "• Vorbeugenden Austausch basierend auf Lebenszyklus in Betracht ziehen"
+          }
+        },
+        "warningSigns": {
+          "title": "Warnzeichen, die Sofortmaßnahmen Erfordern:",
+          "items": {
+            "1": "• Intermittierende Verbindungen oder Stromkreisausfälle",
+            "2": "• Erhöhter Kontaktwiderstand",
+            "3": "• Sichtbare Korrosion an Kontakten oder Anschlüssen",
+            "4": "• Gerissenes, geschmolzenes oder beschädigtes Gehäuse",
+            "5": "• Lockere oder zurückgezogene Anschlüsse",
+            "6": "• Brenngeruch oder Verfärbung durch Hitze",
+            "7": "• Gebrochene Verschlüsse oder Sperrmerkmale"
+          }
+        }
+      }
+    },
+    "troubleshooting": {
+      "title": "Fehlerbehegungs-Leitfaden",
+      "description": "Lösungen für häufige Montageprobleme und wie Fehler zu beheben sind",
+      "problem1": {
+        "title": "Problem: Draht zieht aus gecrimptem Anschluss heraus",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Untercrimpter Anschluss",
+            "2": "• Falsche Anschlussgröße für Drahtquerschnitt",
+            "3": "• Beschädigte oder geschnittene Drahtlitzen"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Anschluss abschneiden und mit neuem Anschluss neu crimpen",
+            "2": "• Korrekte Crimpzange und Matrizengröße überprüfen",
+            "3": "• Vollständiges Werkzeugschließen für kompletten Crimp sicherstellen",
+            "4": "• Frisches Drahtende verwenden, wenn Litzen beschädigt sind"
+          }
+        }
+      },
+      "problem2": {
+        "title": "Problem: Anschluss lässt sich nicht in Gehäuse einsetzen",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Falscher Anschlusstyp für Gehäuse",
+            "2": "• Anschluss-Haltelasche gebogen oder beschädigt",
+            "3": "• Falsche Ausrichtung",
+            "4": "• Hindernis in Gehäusehohlraum"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Überprüfen, dass Anschlusstyp Steckverbinderspezifikation entspricht",
+            "2": "• Haltelasche prüfen - Anschluss ersetzen, wenn beschädigt",
+            "3": "• Anschluss-Ausrichtungsführung am Gehäuse prüfen",
+            "4": "• Hohlraum auf Schmutz oder vorherige Anschlussreste prüfen"
+          }
+        }
+      },
+      "problem3": {
+        "title": "Problem: Hoher Kontaktwiderstand oder intermittierende Verbindung",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Schlechte Crimp-Qualität (unzureichender Metall-zu-Metall-Kontakt)",
+            "2": "• Oxidation oder Verunreinigung an Anschlüssen",
+            "3": "• Anschluss nicht vollständig in Gehäuse eingesetzt",
+            "4": "• Beschädigter Kontaktbereich"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Entfernen und mit ordnungsgemäß gecrimptem Anschluss ersetzen",
+            "2": "• Kontakte mit elektronischem Kontaktreiniger reinigen",
+            "3": "• Überprüfen, dass Anschluss vollständig gesperrt ist (sollte Klick hören/fühlen)",
+            "4": "• Auf gebogene oder beschädigte Kontaktfedern prüfen",
+            "5": "• Kontaktwiderstand messen - sollte weniger als 5 Milliohm sein"
+          }
+        }
+      },
+      "problem4": {
+        "title": "Problem: Steckverbinder lassen sich nicht ordnungsgemäß paaren",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Nicht übereinstimmende Kodierungscodes",
+            "2": "• Gebogene oder beschädigte Pins/Anschlüsse",
+            "3": "• Fremdmaterial im Steckverbinder",
+            "4": "• Falsche Steckverbinderpaarung"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Überprüfen, dass Kodierungscodes übereinstimmen (Steckverbindermarkierungen prüfen)",
+            "2": "• Auf gebogene Pins prüfen - vorsichtig begradigen falls möglich",
+            "3": "• Beide Steckverbinder mit Druckluft reinigen",
+            "4": "• Bestätigen, dass Steckverbindertypen kompatibel sind (Teilenummern prüfen)",
+            "5": "• Korrekte Ausrichtung während Paarung sicherstellen"
+          }
+        }
+      },
+      "problem5": {
+        "title": "Problem: Anschluss zieht sich nach Einsatz zurück",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Anschluss nicht vollständig eingesetzt (unvollständiger Einsatz)",
+            "2": "• Beschädigte Haltelasche",
+            "3": "• Übermäßige Drahtzugspannung",
+            "4": "• Falscher Anschlusstyp"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Anschluss entfernen und erneut einsetzen, positives Klick/Sperre sicherstellen",
+            "2": "• Anschluss ersetzen, wenn Lasche beschädigt ist",
+            "3": "• Zugentlastung hinzufügen, um Drahtzugspannung zu verhindern",
+            "4": "• Korrekte Anschluss-Teilenummer für Gehäuse überprüfen",
+            "5": "• Prüfen, dass Sperrmerkmal vollständig einrastet"
+          }
+        }
+      },
+      "problem6": {
+        "title": "Problem: Überhitzung oder geschmolzener Steckverbinder",
+        "causes": {
+          "title": "Ursachen:",
+          "items": {
+            "1": "• Übermäßiger Strom für Draht-/Anschlussnennwert",
+            "2": "• Schlechter Crimp, der hohen Widerstand erzeugt",
+            "3": "• Korrodierte oder verunreinigte Kontakte",
+            "4": "• Lockere Verbindung"
+          }
+        },
+        "solutions": {
+          "title": "Lösungen:",
+          "items": {
+            "1": "• Überprüfen, dass Stromlast innerhalb Steckverbindernennwert liegt",
+            "2": "• Steckverbinder ersetzen und mit Qualitäts-Crimps neu terminieren",
+            "3": "• Größeren Drahtquerschnitt verwenden, wenn Strom nahe Grenze liegt",
+            "4": "• Mit Multimeter auf hohen Widerstand prüfen",
+            "5": "• Ordnungsgemäßes Anschlusseinsatz und Sperrung sicherstellen",
+            "6": "• Parallelschaltungen für Hochstrom-Anwendungen in Betracht ziehen"
+          }
+        }
+      },
+      "stillHavingProblems": {
+        "title": "Immer Noch Probleme?",
+        "description": "Falls Sie diese Lösungen versucht haben und immer noch Probleme auftreten:",
+        "items": {
+          "1": "• Vollständige Installationsanleitung ab Schritt 1 überprüfen",
+          "2": "• Überprüfen, dass Sie korrekte Komponenten für Ihre Anwendung haben",
+          "3": "• Hersteller-Datenblätter für spezifische Anforderungen konsultieren",
+          "4": "• In Betracht ziehen, alle Komponenten durch frische Teile zu ersetzen"
+        },
+        "contactSupport": "Technischen Support Kontaktieren"
+      }
+    },
+    "sidebar": {
+      "installationChecklist": {
+        "title": "Installations-Checkliste",
+        "description": "Verfolgen Sie Ihren Fortschritt",
+        "items": {
+          "tools": "Alle erforderlichen Werkzeuge und Materialien zusammengestellt",
+          "safety": "Alle Sicherheitsvorkehrungen gelesen und verstanden",
+          "terminal-selection": "Korrekte Anschlüsse ausgewählt",
+          "wire-prep": "Drähte auf korrekte Spezifikationen vorbereitet",
+          "crimping": "Anschlüsse gecrimpt und Qualität geprüft",
+          "insertion": "Anschlüsse in Steckverbindergehäuse eingesetzt",
+          "assembly": "Steckverbinder-Montage abgeschlossen",
+          "inspection": "Abschlussprüfung durchgeführt"
+        }
+      },
+      "quickLinks": {
+        "title": "Schnellzugriffe",
+        "allResources": "Alle Ressourcen",
+        "connectorGuide": "Steckverbinder-Auswahlhilfe",
+        "technicalSupport": "Technischer Support"
+      },
+      "qualityStandards": {
+        "title": "Qualitätsstandards",
+        "compliantWith": "Konform Mit:",
+        "items": {
+          "1": "• IEC 60352 (Crimpen)",
+          "2": "• IEC 60603 (Steckverbinder)",
+          "3": "• UL 310 (Drahtanschlüsse)",
+          "4": "• ISO 8092 (Kontakthalterung)"
+        }
+      },
+      "versionInfo": {
+        "documentVersion": "Dokumentversion:",
+        "version": "2.1",
+        "lastUpdated": "Letzte Aktualisierung:",
+        "lastUpdatedDate": "März 2025",
+        "nextReview": "Nächste Überprüfung:",
+        "nextReviewDate": "September 2025"
+      }
+    },
+    "contactSupport": {
+      "title": "Benötigen Sie Zusätzliche Hilfe?",
+      "description": "Unser technisches Support-Team steht Ihnen bei der Steckverbinder-Auswahl, Installationsfragen und Fehlerbehebung zur Verfügung.",
+      "buttons": {
+        "contactSupport": "Support Kontaktieren",
+        "downloadDocumentation": "Vollständige Dokumentation Herunterladen"
+      }
+    }
+  },
+  "LanguageSwitcher": {
+    "selectLanguage": "Sprache Auswählen",
+    "currentLanguage": "Aktuelle Sprache"
+  }
+}
