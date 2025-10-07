@@ -1,0 +1,116 @@
+[dotenv@17.2.3] injecting env (3) from .env.local -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+
+🚀 RAST 5 Data Migration Starting...
+
+📁 Found RAST 5 folder: /Users/sashabogojevic/Documents/GitHub/UPDATED Rast 5/RAST 5 Series crimping
+
+📦 Migrating terminal components...
+
+  ✅ 6423.xx
+  ✅ 6424.xx
+  ✅ 6432.xx
+  ✅ 5333.xx
+  ✅ 5335.xx
+  ✅ 4121.xx
+  ✅ 4121Exx
+  ✅ 4123.xx
+  ✅ 4125.xx
+  ✅ 4935.xx
+  ✅ 4937.xx
+  ✅ 4939.xx
+  ✅ 4941.xx
+  ✅ 4943.xx
+  ✅ 8441.xx
+  ✅ 8441Fxx
+  ✅ 8445.xx
+  ✅ 8445Fxx
+  ✅ 8449.xx
+  ✅ 19969.02
+
+✅ Migrated 20 terminals
+
+📄 Migrating keying documentation...
+
+  ✅ 10-12-Pole - RAST 5 - Keying.pdf
+  ✅ 2-Pole - RAST 5 - Keying.pdf
+  ✅ 3-Pole - RAST 5 - Keying.pdf
+  ✅ 3-Pole - RAST 5 - Special Versions.pdf
+  ✅ 4-Pole - RAST 5 - Keying.pdf
+  ✅ 4-Pole - RAST 5 - Special Versions.pdf
+  ✅ 5-Pole - RAST 5 - Keying.pdf
+  ✅ 5-Pole - RAST 5 - Special Versions.pdf
+  ✅ 6-Pole - RAST 5 - Keying.pdf
+  ✅ 6-Pole - RAST 5 - Special Versions.pdf
+  ✅ 7-Pole - RAST 5 - Keying.pdf
+  ✅ 7-Pole - RAST 5 - Special Versions.pdf
+  ✅ 8-Pole - RAST 5 - Keying.pdf
+  ✅ 8-Pole - RAST 5 - Special Versions.pdf
+  ✅ 9-Pole - RAST 5 - Keying.PDF
+  ✅ 9-Pole - RAST 5 - Special Versions.pdf
+
+✅ Migrated 16 keying documents
+
+🔌 Migrating connectors...
+
+  ✅ X01-CS-R502KxxPF-FR
+  ✅ X02-CS-R503KxxPF-FR
+  ✅ X03-CS-R504KxxPF-FR
+  ✅ X04-CS-R505KxxPF-FR
+  ✅ X05-CS-R506KxxPF-FR
+  ✅ X06-CS-R507KxxPF-FR
+  ✅ X07-CS-R508KxxPF-FR
+  ✅ X08-CS-R509KxxPF-FR
+  ✅ X09-CS-R510KxxPF-FR
+  ✅ X10-CS-R512KxxPF-FR
+  ✅ X01-CS-R502VKxxPF-VR
+  ✅ X01-CS-S502VKxxPF-VS
+  ✅ X01-CS-T502VKxxPF-VT
+  ✅ X02-CS-R503VKxxPF-VR
+  ✅ X02-CS-S503VKxxPF-VS
+  ✅ X02-CS-T503VKxxPF-VT
+  ✅ X03-CS-R504VKxxPF-VR
+  ✅ X03-CS-S504VKxxPF-VS
+  ✅ X03-CS-T504VKxxPF-VT
+  ✅ X04-CS-R505VKxxPF-VR
+  ✅ X04-CS-S505VKxxPF-VS
+  ✅ X04-CS-T505VKxxPF-VT
+  ✅ X05-CS-R506VKxxPF-VR
+  ✅ X05-CS-S506VKxxPF-VS
+  ✅ X05-CS-T506VKxxPF-VT
+  ✅ X06-CS-T507VKxxPF-VT
+
+✅ Migrated 26 connectors
+
+
+==================================================
+🎉 MIGRATION COMPLETE!
+==================================================
+
+📊 Summary:
+   Connectors: 26
+   Terminals: 20
+   Keying Docs: 16
+   Videos: 40
+   Images: 20
+   PDFs: 16
+   Errors: 17
+   Duration: 56.77s
+
+⚠️  Errors encountered:
+   - Insert failed for X02-63N036.2-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X02-63N632.2-FR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X03-63N039.4W-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X03-63N042.3-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N033.3-FR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N039W-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N043.2-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N047.4-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N239W-VR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   - Insert failed for X04-63N333.35-FR: null value in column "connector_type" of relation "connectors" violates not-null constraint
+   ... and 7 more
+
+✅ Next steps:
+   1. npm run dev
+   2. Visit http://localhost:3000/catalog
+   3. Browse your connectors!
+
