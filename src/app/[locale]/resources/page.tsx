@@ -14,20 +14,22 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
         <p className="text-xl text-gray-600 mb-12">{t('description')}</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="hover:shadow-lg transition-shadow h-full">
-            <CardHeader>
-              <FileText className="h-10 w-10 text-blue-600 mb-2" />
-              <CardTitle>{t('keyingDocs.title')}</CardTitle>
-              <CardDescription>
-                {t('keyingDocs.description')}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-600">
-                {t('keyingDocs.details')}
-              </p>
-            </CardContent>
-          </Card>
+          <Link href={`/${locale}/catalog`}>
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+              <CardHeader>
+                <FileText className="h-10 w-10 text-blue-600 mb-2" />
+                <CardTitle>{t('keyingDocs.title')}</CardTitle>
+                <CardDescription>
+                  {t('keyingDocs.description')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  {t('keyingDocs.details')}
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
 
           <Link href={`/${locale}/resources/connector-guide`}>
             <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
