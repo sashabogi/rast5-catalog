@@ -22,8 +22,9 @@ const TERMINAL_MAPPING = {
   'FR': ['5333.xx', '5335.xx'],
   'VR': ['5333.xx', '5335.xx'],
   'VS': ['5333.xx', '5335.xx'],
-  'FT': ['6423.xx', '6424.xx', '6432.xx'],
+  'FT': ['6423.xx', '6424.xx', '6432.xx'], // Female Tab terminals
   'VT': ['6423.xx', '6424.xx', '6432.xx'],
+  'MA': ['6423.xx', '6424.xx', '6432.xx'], // MA (Male) terminals
   'PC': [] // PCB headers don't require separate terminals
 }
 
@@ -73,7 +74,7 @@ function parseModel(model, isSpecial = false, terminalSuffix = null) {
     let gender = 'Female'
     let connectorType = 'R'
 
-    if (terminalSuffix === 'FT' || terminalSuffix === 'VT') {
+    if (terminalSuffix === 'FT' || terminalSuffix === 'VT' || terminalSuffix === 'MA') {
       gender = 'Male'
       connectorType = 'T'
     }
@@ -103,7 +104,7 @@ function parseModel(model, isSpecial = false, terminalSuffix = null) {
   }
 
   // Handle tab terminal housings (e.g., CS-R502KnnPM)
-  if (model.includes('KnnPM') || terminalSuffix === 'FT') {
+  if (model.includes('KnnPM') || terminalSuffix === 'FT' || terminalSuffix === 'MA') {
     const poleMatch = model.match(/(\d{3,4})/)
     if (!poleMatch) return null
 
@@ -191,6 +192,7 @@ async function migrateTerminals() {
 
   const terminalFolders = [
     'FT-Terminals',
+    'MA-Terminals',
     path.join('X-For socket terminals', 'FR-Terminals'),
     path.join('X-For socket terminals', 'VR-Terminals'),
     path.join('X-For socket terminals', 'VS-Terminals'),

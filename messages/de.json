@@ -268,11 +268,11 @@
       "title": "Welche Ausrichtung funktioniert am besten?",
       "description": "Wählen Sie, wie der Steckverbinder relativ zu Ihrer Platine oder Draht montiert werden soll",
       "horizontal": {
-        "title": "Horizontal (Parallel)",
+        "title": "Flag (Parallel)",
         "description": "Das Steckverbindergehäuse ist parallel zur Platine oder zum Draht. Am besten für platzsparende Designs."
       },
       "vertical": {
-        "title": "Vertikal (Senkrecht)",
+        "title": "Gerade (Senkrecht)",
         "description": "Das Steckverbindergehäuse ist senkrecht zur Platine oder zum Draht. Einfachere Kabelführung."
       },
       "either": {
@@ -302,13 +302,13 @@
       "resultsTitle": "Ihre Passenden Steckverbinder",
       "basedOn": "Basierend auf Ihren Auswahlen: {poleCount}-polig, {orientation}, {applicationType}",
       "sockets": {
-        "femaleBadge": "Weiblich",
+        "femaleBadge": "Weiblich-Holder",
         "title": "Buchsen-Steckverbinder",
         "found": "{count} passende Buchse gefunden",
         "foundPlural": "{count} passende Buchsen gefunden"
       },
       "tabs": {
-        "maleBadge": "Männlich",
+        "maleBadge": "Männlich-Holder",
         "title": "Stecker-Verbinder",
         "found": "{count} passender Stecker gefunden",
         "foundPlural": "{count} passende Stecker gefunden"
@@ -386,7 +386,7 @@
       "socket": {
         "categoryTitle": "Buchsen-Anschlüsse (Weiblich)",
         "categoryDescription": "Buchsenförmige Anschlüsse, die Tab-Anschlüsse für sichere elektrische Verbindungen aufnehmen",
-        "badge": "Weiblich",
+        "badge": "Weiblich-Holder",
         "FR": {
           "name": "Weibliche Buchse",
           "description": "Standard-Buchsenanschluss mit flacher Montageausrichtung",
@@ -439,7 +439,7 @@
       "tab": {
         "categoryTitle": "Tab-Anschlüsse (Männlich)",
         "categoryDescription": "Klingenförmige Anschlüsse, die in Buchsenanschlüsse für Steckverbindungen eingesteckt werden",
-        "badge": "Männlich",
+        "badge": "Männlich-Holder",
         "VT": {
           "name": "Vertikaler Tab",
           "description": "Männlicher Tab-Anschluss mit vertikaler Klingenausrichtung",

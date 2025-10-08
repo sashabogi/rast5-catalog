@@ -268,11 +268,11 @@
       "title": "Quale orientamento funziona meglio?",
       "description": "Scegli come il connettore deve montarsi rispetto alla scheda o al filo",
       "horizontal": {
-        "title": "Orizzontale (Parallelo)",
+        "title": "Bandiera (Parallelo)",
         "description": "Il corpo del connettore è parallelo alla scheda o al filo. Ideale per design con vincoli di spazio."
       },
       "vertical": {
-        "title": "Verticale (Perpendicolare)",
+        "title": "Dritto (Perpendicolare)",
         "description": "Il corpo del connettore è perpendicolare alla scheda o al filo. Gestione cavi più semplice."
       },
       "either": {
@@ -302,13 +302,13 @@
       "resultsTitle": "I Tuoi Connettori Corrispondenti",
       "basedOn": "In base alle tue selezioni: {poleCount} poli, {orientation}, {applicationType}",
       "sockets": {
-        "femaleBadge": "Femmina",
+        "femaleBadge": "Femmina-Holder",
         "title": "Connettori Socket",
         "found": "{count} socket corrispondente trovato",
         "foundPlural": "{count} socket corrispondenti trovati"
       },
       "tabs": {
-        "maleBadge": "Maschio",
+        "maleBadge": "Maschio-Holder",
         "title": "Connettori Tab",
         "found": "{count} tab corrispondente trovato",
         "foundPlural": "{count} tab corrispondenti trovati"
@@ -386,7 +386,7 @@
       "socket": {
         "categoryTitle": "Terminali Socket (Femmina)",
         "categoryDescription": "Terminali a ricettacolo che accettano terminali tab per connessioni elettriche sicure",
-        "badge": "Femmina",
+        "badge": "Femmina-Holder",
         "FR": {
           "name": "Ricettacolo Femmina",
           "description": "Terminale socket femmina standard con orientamento di montaggio piatto",
@@ -439,7 +439,7 @@
       "tab": {
         "categoryTitle": "Terminali Tab (Maschio)",
         "categoryDescription": "Terminali a lama che si inseriscono nei terminali socket per connessioni di accoppiamento",
-        "badge": "Maschio",
+        "badge": "Maschio-Holder",
         "VT": {
           "name": "Tab Verticale",
           "description": "Terminale tab maschio con orientamento lama verticale",

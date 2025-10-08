@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import { PageHero } from '@/components/shared/PageHero'
+import { SectionContainer } from '@/components/shared/SectionContainer'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -23,7 +25,10 @@ import {
   ShieldCheck,
   Gauge,
   Ruler,
-  ChevronRight
+  ChevronRight,
+  BookOpen,
+  Cpu,
+  Activity
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -264,779 +269,863 @@ export default function TerminalsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="max-w-3xl">
-            <Badge className="bg-white/20 text-white border-white/30 mb-4">
-              {t('hero.badge')}
-            </Badge>
-            <h1 className="text-5xl font-bold mb-4">
-              {t('hero.title')}
-            </h1>
-            <p className="text-xl text-blue-100 mb-6">
-              {t('hero.description')}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button variant="secondary" size="lg" asChild>
-                <a href="#terminal-types">
-                  {t('hero.exploreButton')}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20" asChild>
-                <a href="#installation">
-                  {t('hero.installationButton')}
-                  <WrenchIcon className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-            </div>
+      <PageHero
+        title={
+          <span className="font-inter font-bold">
+            {t('hero.title')}
+          </span>
+        }
+        subtitle={t('hero.description')}
+        icon={
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-600 to-red-600 flex items-center justify-center shadow-xl">
+            <WrenchIcon className="w-10 h-10 text-white" />
           </div>
-        </div>
-      </div>
+        }
+        isDark={true}
+        actions={
+          <>
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              {t('hero.exploreButton')}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900">
+              {t('hero.installationButton')}
+              <BookOpen className="ml-2 h-5 w-5" />
+            </Button>
+          </>
+        }
+      />
 
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href={`/${locale}`} className="hover:text-blue-600">{t('breadcrumb.home')}</Link>
+          <div className="flex items-center gap-2 text-sm text-slate-600">
+            <Link href={`/${locale}`} className="hover:text-blue-600 transition-colors font-inter">
+              {t('breadcrumb.home')}
+            </Link>
             <ChevronRight className="h-4 w-4" />
-            <Link href={`/${locale}/resources`} className="hover:text-blue-600">{t('breadcrumb.resources')}</Link>
+            <Link href={`/${locale}/resources`} className="hover:text-blue-600 transition-colors font-inter">
+              {t('breadcrumb.resources')}
+            </Link>
             <ChevronRight className="h-4 w-4" />
-            <span className="text-gray-900 font-medium">{t('breadcrumb.current')}</span>
+            <span className="text-slate-900 font-inter font-semibold">{t('breadcrumb.current')}</span>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Overview Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('overview.sectionTitle')}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              {t('overview.sectionDescription')}
-            </p>
-          </div>
+      {/* Overview Section */}
+      <SectionContainer variant="gradient" spacing="large">
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h2 className="text-4xl font-inter font-bold text-slate-900 mb-6">
+            {t('overview.sectionTitle')}
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            {t('overview.sectionDescription')}
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="border-blue-200 bg-blue-50">
-              <CardHeader>
-                <Cable className="h-10 w-10 text-blue-600 mb-2" />
-                <CardTitle>{t('overview.whatAreTerminals.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-700">
-                  {t('overview.whatAreTerminals.description')}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-green-200 bg-green-50">
-              <CardHeader>
-                <Info className="h-10 w-10 text-green-600 mb-2" />
-                <CardTitle>{t('overview.whyDifferentTypes.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-700">
-                  {t('overview.whyDifferentTypes.description')}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-purple-200 bg-purple-50">
-              <CardHeader>
-                <CheckCircle className="h-10 w-10 text-purple-600 mb-2" />
-                <CardTitle>{t('overview.namingConvention.title')}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-700">
-                  {t('overview.namingConvention.description')}
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Terminal Types - Tabbed Interface */}
-        <section id="terminal-types" className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('terminalTypes.sectionTitle')}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t('terminalTypes.sectionDescription')}
-            </p>
-          </div>
-
-          <Tabs defaultValue="socket" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="socket" className="data-[state=active]:bg-blue-500 data-[state=active]:text-white">
-                <Cable className="h-4 w-4 mr-2" />
-                {t('terminalTypes.socketTab')}
-              </TabsTrigger>
-              <TabsTrigger value="tab" className="data-[state=active]:bg-orange-500 data-[state=active]:text-white">
-                <Zap className="h-4 w-4 mr-2" />
-                {t('terminalTypes.tabTab')}
-              </TabsTrigger>
-              <TabsTrigger value="pcb" className="data-[state=active]:bg-green-500 data-[state=active]:text-white">
-                <CircuitBoard className="h-4 w-4 mr-2" />
-                {t('terminalTypes.pcbTab')}
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Socket Terminals Tab */}
-            <TabsContent value="socket" className="space-y-6">
-              <Card className="border-blue-200 bg-gradient-to-br from-blue-50 to-white">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-2xl">{t('terminalTypes.socket.categoryTitle')}</CardTitle>
-                      <CardDescription className="text-base mt-2">
-                        {t('terminalTypes.socket.categoryDescription')}
-                      </CardDescription>
-                    </div>
-                    <Badge className="bg-blue-500 text-white text-lg px-4 py-2">{t('terminalTypes.socket.badge')}</Badge>
-                  </div>
-                </CardHeader>
-              </Card>
-
-              <div className="grid gap-6">
-                {TERMINAL_SUFFIXES.filter(t => t.category === 'socket').map((terminal) => (
-                  <Card key={terminal.suffix} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <CardHeader className="bg-gradient-to-r from-blue-50 to-white border-b">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <Badge variant="outline" className="text-lg px-3 py-1 border-blue-500 text-blue-700">
-                              {terminal.suffix}
-                            </Badge>
-                            <CardTitle className="text-xl">{terminal.name}</CardTitle>
-                          </div>
-                          <CardDescription className="text-base">
-                            {terminal.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        {/* Left Column - Specs & Features */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
-                            <div className="space-y-2">
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.wireGauge')}</span>
-                                <span className="text-sm font-medium">{terminal.wireGauge}</span>
-                              </div>
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
-                                <span className="text-sm font-medium">{terminal.currentRating}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
-                            <ul className="space-y-1">
-                              {terminal.features.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Right Column - Applications */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
-                            <ul className="space-y-2">
-                              {terminal.applications.map((app, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <ArrowRight className="h-4 w-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                                  <span>{app}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Terminal Images */}
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
-                            <div className="grid grid-cols-2 gap-2">
-                              {terminalsByCategory.socket
-                                .filter(t => t.terminal_type.includes(terminal.suffix))
-                                .slice(0, 4)
-                                .map((t) => (
-                                  <div key={t.id} className="border rounded-lg p-2 hover:shadow-md transition-shadow">
-                                    {t.image_url ? (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 relative overflow-hidden">
-                                        <Image
-                                          src={t.image_url}
-                                          alt={t.spec_number}
-                                          fill
-                                          className="object-contain p-2"
-                                        />
-                                      </div>
-                                    ) : (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 flex items-center justify-center">
-                                        <Cable className="h-8 w-8 text-gray-400" />
-                                      </div>
-                                    )}
-                                    <p className="text-xs font-medium text-center">{t.spec_number}</p>
-                                  </div>
-                                ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16" data-aos="fade-up" data-aos-delay="100">
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-2 border-blue-100 hover:border-blue-300 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <CardHeader className="pb-4">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center mb-4">
+                <Cable className="h-7 w-7 text-white" />
               </div>
-            </TabsContent>
-
-            {/* Tab Terminals Tab */}
-            <TabsContent value="tab" className="space-y-6">
-              <Card className="border-orange-200 bg-gradient-to-br from-orange-50 to-white">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-2xl">{t('terminalTypes.tab.categoryTitle')}</CardTitle>
-                      <CardDescription className="text-base mt-2">
-                        {t('terminalTypes.tab.categoryDescription')}
-                      </CardDescription>
-                    </div>
-                    <Badge className="bg-orange-500 text-white text-lg px-4 py-2">{t('terminalTypes.tab.badge')}</Badge>
-                  </div>
-                </CardHeader>
-              </Card>
-
-              <div className="grid gap-6">
-                {TERMINAL_SUFFIXES.filter(t => t.category === 'tab').map((terminal) => (
-                  <Card key={terminal.suffix} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <CardHeader className="bg-gradient-to-r from-orange-50 to-white border-b">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <Badge variant="outline" className="text-lg px-3 py-1 border-orange-500 text-orange-700">
-                              {terminal.suffix}
-                            </Badge>
-                            <CardTitle className="text-xl">{terminal.name}</CardTitle>
-                          </div>
-                          <CardDescription className="text-base">
-                            {terminal.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        {/* Left Column - Specs & Features */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
-                            <div className="space-y-2">
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.wireGauge')}</span>
-                                <span className="text-sm font-medium">{terminal.wireGauge}</span>
-                              </div>
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
-                                <span className="text-sm font-medium">{terminal.currentRating}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
-                            <ul className="space-y-1">
-                              {terminal.features.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Right Column - Applications */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
-                            <ul className="space-y-2">
-                              {terminal.applications.map((app, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <ArrowRight className="h-4 w-4 text-orange-600 mt-0.5 flex-shrink-0" />
-                                  <span>{app}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Terminal Images */}
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
-                            <div className="grid grid-cols-2 gap-2">
-                              {terminalsByCategory.tab
-                                .filter(t => t.terminal_type.includes(terminal.suffix))
-                                .slice(0, 4)
-                                .map((t) => (
-                                  <div key={t.id} className="border rounded-lg p-2 hover:shadow-md transition-shadow">
-                                    {t.image_url ? (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 relative overflow-hidden">
-                                        <Image
-                                          src={t.image_url}
-                                          alt={t.spec_number}
-                                          fill
-                                          className="object-contain p-2"
-                                        />
-                                      </div>
-                                    ) : (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 flex items-center justify-center">
-                                        <Zap className="h-8 w-8 text-gray-400" />
-                                      </div>
-                                    )}
-                                    <p className="text-xs font-medium text-center">{t.spec_number}</p>
-                                  </div>
-                                ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-
-            {/* PCB Terminals Tab */}
-            <TabsContent value="pcb" className="space-y-6">
-              <Card className="border-green-200 bg-gradient-to-br from-green-50 to-white">
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <CardTitle className="text-2xl">{t('terminalTypes.pcb.categoryTitle')}</CardTitle>
-                      <CardDescription className="text-base mt-2">
-                        {t('terminalTypes.pcb.categoryDescription')}
-                      </CardDescription>
-                    </div>
-                    <Badge className="bg-green-500 text-white text-lg px-4 py-2">{t('terminalTypes.pcb.badge')}</Badge>
-                  </div>
-                </CardHeader>
-              </Card>
-
-              <div className="grid gap-6">
-                {TERMINAL_SUFFIXES.filter(t => t.category === 'pcb').map((terminal) => (
-                  <Card key={terminal.suffix} className="overflow-hidden hover:shadow-lg transition-shadow">
-                    <CardHeader className="bg-gradient-to-r from-green-50 to-white border-b">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-2">
-                            <Badge variant="outline" className="text-lg px-3 py-1 border-green-500 text-green-700">
-                              {terminal.suffix}
-                            </Badge>
-                            <CardTitle className="text-xl">{terminal.name}</CardTitle>
-                          </div>
-                          <CardDescription className="text-base">
-                            {terminal.description}
-                          </CardDescription>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        {/* Left Column - Specs & Features */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.technicalSpecifications')}</h4>
-                            <div className="space-y-2">
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.connectionType')}</span>
-                                <span className="text-sm font-medium">{terminal.wireGauge}</span>
-                              </div>
-                              <div className="flex justify-between p-2 bg-gray-50 rounded">
-                                <span className="text-sm text-gray-600">{t('terminalTypes.labels.currentRating')}</span>
-                                <span className="text-sm font-medium">{terminal.currentRating}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.keyFeatures')}</h4>
-                            <ul className="space-y-1">
-                              {terminal.features.map((feature, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-
-                        {/* Right Column - Applications */}
-                        <div className="space-y-4">
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.typicalApplications')}</h4>
-                            <ul className="space-y-2">
-                              {terminal.applications.map((app, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                  <ArrowRight className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                                  <span>{app}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Terminal Images */}
-                          <div>
-                            <h4 className="font-semibold text-sm text-gray-700 mb-2">{t('terminalTypes.labels.availableTerminals')}</h4>
-                            <div className="grid grid-cols-2 gap-2">
-                              {terminalsByCategory.pcb
-                                .slice(0, 4)
-                                .map((t) => (
-                                  <div key={t.id} className="border rounded-lg p-2 hover:shadow-md transition-shadow">
-                                    {t.image_url ? (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 relative overflow-hidden">
-                                        <Image
-                                          src={t.image_url}
-                                          alt={t.spec_number}
-                                          fill
-                                          className="object-contain p-2"
-                                        />
-                                      </div>
-                                    ) : (
-                                      <div className="aspect-square bg-gray-100 rounded mb-1 flex items-center justify-center">
-                                        <CircuitBoard className="h-8 w-8 text-gray-400" />
-                                      </div>
-                                    )}
-                                    <p className="text-xs font-medium text-center">{t.spec_number}</p>
-                                  </div>
-                                ))}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
-        </section>
-
-        {/* Technical Specifications Section */}
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('technicalSpecs.sectionTitle')}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t('technicalSpecs.sectionDescription')}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TECHNICAL_SPECS.map((spec, idx) => (
-              <Card key={idx} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
-                    <spec.icon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2">{spec.title}</h3>
-                  <p className="text-2xl font-bold text-blue-600 mb-2">{spec.value}</p>
-                  <p className="text-sm text-gray-600">{spec.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Additional Technical Details */}
-          <Card className="mt-8 border-blue-200">
-            <CardHeader>
-              <CardTitle>{t('technicalSpecs.materialDetails.title')}</CardTitle>
+              <CardTitle className="text-xl font-inter font-bold">{t('overview.whatAreTerminals.title')}</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-3">{t('technicalSpecs.materialDetails.contactMaterial.heading')}</h4>
-                  <ul className="space-y-2 text-sm text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.contactMaterial.baseMaterial')}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.contactMaterial.plating')}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.contactMaterial.matingArea')}</span>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-3">{t('technicalSpecs.materialDetails.performanceCharacteristics.heading')}</h4>
-                  <ul className="space-y-2 text-sm text-gray-700">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.contactResistance')}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.insertionForce')}</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span>{t('technicalSpecs.materialDetails.performanceCharacteristics.operatingTemperature')}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Installation Guide Section */}
-        <section id="installation" className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('installation.sectionTitle')}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t('installation.sectionDescription')}
-            </p>
-          </div>
-
-          {/* Required Tools */}
-          <Card className="mb-8 border-purple-200 bg-purple-50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <WrenchIcon className="h-6 w-6 text-purple-600" />
-                {t('installation.requiredTools.title')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.crimpingTool.title')}</h4>
-                  <p className="text-sm text-gray-600">
-                    {t('installation.requiredTools.crimpingTool.description')}
-                  </p>
-                </div>
-                <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.wireStripper.title')}</h4>
-                  <p className="text-sm text-gray-600">
-                    {t('installation.requiredTools.wireStripper.description')}
-                  </p>
-                </div>
-                <div className="p-4 bg-white rounded-lg">
-                  <h4 className="font-semibold mb-2">{t('installation.requiredTools.insertionTool.title')}</h4>
-                  <p className="text-sm text-gray-600">
-                    {t('installation.requiredTools.insertionTool.description')}
-                  </p>
-                </div>
-              </div>
+              <p className="text-slate-600 leading-relaxed">
+                {t('overview.whatAreTerminals.description')}
+              </p>
             </CardContent>
           </Card>
 
-          {/* Installation Steps */}
-          <div className="grid gap-4 mb-8">
-            {INSTALLATION_STEPS.map((step) => (
-              <Card key={step.step} className="overflow-hidden hover:shadow-md transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold">
-                        {step.step}
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-2 border-green-100 hover:border-green-300 bg-gradient-to-br from-green-50 to-emerald-50">
+            <CardHeader className="pb-4">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center mb-4">
+                <Info className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl font-inter font-bold">{t('overview.whyDifferentTypes.title')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-600 leading-relaxed">
+                {t('overview.whyDifferentTypes.description')}
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="group hover:shadow-2xl transition-all duration-300 border-2 border-purple-100 hover:border-purple-300 bg-gradient-to-br from-purple-50 to-pink-50">
+            <CardHeader className="pb-4">
+              <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-4">
+                <CheckCircle className="h-7 w-7 text-white" />
+              </div>
+              <CardTitle className="text-xl font-inter font-bold">{t('overview.namingConvention.title')}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-slate-600 leading-relaxed">
+                {t('overview.namingConvention.description')}
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </SectionContainer>
+
+      {/* Terminal Types - Tabbed Interface */}
+      <SectionContainer variant="default" spacing="large">
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-4xl font-inter font-bold text-slate-900 mb-6">
+            {t('terminalTypes.sectionTitle')}
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {t('terminalTypes.sectionDescription')}
+          </p>
+        </div>
+
+        <Tabs defaultValue="socket" className="w-full" data-aos="fade-up" data-aos-delay="100">
+          <TabsList className="grid w-full grid-cols-3 mb-12 h-auto p-2 bg-slate-100">
+            <TabsTrigger
+              value="socket"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-600 data-[state=active]:to-indigo-600 data-[state=active]:text-white py-3 font-inter font-semibold transition-all duration-300"
+            >
+              <Cable className="h-5 w-5 mr-2" />
+              {t('terminalTypes.socketTab')}
+            </TabsTrigger>
+            <TabsTrigger
+              value="tab"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-orange-600 data-[state=active]:to-red-600 data-[state=active]:text-white py-3 font-inter font-semibold transition-all duration-300"
+            >
+              <Zap className="h-5 w-5 mr-2" />
+              {t('terminalTypes.tabTab')}
+            </TabsTrigger>
+            <TabsTrigger
+              value="pcb"
+              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-600 data-[state=active]:to-emerald-600 data-[state=active]:text-white py-3 font-inter font-semibold transition-all duration-300"
+            >
+              <CircuitBoard className="h-5 w-5 mr-2" />
+              {t('terminalTypes.pcbTab')}
+            </TabsTrigger>
+          </TabsList>
+
+          {/* Socket Terminals Tab */}
+          <TabsContent value="socket" className="space-y-8">
+            <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 via-white to-indigo-50 shadow-xl">
+              <CardHeader className="pb-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                      {t('terminalTypes.socket.categoryTitle')}
+                    </CardTitle>
+                    <CardDescription className="text-lg mt-3 text-slate-600">
+                      {t('terminalTypes.socket.categoryDescription')}
+                    </CardDescription>
+                  </div>
+                  <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-lg px-6 py-2 font-inter font-semibold">
+                    {t('terminalTypes.socket.badge')}
+                  </Badge>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <div className="grid gap-8">
+              {TERMINAL_SUFFIXES.filter(t => t.category === 'socket').map((terminal) => (
+                <Card key={terminal.suffix} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-slate-200">
+                  <CardHeader className="bg-gradient-to-r from-slate-50 to-blue-50 border-b-2 border-slate-200">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-3">
+                          <Badge variant="outline" className="text-lg px-4 py-1 border-2 border-blue-600 text-blue-700 font-inter font-bold">
+                            {terminal.suffix}
+                          </Badge>
+                          <CardTitle className="text-2xl font-inter font-bold text-slate-900">{terminal.name}</CardTitle>
+                        </div>
+                        <CardDescription className="text-base text-slate-600">
+                          {terminal.description}
+                        </CardDescription>
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                      <p className="text-gray-700 mb-3">{step.description}</p>
-                      <div className="flex items-start gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg">
-                        <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid lg:grid-cols-2 gap-10">
+                      {/* Left Column - Specs & Features */}
+                      <div className="space-y-6">
                         <div>
-                          <p className="text-sm font-medium text-amber-900">{t('installation.importantLabel')}</p>
-                          <p className="text-sm text-amber-800">{step.warning}</p>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.technicalSpecifications')}
+                          </h4>
+                          <div className="space-y-3">
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-blue-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.wireGauge')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.wireGauge}</span>
+                            </div>
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-blue-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.currentRating')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.currentRating}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.keyFeatures')}
+                          </h4>
+                          <ul className="space-y-2">
+                            {terminal.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Right Column - Applications */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.typicalApplications')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {terminal.applications.map((app, idx) => (
+                              <li key={idx} className="flex items-start gap-3 p-3 bg-gradient-to-r from-white to-blue-50 rounded-lg border border-slate-200">
+                                <ArrowRight className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{app}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Terminal Images */}
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.availableTerminals')}
+                          </h4>
+                          <div className="grid grid-cols-2 gap-4">
+                            {terminalsByCategory.socket
+                              .filter(t => t.terminal_type.includes(terminal.suffix))
+                              .slice(0, 4)
+                              .map((t) => (
+                                <div key={t.id} className="group border-2 border-slate-200 rounded-xl p-3 hover:shadow-lg transition-all duration-300 hover:border-blue-400 bg-white">
+                                  {t.image_url ? (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-50 to-blue-50 rounded-lg mb-2 relative overflow-hidden">
+                                      <Image
+                                        src={t.image_url}
+                                        alt={t.spec_number}
+                                        fill
+                                        className="object-contain p-3 group-hover:scale-110 transition-transform duration-300"
+                                      />
+                                    </div>
+                                  ) : (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-blue-100 rounded-lg mb-2 flex items-center justify-center">
+                                      <Cable className="h-10 w-10 text-slate-400" />
+                                    </div>
+                                  )}
+                                  <p className="text-xs font-inter font-bold text-center text-slate-700">{t.spec_number}</p>
+                                </div>
+                              ))}
+                          </div>
                         </div>
                       </div>
                     </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          {/* Tab Terminals Tab */}
+          <TabsContent value="tab" className="space-y-8">
+            <Card className="border-2 border-orange-200 bg-gradient-to-br from-orange-50 via-white to-amber-50 shadow-xl">
+              <CardHeader className="pb-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                      {t('terminalTypes.tab.categoryTitle')}
+                    </CardTitle>
+                    <CardDescription className="text-lg mt-3 text-slate-600">
+                      {t('terminalTypes.tab.categoryDescription')}
+                    </CardDescription>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <Badge className="bg-gradient-to-r from-orange-600 to-red-600 text-white text-lg px-6 py-2 font-inter font-semibold">
+                    {t('terminalTypes.tab.badge')}
+                  </Badge>
+                </div>
+              </CardHeader>
+            </Card>
 
-          {/* Terminal Removal */}
-          <Card className="border-red-200 bg-red-50">
-            <CardHeader>
-              <CardTitle className="text-red-900">{t('installation.terminalRemoval.title')}</CardTitle>
-              <CardDescription className="text-red-700">
-                {t('installation.terminalRemoval.description')}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ol className="space-y-3 text-sm text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-red-600 flex-shrink-0">1.</span>
-                  <span>{t('installation.terminalRemoval.steps.1')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-red-600 flex-shrink-0">2.</span>
-                  <span>{t('installation.terminalRemoval.steps.2')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-red-600 flex-shrink-0">3.</span>
-                  <span>{t('installation.terminalRemoval.steps.3')}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="font-bold text-red-600 flex-shrink-0">4.</span>
-                  <span>{t('installation.terminalRemoval.steps.4')}</span>
-                </li>
-              </ol>
-            </CardContent>
-          </Card>
-        </section>
+            <div className="grid gap-8">
+              {TERMINAL_SUFFIXES.filter(t => t.category === 'tab').map((terminal) => (
+                <Card key={terminal.suffix} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-slate-200">
+                  <CardHeader className="bg-gradient-to-r from-slate-50 to-orange-50 border-b-2 border-slate-200">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-3">
+                          <Badge variant="outline" className="text-lg px-4 py-1 border-2 border-orange-600 text-orange-700 font-inter font-bold">
+                            {terminal.suffix}
+                          </Badge>
+                          <CardTitle className="text-2xl font-inter font-bold text-slate-900">{terminal.name}</CardTitle>
+                        </div>
+                        <CardDescription className="text-base text-slate-600">
+                          {terminal.description}
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid lg:grid-cols-2 gap-10">
+                      {/* Left Column - Specs & Features */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.technicalSpecifications')}
+                          </h4>
+                          <div className="space-y-3">
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-orange-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.wireGauge')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.wireGauge}</span>
+                            </div>
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-orange-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.currentRating')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.currentRating}</span>
+                            </div>
+                          </div>
+                        </div>
 
-        {/* Common Mistakes Section */}
-        <section className="mb-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('commonMistakes.sectionTitle')}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {t('commonMistakes.sectionDescription')}
-            </p>
-          </div>
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.keyFeatures')}
+                          </h4>
+                          <ul className="space-y-2">
+                            {terminal.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {COMMON_MISTAKES.map((item) => (
-              <Card key={item.mistake} className="border-amber-200 hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="h-6 w-6 text-amber-600 flex-shrink-0 mt-1" />
-                    <div>
-                      <CardTitle className="text-lg text-amber-900">{item.mistake}</CardTitle>
+                      {/* Right Column - Applications */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.typicalApplications')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {terminal.applications.map((app, idx) => (
+                              <li key={idx} className="flex items-start gap-3 p-3 bg-gradient-to-r from-white to-orange-50 rounded-lg border border-slate-200">
+                                <ArrowRight className="h-5 w-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{app}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Terminal Images */}
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.availableTerminals')}
+                          </h4>
+                          <div className="grid grid-cols-2 gap-4">
+                            {terminalsByCategory.tab
+                              .filter(t => t.terminal_type.includes(terminal.suffix))
+                              .slice(0, 4)
+                              .map((t) => (
+                                <div key={t.id} className="group border-2 border-slate-200 rounded-xl p-3 hover:shadow-lg transition-all duration-300 hover:border-orange-400 bg-white">
+                                  {t.image_url ? (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-50 to-orange-50 rounded-lg mb-2 relative overflow-hidden">
+                                      <Image
+                                        src={t.image_url}
+                                        alt={t.spec_number}
+                                        fill
+                                        className="object-contain p-3 group-hover:scale-110 transition-transform duration-300"
+                                      />
+                                    </div>
+                                  ) : (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-orange-100 rounded-lg mb-2 flex items-center justify-center">
+                                      <Zap className="h-10 w-10 text-slate-400" />
+                                    </div>
+                                  )}
+                                  <p className="text-xs font-inter font-bold text-center text-slate-700">{t.spec_number}</p>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          {/* PCB Terminals Tab */}
+          <TabsContent value="pcb" className="space-y-8">
+            <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 via-white to-emerald-50 shadow-xl">
+              <CardHeader className="pb-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                      {t('terminalTypes.pcb.categoryTitle')}
+                    </CardTitle>
+                    <CardDescription className="text-lg mt-3 text-slate-600">
+                      {t('terminalTypes.pcb.categoryDescription')}
+                    </CardDescription>
+                  </div>
+                  <Badge className="bg-gradient-to-r from-green-600 to-emerald-600 text-white text-lg px-6 py-2 font-inter font-semibold">
+                    {t('terminalTypes.pcb.badge')}
+                  </Badge>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <div className="grid gap-8">
+              {TERMINAL_SUFFIXES.filter(t => t.category === 'pcb').map((terminal) => (
+                <Card key={terminal.suffix} className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-slate-200">
+                  <CardHeader className="bg-gradient-to-r from-slate-50 to-green-50 border-b-2 border-slate-200">
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-4 mb-3">
+                          <Badge variant="outline" className="text-lg px-4 py-1 border-2 border-green-600 text-green-700 font-inter font-bold">
+                            {terminal.suffix}
+                          </Badge>
+                          <CardTitle className="text-2xl font-inter font-bold text-slate-900">{terminal.name}</CardTitle>
+                        </div>
+                        <CardDescription className="text-base text-slate-600">
+                          {terminal.description}
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid lg:grid-cols-2 gap-10">
+                      {/* Left Column - Specs & Features */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.technicalSpecifications')}
+                          </h4>
+                          <div className="space-y-3">
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-green-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.connectionType')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.wireGauge}</span>
+                            </div>
+                            <div className="flex justify-between p-3 bg-gradient-to-r from-slate-50 to-green-50 rounded-lg border border-slate-200">
+                              <span className="text-sm font-inter font-medium text-slate-600">{t('terminalTypes.labels.currentRating')}</span>
+                              <span className="text-sm font-inter font-bold text-slate-900">{terminal.currentRating}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.keyFeatures')}
+                          </h4>
+                          <ul className="space-y-2">
+                            {terminal.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Right Column - Applications */}
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.typicalApplications')}
+                          </h4>
+                          <ul className="space-y-3">
+                            {terminal.applications.map((app, idx) => (
+                              <li key={idx} className="flex items-start gap-3 p-3 bg-gradient-to-r from-white to-green-50 rounded-lg border border-slate-200">
+                                <ArrowRight className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                                <span className="text-sm font-inter text-slate-700">{app}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Terminal Images */}
+                        <div>
+                          <h4 className="font-inter font-bold text-base text-slate-800 mb-4">
+                            {t('terminalTypes.labels.availableTerminals')}
+                          </h4>
+                          <div className="grid grid-cols-2 gap-4">
+                            {terminalsByCategory.pcb
+                              .slice(0, 4)
+                              .map((t) => (
+                                <div key={t.id} className="group border-2 border-slate-200 rounded-xl p-3 hover:shadow-lg transition-all duration-300 hover:border-green-400 bg-white">
+                                  {t.image_url ? (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-50 to-green-50 rounded-lg mb-2 relative overflow-hidden">
+                                      <Image
+                                        src={t.image_url}
+                                        alt={t.spec_number}
+                                        fill
+                                        className="object-contain p-3 group-hover:scale-110 transition-transform duration-300"
+                                      />
+                                    </div>
+                                  ) : (
+                                    <div className="aspect-square bg-gradient-to-br from-slate-100 to-green-100 rounded-lg mb-2 flex items-center justify-center">
+                                      <CircuitBoard className="h-10 w-10 text-slate-400" />
+                                    </div>
+                                  )}
+                                  <p className="text-xs font-inter font-bold text-center text-slate-700">{t.spec_number}</p>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+        </Tabs>
+      </SectionContainer>
+
+      {/* Technical Specifications Section */}
+      <SectionContainer variant="gradient" spacing="large">
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-4xl font-inter font-bold text-slate-900 mb-6">
+            {t('technicalSpecs.sectionTitle')}
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {t('technicalSpecs.sectionDescription')}
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" data-aos="fade-up" data-aos-delay="100">
+          {TECHNICAL_SPECS.map((spec, idx) => (
+            <Card key={idx} className="group text-center hover:shadow-2xl transition-all duration-300 border-2 border-slate-200 hover:border-blue-400 bg-white">
+              <CardContent className="pt-8 pb-8">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <spec.icon className="h-10 w-10 text-blue-600" />
+                </div>
+                <h3 className="font-inter font-bold text-lg mb-3 text-slate-900">{spec.title}</h3>
+                <p className="text-3xl font-inter font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 mb-3">
+                  {spec.value}
+                </p>
+                <p className="text-sm text-slate-600 leading-relaxed">{spec.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Additional Technical Details */}
+        <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-indigo-50" data-aos="fade-up">
+          <CardHeader className="pb-6">
+            <CardTitle className="text-2xl font-inter font-bold text-slate-900">
+              {t('technicalSpecs.materialDetails.title')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid lg:grid-cols-2 gap-10">
+              <div>
+                <h4 className="font-inter font-bold text-lg mb-4 text-slate-800">
+                  {t('technicalSpecs.materialDetails.contactMaterial.heading')}
+                </h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.contactMaterial.baseMaterial')}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.contactMaterial.plating')}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.contactMaterial.matingArea')}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-inter font-bold text-lg mb-4 text-slate-800">
+                  {t('technicalSpecs.materialDetails.performanceCharacteristics.heading')}
+                </h4>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <Activity className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.performanceCharacteristics.contactResistance')}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <Activity className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.performanceCharacteristics.insertionForce')}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
+                    <Activity className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm font-inter text-slate-700">
+                      {t('technicalSpecs.materialDetails.performanceCharacteristics.operatingTemperature')}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </SectionContainer>
+
+      {/* Installation Guide Section */}
+      <SectionContainer variant="default" spacing="large">
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-4xl font-inter font-bold text-slate-900 mb-6">
+            {t('installation.sectionTitle')}
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {t('installation.sectionDescription')}
+          </p>
+        </div>
+
+        {/* Required Tools */}
+        <Card className="mb-12 border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50" data-aos="fade-up">
+          <CardHeader className="pb-6">
+            <CardTitle className="flex items-center gap-3 text-2xl font-inter font-bold text-slate-900">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
+                <WrenchIcon className="h-6 w-6 text-white" />
+              </div>
+              {t('installation.requiredTools.title')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-6 bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300">
+                <h4 className="font-inter font-bold text-lg mb-3 text-slate-900">
+                  {t('installation.requiredTools.crimpingTool.title')}
+                </h4>
+                <p className="text-sm text-slate-600">
+                  {t('installation.requiredTools.crimpingTool.description')}
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300">
+                <h4 className="font-inter font-bold text-lg mb-3 text-slate-900">
+                  {t('installation.requiredTools.wireStripper.title')}
+                </h4>
+                <p className="text-sm text-slate-600">
+                  {t('installation.requiredTools.wireStripper.description')}
+                </p>
+              </div>
+              <div className="p-6 bg-white rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300">
+                <h4 className="font-inter font-bold text-lg mb-3 text-slate-900">
+                  {t('installation.requiredTools.insertionTool.title')}
+                </h4>
+                <p className="text-sm text-slate-600">
+                  {t('installation.requiredTools.insertionTool.description')}
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Installation Steps */}
+        <div className="grid gap-6 mb-12" data-aos="fade-up" data-aos-delay="100">
+          {INSTALLATION_STEPS.map((step, index) => (
+            <Card key={step.step} className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-slate-200">
+              <CardContent className="p-8">
+                <div className="flex gap-8">
+                  <div className="flex-shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center text-2xl font-inter font-bold shadow-lg">
+                      {step.step}
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div>
-                    <h4 className="font-semibold text-sm text-red-700 mb-1">{t('commonMistakes.consequenceLabel')}</h4>
-                    <p className="text-sm text-gray-700">{item.consequence}</p>
-                  </div>
-                  <Separator />
-                  <div>
-                    <h4 className="font-semibold text-sm text-green-700 mb-1">{t('commonMistakes.solutionLabel')}</h4>
-                    <p className="text-sm text-gray-700">{item.solution}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Download Resources Section */}
-        <section className="mb-16">
-          <Card className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-            <CardContent className="p-8">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">{t('downloadResources.title')}</h2>
-                  <p className="text-blue-100 mb-4">
-                    {t('downloadResources.description')}
-                  </p>
-                  <div className="flex gap-4">
-                    <Button variant="secondary" size="lg">
-                      <Download className="mr-2 h-5 w-5" />
-                      {t('downloadResources.specsPdf')}
-                    </Button>
-                    <Button variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                      <Download className="mr-2 h-5 w-5" />
-                      {t('downloadResources.installationPdf')}
-                    </Button>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-inter font-bold mb-3 text-slate-900">{step.title}</h3>
+                    <p className="text-slate-700 mb-4 leading-relaxed">{step.description}</p>
+                    <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl">
+                      <AlertTriangle className="h-6 w-6 text-amber-600 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="text-sm font-inter font-bold text-amber-900 mb-1">{t('installation.importantLabel')}</p>
+                        <p className="text-sm text-amber-800">{step.warning}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <Download className="h-24 w-24 text-white/20" />
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
-        {/* Related Resources */}
-        <section>
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {t('relatedResources.sectionTitle')}
-            </h2>
+        {/* Terminal Removal */}
+        <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-pink-50" data-aos="fade-up">
+          <CardHeader className="pb-6">
+            <CardTitle className="text-2xl font-inter font-bold text-red-900">
+              {t('installation.terminalRemoval.title')}
+            </CardTitle>
+            <CardDescription className="text-red-700 text-base">
+              {t('installation.terminalRemoval.description')}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ol className="space-y-4">
+              <li className="flex items-start gap-4 p-4 bg-white rounded-xl border border-red-200">
+                <span className="font-inter font-bold text-red-600 flex-shrink-0 text-lg">1.</span>
+                <span className="text-slate-700">{t('installation.terminalRemoval.steps.1')}</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white rounded-xl border border-red-200">
+                <span className="font-inter font-bold text-red-600 flex-shrink-0 text-lg">2.</span>
+                <span className="text-slate-700">{t('installation.terminalRemoval.steps.2')}</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white rounded-xl border border-red-200">
+                <span className="font-inter font-bold text-red-600 flex-shrink-0 text-lg">3.</span>
+                <span className="text-slate-700">{t('installation.terminalRemoval.steps.3')}</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-white rounded-xl border border-red-200">
+                <span className="font-inter font-bold text-red-600 flex-shrink-0 text-lg">4.</span>
+                <span className="text-slate-700">{t('installation.terminalRemoval.steps.4')}</span>
+              </li>
+            </ol>
+          </CardContent>
+        </Card>
+      </SectionContainer>
+
+      {/* Common Mistakes Section */}
+      <SectionContainer variant="gradient" spacing="large">
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-4xl font-inter font-bold text-slate-900 mb-6">
+            {t('commonMistakes.sectionTitle')}
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {t('commonMistakes.sectionDescription')}
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="100">
+          {COMMON_MISTAKES.map((item, index) => (
+            <Card key={index} className="border-2 border-amber-200 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-amber-50 to-orange-50">
+              <CardHeader className="pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="h-5 w-5 text-white" />
+                  </div>
+                  <CardTitle className="text-xl font-inter font-bold text-amber-900">{item.mistake}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="p-4 bg-red-50 rounded-xl border border-red-200">
+                  <h4 className="font-inter font-bold text-sm text-red-800 mb-2">
+                    {t('commonMistakes.consequenceLabel')}
+                  </h4>
+                  <p className="text-sm text-slate-700">{item.consequence}</p>
+                </div>
+                <div className="p-4 bg-green-50 rounded-xl border border-green-200">
+                  <h4 className="font-inter font-bold text-sm text-green-800 mb-2">
+                    {t('commonMistakes.solutionLabel')}
+                  </h4>
+                  <p className="text-sm text-slate-700">{item.solution}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </SectionContainer>
+
+      {/* Download Resources Section */}
+      <SectionContainer variant="dark" spacing="medium">
+        <div className="text-center" data-aos="fade-up">
+          <h2 className="text-3xl font-inter font-bold text-white mb-6">
+            {t('downloadResources.title')}
+          </h2>
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            {t('downloadResources.description')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Download className="mr-2 h-5 w-5" />
+              {t('downloadResources.specsPdf')}
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900">
+              <Download className="mr-2 h-5 w-5" />
+              {t('downloadResources.installationPdf')}
+            </Button>
           </div>
+        </div>
+      </SectionContainer>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href={`/${locale}/catalog`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
-                <CardHeader>
-                  <Cable className="h-10 w-10 text-blue-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>{t('relatedResources.browseCatalog.title')}</CardTitle>
-                  <CardDescription>
-                    {t('relatedResources.browseCatalog.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="outline" className="w-full">
-                    {t('relatedResources.browseCatalog.button')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
+      {/* Related Resources */}
+      <SectionContainer variant="gradient" spacing="large">
+        <div className="text-center mb-12" data-aos="fade-up">
+          <h2 className="text-3xl font-inter font-bold text-slate-900 mb-4">
+            {t('relatedResources.sectionTitle')}
+          </h2>
+        </div>
 
-            <Link href={`/${locale}/resources/connector-guide`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
-                <CardHeader>
-                  <Info className="h-10 w-10 text-green-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>{t('relatedResources.selectionGuide.title')}</CardTitle>
-                  <CardDescription>
-                    {t('relatedResources.selectionGuide.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="outline" className="w-full">
-                    {t('relatedResources.selectionGuide.button')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
+        <div className="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="100">
+          <Link href={`/${locale}/catalog`}>
+            <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-slate-200 hover:border-blue-400 bg-white h-full">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Cable className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="font-inter font-bold text-xl">{t('relatedResources.browseCatalog.title')}</CardTitle>
+                <CardDescription className="text-base">
+                  {t('relatedResources.browseCatalog.description')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-300">
+                  {t('relatedResources.browseCatalog.button')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
 
-            <Link href={`/${locale}/resources`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer group">
-                <CardHeader>
-                  <Download className="h-10 w-10 text-purple-600 mb-2 group-hover:scale-110 transition-transform" />
-                  <CardTitle>{t('relatedResources.allResources.title')}</CardTitle>
-                  <CardDescription>
-                    {t('relatedResources.allResources.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="outline" className="w-full">
-                    {t('relatedResources.allResources.button')}
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-        </section>
-      </div>
+          <Link href={`/${locale}/resources/connector-guide`}>
+            <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-slate-200 hover:border-green-400 bg-white h-full">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-600 to-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Info className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="font-inter font-bold text-xl">{t('relatedResources.selectionGuide.title')}</CardTitle>
+                <CardDescription className="text-base">
+                  {t('relatedResources.selectionGuide.description')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full group-hover:bg-green-600 group-hover:text-white group-hover:border-green-600 transition-all duration-300">
+                  {t('relatedResources.selectionGuide.button')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
+
+          <Link href={`/${locale}/resources`}>
+            <Card className="group hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-slate-200 hover:border-purple-400 bg-white h-full">
+              <CardHeader className="pb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Download className="h-6 w-6 text-white" />
+                </div>
+                <CardTitle className="font-inter font-bold text-xl">{t('relatedResources.allResources.title')}</CardTitle>
+                <CardDescription className="text-base">
+                  {t('relatedResources.allResources.description')}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button variant="outline" className="w-full group-hover:bg-purple-600 group-hover:text-white group-hover:border-purple-600 transition-all duration-300">
+                  {t('relatedResources.allResources.button')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </CardContent>
+            </Card>
+          </Link>
+        </div>
+      </SectionContainer>
     </div>
   )
 }

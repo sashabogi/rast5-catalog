@@ -268,11 +268,11 @@
       "title": "¿Qué orientación funciona mejor?",
       "description": "Elige cómo debe montarse el conector en relación a tu placa o cable",
       "horizontal": {
-        "title": "Horizontal (Paralelo)",
+        "title": "Bandera (Paralelo)",
         "description": "El cuerpo del conector es paralelo a la placa o cable. Ideal para diseños con restricciones de espacio."
       },
       "vertical": {
-        "title": "Vertical (Perpendicular)",
+        "title": "Straight (Perpendicular)",
         "description": "El cuerpo del conector es perpendicular a la placa o cable. Gestión de cables más fácil."
       },
       "either": {
@@ -302,13 +302,13 @@
       "resultsTitle": "Tus Conectores Compatibles",
       "basedOn": "Basado en tus selecciones: {poleCount} polos, {orientation}, {applicationType}",
       "sockets": {
-        "femaleBadge": "Hembra",
+        "femaleBadge": "Hembra-Holder",
         "title": "Conectores Socket",
         "found": "{count} socket compatible encontrado",
         "foundPlural": "{count} sockets compatibles encontrados"
       },
       "tabs": {
-        "maleBadge": "Macho",
+        "maleBadge": "Macho-Holder",
         "title": "Conectores Tab",
         "found": "{count} tab compatible encontrado",
         "foundPlural": "{count} tabs compatibles encontrados"
@@ -386,7 +386,7 @@
       "socket": {
         "categoryTitle": "Terminales Socket (Hembra)",
         "categoryDescription": "Terminales tipo receptáculo que aceptan terminales tab para conexiones eléctricas seguras",
-        "badge": "Hembra",
+        "badge": "Hembra-Holder",
         "FR": {
           "name": "Receptáculo Hembra",
           "description": "Terminal socket hembra estándar con orientación de montaje plano",
@@ -439,7 +439,7 @@
       "tab": {
         "categoryTitle": "Terminales Tab (Macho)",
         "categoryDescription": "Terminales tipo cuchilla que se insertan en terminales socket para conexiones de acoplamiento",
-        "badge": "Macho",
+        "badge": "Macho-Holder",
         "VT": {
           "name": "Tab Vertical",
           "description": "Terminal tab macho con orientación de cuchilla vertical",

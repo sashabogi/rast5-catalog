@@ -268,11 +268,11 @@
       "title": "Qual orientação funciona melhor?",
       "description": "Escolha como o conector deve ser montado em relação à sua placa ou fio",
       "horizontal": {
-        "title": "Horizontal (Paralelo)",
+        "title": "Bandera (Paralelo)",
         "description": "O corpo do conector é paralelo à placa ou fio. Melhor para designs com restrições de espaço."
       },
       "vertical": {
-        "title": "Vertical (Perpendicular)",
+        "title": "Straight (Perpendicular)",
         "description": "O corpo do conector é perpendicular à placa ou fio. Gerenciamento de cabos mais fácil."
       },
       "either": {
@@ -302,13 +302,13 @@
       "resultsTitle": "Seus Conectores Correspondentes",
       "basedOn": "Com base em suas seleções: {poleCount} polos, {orientation}, {applicationType}",
       "sockets": {
-        "femaleBadge": "Fêmea",
+        "femaleBadge": "Fêmea-Holder",
         "title": "Conectores Socket",
         "found": "{count} socket correspondente encontrado",
         "foundPlural": "{count} sockets correspondentes encontrados"
       },
       "tabs": {
-        "maleBadge": "Macho",
+        "maleBadge": "Macho-Holder",
         "title": "Conectores Tab",
         "found": "{count} tab correspondente encontrado",
         "foundPlural": "{count} tabs correspondentes encontrados"
@@ -386,7 +386,7 @@
       "socket": {
         "categoryTitle": "Terminais Socket (Fêmea)",
         "categoryDescription": "Terminais tipo receptáculo que aceitam terminais tab para conexões elétricas seguras",
-        "badge": "Fêmea",
+        "badge": "Fêmea-Holder",
         "FR": {
           "name": "Receptáculo Fêmea",
           "description": "Terminal socket fêmea padrão com orientação de montagem plana",
@@ -439,7 +439,7 @@
       "tab": {
         "categoryTitle": "Terminais Tab (Macho)",
         "categoryDescription": "Terminais tipo lâmina que se inserem em terminais socket para conexões de acoplamento",
-        "badge": "Macho",
+        "badge": "Macho-Holder",
         "VT": {
           "name": "Tab Vertical",
           "description": "Terminal tab macho com orientação de lâmina vertical",

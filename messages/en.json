@@ -268,11 +268,11 @@
       "title": "What orientation works best?",
       "description": "Choose how the connector should mount relative to your board or wire",
       "horizontal": {
-        "title": "Horizontal (Parallel)",
+        "title": "Flag (Parallel)",
         "description": "Connector body is parallel to the board or wire. Best for space-constrained designs."
       },
       "vertical": {
-        "title": "Vertical (Perpendicular)",
+        "title": "Straight (Perpendicular)",
         "description": "Connector body is perpendicular to the board or wire. Easier cable management."
       },
       "either": {
@@ -302,13 +302,13 @@
       "resultsTitle": "Your Connector Matches",
       "basedOn": "Based on your selections: {poleCount}-pole, {orientation}, {applicationType}",
       "sockets": {
-        "femaleBadge": "Female",
+        "femaleBadge": "Female-Holder",
         "title": "Socket Connectors",
         "found": "{count} matching socket found",
         "foundPlural": "{count} matching sockets found"
       },
       "tabs": {
-        "maleBadge": "Male",
+        "maleBadge": "Male-Holder",
         "title": "Tab Connectors",
         "found": "{count} matching tab found",
         "foundPlural": "{count} matching tabs found"
@@ -384,9 +384,9 @@
       "tabTab": "Tab Terminals",
       "pcbTab": "PCB Terminals",
       "socket": {
-        "categoryTitle": "Socket Terminals (Female)",
+        "categoryTitle": "Socket Terminals (Female-Holder)",
         "categoryDescription": "Receptacle-style terminals that accept tab terminals for secure electrical connections",
-        "badge": "Female",
+        "badge": "Female-Holder",
         "FR": {
           "name": "Female Receptacle",
           "description": "Standard female socket terminal with flat mounting orientation",
@@ -437,9 +437,9 @@
         }
       },
       "tab": {
-        "categoryTitle": "Tab Terminals (Male)",
+        "categoryTitle": "Tab Terminals (Male-Holder)",
         "categoryDescription": "Blade-style terminals that insert into socket terminals for mating connections",
-        "badge": "Male",
+        "badge": "Male-Holder",
         "VT": {
           "name": "Vertical Tab",
           "description": "Male tab terminal with vertical blade orientation",

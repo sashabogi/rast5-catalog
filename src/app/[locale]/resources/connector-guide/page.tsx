@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import { PageHero } from '@/components/shared/PageHero'
+import { SectionContainer } from '@/components/shared/SectionContainer'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -22,7 +24,14 @@ import {
   CheckCircle,
   AlertCircle,
   Play,
-  Loader2
+  Loader2,
+  Compass,
+  Cable,
+  CircuitBoard,
+  Settings,
+  Shield,
+  Info,
+  ArrowRight
 } from 'lucide-react'
 import Link from 'next/link'
 
@@ -201,120 +210,230 @@ export default function ConnectorGuidePage() {
     setWizardState(prev => ({ ...prev, ...updates }))
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Header */}
-      <div className="bg-white border-b">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h1 className="text-4xl font-bold text-gray-900">
-            {t('pageTitle')}
-          </h1>
-          <p className="text-lg text-gray-600 mt-2">
-            {t('pageDescription')}
-          </p>
-        </div>
-      </div>
+  const stepTitles = [
+    t('step1.title'),
+    t('step2.title'),
+    t('step3.title'),
+    t('step4.title'),
+    t('step5.resultsTitle')
+  ]
 
-      {/* Progress Bar */}
-      <div className="bg-white border-b">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-gray-700">
-              {t('progress.step')} {step} {t('progress.of')} {totalSteps}
-            </span>
-            <span className="text-sm font-medium text-gray-700">
-              {Math.round(progress)}% {t('progress.complete')}
-            </span>
+  const stepIcons = [
+    Package,
+    Zap,
+    ArrowUpDown,
+    Settings,
+    CheckCircle
+  ]
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      {/* Hero Section */}
+      <PageHero
+        title={
+          <span className="font-inter font-bold">
+            {t('pageTitle')}
+          </span>
+        }
+        subtitle={t('pageDescription')}
+        icon={
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl">
+            <Compass className="w-10 h-10 text-white" />
           </div>
-          <Progress value={progress} className="h-2" />
+        }
+        isDark={true}
+      />
+
+      {/* Progress Indicator */}
+      <div className="bg-white border-b shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* Steps Navigation */}
+          <div className="flex items-center justify-between mb-6">
+            {stepTitles.map((title, index) => {
+              const Icon = stepIcons[index]
+              const isActive = index + 1 === step
+              const isCompleted = index + 1 < step
+
+              return (
+                <div
+                  key={index}
+                  className={`flex flex-col items-center ${
+                    index < stepTitles.length - 1 ? 'flex-1' : ''
+                  }`}
+                >
+                  <div className="relative">
+                    <div
+                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        isActive
+                          ? 'bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg scale-110'
+                          : isCompleted
+                          ? 'bg-green-600'
+                          : 'bg-slate-300'
+                      }`}
+                    >
+                      {isCompleted ? (
+                        <CheckCircle className="h-6 w-6 text-white" />
+                      ) : (
+                        <Icon className="h-6 w-6 text-white" />
+                      )}
+                    </div>
+                    {index < stepTitles.length - 1 && (
+                      <div
+                        className={`absolute top-1/2 left-full w-full h-1 -translate-y-1/2 transition-all duration-500 ${
+                          isCompleted ? 'bg-green-600' : 'bg-slate-300'
+                        }`}
+                        style={{ width: 'calc(100% - 3rem)' }}
+                      />
+                    )}
+                  </div>
+                  <span
+                    className={`mt-3 text-xs font-inter font-semibold transition-colors duration-300 ${
+                      isActive
+                        ? 'text-blue-600'
+                        : isCompleted
+                        ? 'text-green-600'
+                        : 'text-slate-500'
+                    }`}
+                  >
+                    {title}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Progress Bar */}
+          <div className="relative">
+            <Progress value={progress} className="h-3 bg-slate-200" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-xs font-inter font-bold text-white mix-blend-difference">
+                {Math.round(progress)}%
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Step 1: Application Type */}
         {step === 1 && (
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">{t('step1.title')}</CardTitle>
-              <CardDescription>
+          <Card className="shadow-2xl border-2 border-slate-200" data-aos="fade-up">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-blue-50 border-b-2 border-slate-200">
+              <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                {t('step1.title')}
+              </CardTitle>
+              <CardDescription className="text-lg text-slate-600 mt-2">
                 {t('step1.description')}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="p-8">
               <RadioGroup
                 value={wizardState.applicationType || ''}
                 onValueChange={(value) => updateState({ applicationType: value as ApplicationType })}
               >
-                <div className="grid gap-4">
+                <div className="grid gap-6">
                   {/* Wire-to-Wire */}
                   <div
-                    className={`flex items-start space-x-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group relative flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.applicationType === 'wire-to-wire'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg'
+                        : 'border-slate-200 hover:border-blue-300 bg-white'
                     }`}
                     onClick={() => updateState({ applicationType: 'wire-to-wire' })}
+                    data-aos="fade-up"
+                    data-aos-delay="100"
                   >
-                    <RadioGroupItem value="wire-to-wire" id="wire-to-wire" />
+                    <RadioGroupItem value="wire-to-wire" id="wire-to-wire" className="mt-1" />
                     <div className="flex-1">
-                      <Label htmlFor="wire-to-wire" className="text-lg font-semibold cursor-pointer">
-                        {t('step1.wireToWire.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step1.wireToWire.description')}
-                      </p>
-                      <div className="flex gap-2 mt-2">
-                        <Badge variant="outline">{t('step1.wireToWire.socketBadge')}</Badge>
-                        <Badge variant="outline">{t('step1.wireToWire.tabBadge')}</Badge>
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <Label htmlFor="wire-to-wire" className="text-xl font-inter font-bold cursor-pointer text-slate-900">
+                            {t('step1.wireToWire.title')}
+                          </Label>
+                          <p className="text-base text-slate-600 mt-2">
+                            {t('step1.wireToWire.description')}
+                          </p>
+                        </div>
+                        <Cable className="h-8 w-8 text-blue-600 group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="flex gap-2 mt-4">
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.wireToWire.socketBadge')}
+                        </Badge>
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.wireToWire.tabBadge')}
+                        </Badge>
                       </div>
                     </div>
                   </div>
 
                   {/* Wire-to-Board */}
                   <div
-                    className={`flex items-start space-x-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group relative flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.applicationType === 'wire-to-board'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 shadow-lg'
+                        : 'border-slate-200 hover:border-purple-300 bg-white'
                     }`}
                     onClick={() => updateState({ applicationType: 'wire-to-board' })}
+                    data-aos="fade-up"
+                    data-aos-delay="200"
                   >
-                    <RadioGroupItem value="wire-to-board" id="wire-to-board" />
+                    <RadioGroupItem value="wire-to-board" id="wire-to-board" className="mt-1" />
                     <div className="flex-1">
-                      <Label htmlFor="wire-to-board" className="text-lg font-semibold cursor-pointer">
-                        {t('step1.wireToBoard.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step1.wireToBoard.description')}
-                      </p>
-                      <div className="flex gap-2 mt-2">
-                        <Badge variant="outline">{t('step1.wireToBoard.socketBadge')}</Badge>
-                        <Badge variant="outline">{t('step1.wireToBoard.pcbBadge')}</Badge>
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <Label htmlFor="wire-to-board" className="text-xl font-inter font-bold cursor-pointer text-slate-900">
+                            {t('step1.wireToBoard.title')}
+                          </Label>
+                          <p className="text-base text-slate-600 mt-2">
+                            {t('step1.wireToBoard.description')}
+                          </p>
+                        </div>
+                        <CircuitBoard className="h-8 w-8 text-purple-600 group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="flex gap-2 mt-4">
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.wireToBoard.socketBadge')}
+                        </Badge>
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.wireToBoard.pcbBadge')}
+                        </Badge>
                       </div>
                     </div>
                   </div>
 
                   {/* Board-to-Board */}
                   <div
-                    className={`flex items-start space-x-4 p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group relative flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.applicationType === 'board-to-board'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-green-500 bg-gradient-to-br from-green-50 to-emerald-50 shadow-lg'
+                        : 'border-slate-200 hover:border-green-300 bg-white'
                     }`}
                     onClick={() => updateState({ applicationType: 'board-to-board' })}
+                    data-aos="fade-up"
+                    data-aos-delay="300"
                   >
-                    <RadioGroupItem value="board-to-board" id="board-to-board" />
+                    <RadioGroupItem value="board-to-board" id="board-to-board" className="mt-1" />
                     <div className="flex-1">
-                      <Label htmlFor="board-to-board" className="text-lg font-semibold cursor-pointer">
-                        {t('step1.boardToBoard.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step1.boardToBoard.description')}
-                      </p>
-                      <div className="flex gap-2 mt-2">
-                        <Badge variant="outline">{t('step1.boardToBoard.pcbBadge1')}</Badge>
-                        <Badge variant="outline">{t('step1.boardToBoard.pcbBadge2')}</Badge>
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <Label htmlFor="board-to-board" className="text-xl font-inter font-bold cursor-pointer text-slate-900">
+                            {t('step1.boardToBoard.title')}
+                          </Label>
+                          <p className="text-base text-slate-600 mt-2">
+                            {t('step1.boardToBoard.description')}
+                          </p>
+                        </div>
+                        <Package className="h-8 w-8 text-green-600 group-hover:scale-110 transition-transform" />
+                      </div>
+                      <div className="flex gap-2 mt-4">
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.boardToBoard.pcbBadge1')}
+                        </Badge>
+                        <Badge variant="outline" className="bg-white">
+                          {t('step1.boardToBoard.pcbBadge2')}
+                        </Badge>
                       </div>
                     </div>
                   </div>
@@ -326,46 +445,45 @@ export default function ConnectorGuidePage() {
 
         {/* Step 2: Pole Count */}
         {step === 2 && (
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">{t('step2.title')}</CardTitle>
-              <CardDescription>
+          <Card className="shadow-2xl border-2 border-slate-200" data-aos="fade-up">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-orange-50 border-b-2 border-slate-200">
+              <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                {t('step2.title')}
+              </CardTitle>
+              <CardDescription className="text-lg text-slate-600 mt-2">
                 {t('step2.description')}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-8">
               <RadioGroup
                 value={wizardState.poleCount?.toString() || ''}
                 onValueChange={(value) => updateState({ poleCount: parseInt(value) })}
               >
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                   {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((count) => (
                     <div
                       key={count}
-                      className={`relative flex items-center justify-center p-6 border-2 rounded-lg cursor-pointer transition-all ${
+                      className={`group relative flex flex-col items-center justify-center p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                         wizardState.poleCount === count
-                          ? 'border-blue-500 bg-blue-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-orange-500 bg-gradient-to-br from-orange-50 to-amber-50 shadow-lg scale-105'
+                          : 'border-slate-200 hover:border-orange-300 bg-white'
                       }`}
                       onClick={() => updateState({ poleCount: count })}
+                      data-aos="zoom-in"
+                      data-aos-delay={50 * count}
                     >
                       <RadioGroupItem
                         value={count.toString()}
                         id={`pole-${count}`}
-                        className="absolute top-2 right-2"
+                        className="absolute top-3 right-3"
                       />
-                      <div className="text-center">
-                        <Zap className="h-8 w-8 mx-auto mb-2 text-gray-700" />
-                        <Label
-                          htmlFor={`pole-${count}`}
-                          className="text-2xl font-bold cursor-pointer"
-                        >
-                          {count}
-                        </Label>
-                        <p className="text-xs text-gray-600 mt-1">
-                          {count === 1 ? t('step2.pole') : t('step2.poles')}
-                        </p>
-                      </div>
+                      <Zap className="h-10 w-10 mb-3 text-orange-600 group-hover:scale-110 transition-transform" />
+                      <span className="text-3xl font-inter font-bold text-slate-900">
+                        {count}
+                      </span>
+                      <span className="text-sm text-slate-600 mt-1">
+                        {count === 1 ? t('step2.pole') : t('step2.poles')}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -376,79 +494,93 @@ export default function ConnectorGuidePage() {
 
         {/* Step 3: Orientation */}
         {step === 3 && (
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">{t('step3.title')}</CardTitle>
-              <CardDescription>
+          <Card className="shadow-2xl border-2 border-slate-200" data-aos="fade-up">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-green-50 border-b-2 border-slate-200">
+              <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                {t('step3.title')}
+              </CardTitle>
+              <CardDescription className="text-lg text-slate-600 mt-2">
                 {t('step3.description')}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-8">
               <RadioGroup
                 value={wizardState.orientation || ''}
                 onValueChange={(value) => updateState({ orientation: value as Orientation })}
               >
-                <div className="grid gap-4">
+                <div className="grid gap-6">
                   {/* Horizontal */}
                   <div
-                    className={`flex items-start space-x-4 p-6 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.orientation === 'horizontal'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-green-500 bg-gradient-to-br from-green-50 to-emerald-50 shadow-lg'
+                        : 'border-slate-200 hover:border-green-300 bg-white'
                     }`}
                     onClick={() => updateState({ orientation: 'horizontal' })}
+                    data-aos="fade-up"
+                    data-aos-delay="100"
                   >
-                    <RadioGroupItem value="horizontal" id="horizontal" />
-                    <div className="flex-1">
-                      <Label htmlFor="horizontal" className="text-lg font-semibold cursor-pointer flex items-center gap-2">
-                        <ArrowUpDown className="h-5 w-5 rotate-90" />
-                        {t('step3.horizontal.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step3.horizontal.description')}
-                      </p>
+                    <RadioGroupItem value="horizontal" id="horizontal" className="mt-1" />
+                    <div className="flex-1 flex items-start justify-between">
+                      <div>
+                        <Label htmlFor="horizontal" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-3">
+                          <ArrowUpDown className="h-6 w-6 rotate-90 text-green-600" />
+                          {t('step3.horizontal.title')}
+                        </Label>
+                        <p className="text-base text-slate-600 mt-2">
+                          {t('step3.horizontal.description')}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Vertical */}
                   <div
-                    className={`flex items-start space-x-4 p-6 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.orientation === 'vertical'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg'
+                        : 'border-slate-200 hover:border-blue-300 bg-white'
                     }`}
                     onClick={() => updateState({ orientation: 'vertical' })}
+                    data-aos="fade-up"
+                    data-aos-delay="200"
                   >
-                    <RadioGroupItem value="vertical" id="vertical" />
-                    <div className="flex-1">
-                      <Label htmlFor="vertical" className="text-lg font-semibold cursor-pointer flex items-center gap-2">
-                        <ArrowUpDown className="h-5 w-5" />
-                        {t('step3.vertical.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step3.vertical.description')}
-                      </p>
+                    <RadioGroupItem value="vertical" id="vertical" className="mt-1" />
+                    <div className="flex-1 flex items-start justify-between">
+                      <div>
+                        <Label htmlFor="vertical" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-3">
+                          <ArrowUpDown className="h-6 w-6 text-blue-600" />
+                          {t('step3.vertical.title')}
+                        </Label>
+                        <p className="text-base text-slate-600 mt-2">
+                          {t('step3.vertical.description')}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
                   {/* Either */}
                   <div
-                    className={`flex items-start space-x-4 p-6 border-2 rounded-lg cursor-pointer transition-all ${
+                    className={`group flex items-start space-x-4 p-6 border-2 rounded-2xl cursor-pointer transition-all duration-300 hover:shadow-xl ${
                       wizardState.orientation === 'either'
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-purple-500 bg-gradient-to-br from-purple-50 to-pink-50 shadow-lg'
+                        : 'border-slate-200 hover:border-purple-300 bg-white'
                     }`}
                     onClick={() => updateState({ orientation: 'either' })}
+                    data-aos="fade-up"
+                    data-aos-delay="300"
                   >
-                    <RadioGroupItem value="either" id="either" />
-                    <div className="flex-1">
-                      <Label htmlFor="either" className="text-lg font-semibold cursor-pointer flex items-center gap-2">
-                        <Package className="h-5 w-5" />
-                        {t('step3.either.title')}
-                      </Label>
-                      <p className="text-sm text-gray-600 mt-1">
-                        {t('step3.either.description')}
-                      </p>
+                    <RadioGroupItem value="either" id="either" className="mt-1" />
+                    <div className="flex-1 flex items-start justify-between">
+                      <div>
+                        <Label htmlFor="either" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-3">
+                          <Package className="h-6 w-6 text-purple-600" />
+                          {t('step3.either.title')}
+                        </Label>
+                        <p className="text-base text-slate-600 mt-2">
+                          {t('step3.either.description')}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -459,74 +591,94 @@ export default function ConnectorGuidePage() {
 
         {/* Step 4: Special Requirements */}
         {step === 4 && (
-          <Card className="shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl">{t('step4.title')}</CardTitle>
-              <CardDescription>
+          <Card className="shadow-2xl border-2 border-slate-200" data-aos="fade-up">
+            <CardHeader className="bg-gradient-to-r from-slate-50 to-purple-50 border-b-2 border-slate-200">
+              <CardTitle className="text-3xl font-inter font-bold text-slate-900">
+                {t('step4.title')}
+              </CardTitle>
+              <CardDescription className="text-lg text-slate-600 mt-2">
                 {t('step4.description')}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="p-8 space-y-6">
               {/* Locking Mechanism */}
-              <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+              <div
+                className="group flex items-start space-x-4 p-6 border-2 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-blue-300 bg-gradient-to-br from-white to-blue-50"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
                 <Checkbox
                   id="locking"
                   checked={wizardState.requiresLocking}
                   onCheckedChange={(checked) =>
                     updateState({ requiresLocking: checked as boolean })
                   }
+                  className="mt-1"
                 />
                 <div className="flex-1">
-                  <Label htmlFor="locking" className="text-base font-semibold cursor-pointer">
+                  <Label htmlFor="locking" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-blue-600" />
                     {t('step4.locking.title')}
                   </Label>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-base text-slate-600 mt-2">
                     {t('step4.locking.description')}
                   </p>
                 </div>
               </div>
 
               {/* Special Version */}
-              <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+              <div
+                className="group flex items-start space-x-4 p-6 border-2 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-purple-300 bg-gradient-to-br from-white to-purple-50"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
                 <Checkbox
                   id="special"
                   checked={wizardState.specialVersion}
                   onCheckedChange={(checked) =>
                     updateState({ specialVersion: checked as boolean })
                   }
+                  className="mt-1"
                 />
                 <div className="flex-1">
-                  <Label htmlFor="special" className="text-base font-semibold cursor-pointer">
+                  <Label htmlFor="special" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-2">
+                    <Settings className="h-5 w-5 text-purple-600" />
                     {t('step4.specialVersion.title')}
                   </Label>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-base text-slate-600 mt-2">
                     {t('step4.specialVersion.description')}
                   </p>
                 </div>
               </div>
 
               {/* Specific Keying */}
-              <div className="flex items-start space-x-3 p-4 border rounded-lg hover:bg-gray-50 transition-colors">
+              <div
+                className="group flex items-start space-x-4 p-6 border-2 rounded-2xl hover:shadow-lg transition-all duration-300 hover:border-green-300 bg-gradient-to-br from-white to-green-50"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
                 <Checkbox
                   id="keying"
                   checked={wizardState.specificKeying}
                   onCheckedChange={(checked) =>
                     updateState({ specificKeying: checked as boolean })
                   }
+                  className="mt-1"
                 />
                 <div className="flex-1">
-                  <Label htmlFor="keying" className="text-base font-semibold cursor-pointer">
+                  <Label htmlFor="keying" className="text-xl font-inter font-bold cursor-pointer text-slate-900 flex items-center gap-2">
+                    <Info className="h-5 w-5 text-green-600" />
                     {t('step4.keying.title')}
                   </Label>
-                  <p className="text-sm text-gray-600 mt-1">
+                  <p className="text-base text-slate-600 mt-2">
                     {t('step4.keying.description')}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <p className="text-sm text-blue-800 flex items-start gap-2">
-                  <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+              <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200" data-aos="fade-up" data-aos-delay="400">
+                <p className="text-base text-blue-800 flex items-start gap-3">
+                  <AlertCircle className="h-6 w-6 mt-0.5 flex-shrink-0" />
                   <span>
                     {t('step4.infoMessage')}
                   </span>
@@ -540,10 +692,10 @@ export default function ConnectorGuidePage() {
         {step === 5 && (
           <div className="space-y-8">
             {loading ? (
-              <Card className="shadow-lg">
-                <CardContent className="py-12 text-center">
-                  <Loader2 className="h-12 w-12 mx-auto text-blue-600 animate-spin mb-4" />
-                  <p className="text-lg font-medium text-gray-900">
+              <Card className="shadow-2xl border-2 border-slate-200" data-aos="fade-up">
+                <CardContent className="py-16 text-center">
+                  <Loader2 className="h-16 w-16 mx-auto text-blue-600 animate-spin mb-6" />
+                  <p className="text-xl font-inter font-semibold text-slate-900">
                     {t('step5.loading')}
                   </p>
                 </CardContent>
@@ -551,12 +703,12 @@ export default function ConnectorGuidePage() {
             ) : (
               <>
                 {/* Results Header */}
-                <Card className="shadow-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-                  <CardContent className="py-6">
+                <Card className="shadow-2xl border-2 border-blue-300 bg-gradient-to-r from-blue-600 to-indigo-600 text-white" data-aos="fade-up">
+                  <CardContent className="py-10">
                     <div className="flex items-center justify-between">
                       <div>
-                        <h2 className="text-2xl font-bold mb-2">{t('step5.resultsTitle')}</h2>
-                        <p className="text-blue-100">
+                        <h2 className="text-3xl font-inter font-bold mb-3">{t('step5.resultsTitle')}</h2>
+                        <p className="text-blue-100 text-lg">
                           {t('step5.basedOn', {
                             poleCount: wizardState.poleCount ?? 0,
                             orientation: wizardState.orientation ?? '',
@@ -564,92 +716,104 @@ export default function ConnectorGuidePage() {
                           })}
                         </p>
                       </div>
-                      <CheckCircle className="h-12 w-12" />
+                      <CheckCircle className="h-16 w-16" />
                     </div>
                   </CardContent>
                 </Card>
 
                 {/* Socket Connectors */}
                 {results.sockets.length > 0 && (
-                  <div>
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Badge className="bg-blue-500 text-white">{t('step5.sockets.femaleBadge')}</Badge>
+                  <SectionContainer variant="default" spacing="small" className="px-0">
+                    <div className="mb-6" data-aos="fade-up">
+                      <h3 className="text-2xl font-inter font-bold text-slate-900 flex items-center gap-3 mb-3">
+                        <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1">
+                          {t('step5.sockets.femaleBadge')}
+                        </Badge>
                         {t('step5.sockets.title')}
                       </h3>
-                      <p className="text-gray-600 mt-1">
+                      <p className="text-lg text-slate-600">
                         {results.sockets.length === 1
                           ? t('step5.sockets.found', { count: results.sockets.length })
                           : t('step5.sockets.foundPlural', { count: results.sockets.length })}
                       </p>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {results.sockets.map((connector) => (
-                        <ConnectorCard key={connector.id} connector={connector} locale={locale} />
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {results.sockets.map((connector, index) => (
+                        <div data-aos="zoom-in" data-aos-delay={50 * index} key={connector.id}>
+                          <ConnectorCard connector={connector} locale={locale} />
+                        </div>
                       ))}
                     </div>
-                  </div>
+                  </SectionContainer>
                 )}
 
                 {/* Tab Connectors */}
                 {results.tabs.length > 0 && (
-                  <div>
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Badge className="bg-orange-500 text-white">{t('step5.tabs.maleBadge')}</Badge>
+                  <SectionContainer variant="default" spacing="small" className="px-0">
+                    <div className="mb-6" data-aos="fade-up">
+                      <h3 className="text-2xl font-inter font-bold text-slate-900 flex items-center gap-3 mb-3">
+                        <Badge className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-1">
+                          {t('step5.tabs.maleBadge')}
+                        </Badge>
                         {t('step5.tabs.title')}
                       </h3>
-                      <p className="text-gray-600 mt-1">
+                      <p className="text-lg text-slate-600">
                         {results.tabs.length === 1
                           ? t('step5.tabs.found', { count: results.tabs.length })
                           : t('step5.tabs.foundPlural', { count: results.tabs.length })}
                       </p>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {results.tabs.map((connector) => (
-                        <ConnectorCard key={connector.id} connector={connector} locale={locale} />
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {results.tabs.map((connector, index) => (
+                        <div data-aos="zoom-in" data-aos-delay={50 * index} key={connector.id}>
+                          <ConnectorCard connector={connector} locale={locale} />
+                        </div>
                       ))}
                     </div>
-                  </div>
+                  </SectionContainer>
                 )}
 
                 {/* PCB Headers */}
                 {results.headers.length > 0 && (
-                  <div>
-                    <div className="mb-4">
-                      <h3 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
-                        <Badge className="bg-green-500 text-white">{t('step5.headers.pcbBadge')}</Badge>
+                  <SectionContainer variant="default" spacing="small" className="px-0">
+                    <div className="mb-6" data-aos="fade-up">
+                      <h3 className="text-2xl font-inter font-bold text-slate-900 flex items-center gap-3 mb-3">
+                        <Badge className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-1">
+                          {t('step5.headers.pcbBadge')}
+                        </Badge>
                         {t('step5.headers.title')}
                       </h3>
-                      <p className="text-gray-600 mt-1">
+                      <p className="text-lg text-slate-600">
                         {results.headers.length === 1
                           ? t('step5.headers.found', { count: results.headers.length })
                           : t('step5.headers.foundPlural', { count: results.headers.length })}
                       </p>
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {results.headers.map((connector) => (
-                        <ConnectorCard key={connector.id} connector={connector} locale={locale} />
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {results.headers.map((connector, index) => (
+                        <div data-aos="zoom-in" data-aos-delay={50 * index} key={connector.id}>
+                          <ConnectorCard connector={connector} locale={locale} />
+                        </div>
                       ))}
                     </div>
-                  </div>
+                  </SectionContainer>
                 )}
 
                 {/* No Results */}
                 {results.sockets.length === 0 &&
                   results.tabs.length === 0 &&
                   results.headers.length === 0 && (
-                    <Card className="shadow-lg border-amber-200 bg-amber-50">
-                      <CardContent className="py-12 text-center">
-                        <AlertCircle className="h-16 w-16 mx-auto text-amber-600 mb-4" />
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <Card className="shadow-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50" data-aos="fade-up">
+                      <CardContent className="py-16 text-center">
+                        <AlertCircle className="h-20 w-20 mx-auto text-amber-600 mb-6" />
+                        <h3 className="text-2xl font-inter font-bold text-slate-900 mb-3">
                           {t('step5.noResults.title')}
                         </h3>
-                        <p className="text-gray-600 mb-6">
+                        <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
                           {t('step5.noResults.description')}
                         </p>
-                        <Button onClick={handleReset} variant="outline">
-                          <RotateCcw className="mr-2 h-4 w-4" />
+                        <Button onClick={handleReset} size="lg" variant="outline" className="hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all duration-300">
+                          <RotateCcw className="mr-2 h-5 w-5" />
                           {t('step5.noResults.buttonText')}
                         </Button>
                       </CardContent>
@@ -662,41 +826,74 @@ export default function ConnectorGuidePage() {
 
         {/* Navigation Buttons */}
         {step < 5 && (
-          <div className="flex justify-between mt-8">
+          <div className="flex justify-between mt-12">
             <Button
               variant="outline"
               onClick={handleBack}
               disabled={step === 1}
               size="lg"
+              className="hover:bg-slate-100 transition-all duration-300"
             >
-              <ChevronLeft className="mr-2 h-4 w-4" />
+              <ChevronLeft className="mr-2 h-5 w-5" />
               {t('navigation.back')}
             </Button>
             <Button
               onClick={handleNext}
               disabled={!isStepValid()}
               size="lg"
+              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white transition-all duration-300"
             >
               {step === 4 ? t('navigation.showResults') : t('navigation.next')}
-              <ChevronRight className="ml-2 h-4 w-4" />
+              <ChevronRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         )}
 
         {/* Results Navigation */}
         {step === 5 && (
-          <div className="flex justify-between mt-8">
-            <Button variant="outline" onClick={handleBack} size="lg">
-              <ChevronLeft className="mr-2 h-4 w-4" />
+          <div className="flex justify-between mt-12">
+            <Button
+              variant="outline"
+              onClick={handleBack}
+              size="lg"
+              className="hover:bg-slate-100 transition-all duration-300"
+            >
+              <ChevronLeft className="mr-2 h-5 w-5" />
               {t('navigation.refineSelection')}
             </Button>
-            <Button onClick={handleReset} size="lg">
-              <RotateCcw className="mr-2 h-4 w-4" />
+            <Button
+              onClick={handleReset}
+              size="lg"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all duration-300"
+            >
+              <RotateCcw className="mr-2 h-5 w-5" />
               {t('navigation.startOver')}
             </Button>
           </div>
         )}
       </div>
+
+      {/* Help Section */}
+      <SectionContainer variant="dark" spacing="medium">
+        <div className="text-center" data-aos="fade-up">
+          <h2 className="text-3xl font-inter font-bold text-white mb-6">
+            Need Assistance?
+          </h2>
+          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            Our technical experts are here to help you find the perfect connector solution
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+              Contact Support
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900">
+              View Documentation
+              <Info className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </SectionContainer>
     </div>
   )
 }
@@ -712,16 +909,16 @@ function ConnectorCard({ connector, locale }: ConnectorCardProps) {
 
   const genderColor =
     connector.gender === 'Female'
-      ? 'bg-blue-500'
+      ? 'from-blue-600 to-indigo-600'
       : connector.gender === 'Male'
-      ? 'bg-orange-500'
-      : 'bg-green-500'
+      ? 'from-orange-600 to-red-600'
+      : 'from-green-600 to-emerald-600'
 
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-shadow group">
+    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 group border-2 border-slate-200 hover:border-blue-400">
       <Link href={`/${locale}/connector/${connector.id}`}>
         {/* Video Thumbnail */}
-        <div className="aspect-square bg-gradient-to-br from-gray-900 to-gray-700 relative overflow-hidden">
+        <div className="aspect-square bg-gradient-to-br from-slate-900 to-slate-700 relative overflow-hidden">
           <video
             src={connector.video_360_url}
             className="w-full h-full object-contain"
@@ -730,9 +927,9 @@ function ConnectorCard({ connector, locale }: ConnectorCardProps) {
             loop
             playsInline
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-          <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-            <Badge className="bg-white/90 text-black">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <Badge className="bg-white/95 text-black shadow-lg">
               <Play className="h-3 w-3 mr-1" />
               {t('view360')}
             </Badge>
@@ -740,24 +937,26 @@ function ConnectorCard({ connector, locale }: ConnectorCardProps) {
         </div>
 
         {/* Card Content */}
-        <CardContent className="p-4">
-          <h4 className="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors">
+        <CardContent className="p-6">
+          <h4 className="font-inter font-bold text-xl text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
             {connector.model}
           </h4>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="text-base text-slate-600 mb-4">
             {connector.display_name ||
               t('poleConnector', { count: connector.pole_count, gender: connector.gender })}
           </p>
 
           {/* Quick Specs */}
-          <div className="flex flex-wrap gap-2 mt-3">
-            <Badge className={`${genderColor} text-white`}>{connector.gender}</Badge>
-            <Badge variant="outline">
+          <div className="flex flex-wrap gap-2 mb-4">
+            <Badge className={`bg-gradient-to-r ${genderColor} text-white`}>
+              {connector.gender}
+            </Badge>
+            <Badge variant="outline" className="border-slate-300">
               <Zap className="h-3 w-3 mr-1" />
               {t('poleLabel', { count: connector.pole_count })}
             </Badge>
             {connector.orientation && (
-              <Badge variant="secondary">
+              <Badge variant="secondary" className="bg-slate-100">
                 <ArrowUpDown className="h-3 w-3 mr-1" />
                 {connector.orientation}
               </Badge>
@@ -766,15 +965,17 @@ function ConnectorCard({ connector, locale }: ConnectorCardProps) {
 
           {/* Special Notes */}
           {connector.is_special_version && (
-            <div className="mt-3 p-2 bg-amber-50 border border-amber-200 rounded">
-              <p className="text-xs text-amber-800 font-medium">{t('specialVersion')}</p>
+            <div className="mb-4 p-3 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-xl">
+              <p className="text-sm text-amber-800 font-inter font-semibold">
+                {t('specialVersion')}
+              </p>
             </div>
           )}
 
           {/* View Details Button */}
-          <Button variant="outline" className="w-full mt-4 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-colors">
+          <Button variant="outline" className="w-full group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white group-hover:border-transparent transition-all duration-300">
             {t('viewDetails')}
-            <ChevronRight className="ml-2 h-4 w-4" />
+            <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </CardContent>
       </Link>

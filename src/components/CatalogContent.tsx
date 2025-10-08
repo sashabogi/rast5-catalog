@@ -95,22 +95,24 @@ export function CatalogContent({ connectors }: CatalogContentProps) {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="flex justify-between items-center mb-8" data-aos="fade-up">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
           {filteredConnectors.length === connectors.length
             ? 'All Connectors'
             : 'Filtered Results'}
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-slate-600 text-lg">
           {filteredConnectors.length} of {connectors.length} connector
           {connectors.length !== 1 ? 's' : ''}
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredConnectors.map((connector: Connector) => (
-          <ConnectorCard key={connector.id} connector={connector} />
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredConnectors.map((connector: Connector, index: number) => (
+          <div key={connector.id} data-aos="fade-up" data-aos-delay={index < 6 ? index * 50 : 0}>
+            <ConnectorCard connector={connector} />
+          </div>
         ))}
       </div>
     </div>
