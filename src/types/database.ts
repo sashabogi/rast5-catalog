@@ -28,6 +28,7 @@ export interface Connector {
   video_thumbnail_time: number | null
 
   // Documentation
+  technical_drawing_url: string | null
   keying_pdf: string | null
   is_special_version: boolean
   special_notes: string | null

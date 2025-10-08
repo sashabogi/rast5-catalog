@@ -1,50 +1,68 @@
 {
   "Navbar": {
     "brandName": "RAST 5 Catalog",
+    "tagline": "Professional Connector Solutions",
     "browseCatalog": "Browse Catalog",
-    "resources": "Resources"
+    "resources": "Resources",
+    "resourcesDropdown": {
+      "terminals": "Terminal Guide",
+      "installation": "Installation Guide",
+      "wizard": "Selection Wizard"
+    }
+  },
+  "Footer": {
+    "brandName": "RAST 5 Catalog",
+    "tagline": "Professional catalog of RAST 5 electrical connectors with detailed specifications, 360° interactive views, and complete compatibility information.",
+    "quickLinks": "Quick Links",
+    "catalog": "Catalog",
+    "resources": "Resources",
+    "terminalGuide": "Terminal Guide",
+    "installationGuide": "Installation Guide",
+    "selectionGuide": "Selection Guide",
+    "copyright": "© {year} RAST 5 Catalog. All rights reserved."
   },
   "HomePage": {
     "hero": {
-      "title": "RAST 5 Connector Catalog",
-      "description": "Professional catalog of RAST 5 electrical connectors with detailed specifications, 360° interactive views, and complete compatibility information.",
+      "title": "Professional RAST 5 Connector Solutions",
+      "subtitle": "Complete catalog with 360° views, detailed specs, and compatibility information",
       "browseCatalog": "Browse Catalog",
       "resources": "Resources"
     },
     "features": {
-      "title": "Why Use This Catalog?",
-      "view360": {
-        "title": "360° Views",
-        "description": "Interactive 360° videos of every connector. Drag to rotate and explore from all angles."
+      "title": "Why Choose Our Catalog?",
+      "views360": {
+        "title": "360° Interactive Views",
+        "description": "Rotate and explore every connector from all angles"
       },
       "compatibility": {
-        "title": "Complete Compatibility",
-        "description": "See which connectors mate with each other, required terminal components, and assembly variants."
+        "title": "Full Compatibility Data",
+        "description": "See mating connectors, terminals, and assembly variants"
       },
       "documentation": {
-        "title": "Detailed Documentation",
-        "description": "Access keying guides, technical specifications, and installation resources."
+        "title": "Complete Documentation",
+        "description": "Keying guides, specs, and installation resources"
       }
     },
-    "selectionGuide": {
-      "title": "Not Sure Which Connector You Need?",
-      "description": "Our interactive guide walks you through selecting the perfect connector based on your application, pole count, and specific requirements.",
-      "launchGuide": "Launch Selection Guide"
-    },
     "categories": {
-      "title": "Connector Categories",
+      "title": "Browse by Category",
+      "browse": "Browse",
       "socket": {
         "title": "Socket Connectors (Female)",
-        "description": "34 female socket housings for receiving tab terminals"
+        "description": "34 female socket housings"
       },
       "tab": {
         "title": "Tab Connectors (Male)",
-        "description": "16 male tab housings that insert into socket connectors"
+        "description": "16 male tab housings"
       },
       "pcb": {
         "title": "PCB Headers",
-        "description": "6 printed circuit board mounted headers"
+        "description": "6 board-mounted headers"
       }
+    },
+    "cta": {
+      "title": "Not Sure Which Connector?",
+      "subtitle": "Our interactive guide helps you select the perfect connector",
+      "button": "Launch Selection Guide"
     }
   },
   "CatalogPage": {
@@ -170,7 +188,9 @@
       },
       "drawings": {
         "title": "Technical Drawings",
-        "comingSoon": "Technical drawings coming soon"
+        "comingSoon": "Technical drawings coming soon",
+        "description": "Detailed dimensional specifications and connector layout",
+        "viewFull": "View Full Size"
       },
       "pdfDocument": "PDF Document",
       "resources": {

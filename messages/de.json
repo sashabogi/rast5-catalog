@@ -1,50 +1,68 @@
 {
   "Navbar": {
     "brandName": "RAST 5 Katalog",
+    "tagline": "Professionelle Steckverbinder-Lösungen",
     "browseCatalog": "Katalog Durchsuchen",
-    "resources": "Ressourcen"
+    "resources": "Ressourcen",
+    "resourcesDropdown": {
+      "terminals": "Klemmen-Leitfaden",
+      "installation": "Installationsanleitung",
+      "wizard": "Auswahlassistent"
+    }
+  },
+  "Footer": {
+    "brandName": "RAST 5 Katalog",
+    "tagline": "Professioneller Katalog für elektrische RAST 5 Steckverbinder mit detaillierten Spezifikationen, interaktiven 360°-Ansichten und vollständigen Kompatibilitätsinformationen.",
+    "quickLinks": "Schnelllinks",
+    "catalog": "Katalog",
+    "resources": "Ressourcen",
+    "terminalGuide": "Klemmen-Leitfaden",
+    "installationGuide": "Installationsanleitung",
+    "selectionGuide": "Auswahlassistent",
+    "copyright": "© {year} RAST 5 Katalog. Alle Rechte vorbehalten."
   },
   "HomePage": {
     "hero": {
-      "title": "RAST 5 Steckverbinder-Katalog",
-      "description": "Professioneller Katalog für elektrische RAST 5 Steckverbinder mit detaillierten Spezifikationen, interaktiven 360°-Ansichten und vollständigen Kompatibilitätsinformationen.",
+      "title": "Professionelle RAST 5 Steckverbinder-Lösungen",
+      "subtitle": "Vollständiger Katalog mit 360°-Ansichten, detaillierten Spezifikationen und Kompatibilitätsinformationen",
       "browseCatalog": "Katalog Durchsuchen",
       "resources": "Ressourcen"
     },
     "features": {
-      "title": "Warum Diesen Katalog Verwenden?",
-      "view360": {
-        "title": "360°-Ansichten",
-        "description": "Interaktive 360°-Videos von jedem Steckverbinder. Ziehen Sie, um zu drehen und aus allen Winkeln zu erkunden."
+      "title": "Warum Unseren Katalog Wählen?",
+      "views360": {
+        "title": "Interaktive 360°-Ansichten",
+        "description": "Drehen und erkunden Sie jeden Steckverbinder aus allen Winkeln"
       },
       "compatibility": {
-        "title": "Vollständige Kompatibilität",
-        "description": "Sehen Sie, welche Steckverbinder zusammenpassen, erforderliche Anschlusskomponenten und Montagevarianten."
+        "title": "Vollständige Kompatibilitätsdaten",
+        "description": "Passende Steckverbinder, Anschlüsse und Montagevarianten anzeigen"
       },
       "documentation": {
-        "title": "Detaillierte Dokumentation",
-        "description": "Zugriff auf Kodierungsanleitungen, technische Spezifikationen und Installationsressourcen."
+        "title": "Vollständige Dokumentation",
+        "description": "Kodierungsanleitungen, Spezifikationen und Installationsressourcen"
       }
     },
-    "selectionGuide": {
-      "title": "Nicht Sicher, Welchen Steckverbinder Sie Benötigen?",
-      "description": "Unser interaktiver Leitfaden führt Sie durch die Auswahl des perfekten Steckverbinders basierend auf Ihrer Anwendung, Polzahl und spezifischen Anforderungen.",
-      "launchGuide": "Auswahlhilfe Starten"
-    },
     "categories": {
-      "title": "Steckverbinder-Kategorien",
+      "title": "Nach Kategorie Durchsuchen",
+      "browse": "Durchsuchen",
       "socket": {
         "title": "Buchsen-Steckverbinder (Weiblich)",
-        "description": "34 weibliche Buchsengehäuse für den Empfang von Tab-Kontakten"
+        "description": "34 weibliche Buchsengehäuse"
       },
       "tab": {
         "title": "Tab-Steckverbinder (Männlich)",
-        "description": "16 männliche Tab-Gehäuse, die in Buchsen-Steckverbinder eingesteckt werden"
+        "description": "16 männliche Tab-Gehäuse"
       },
       "pcb": {
         "title": "Leiterplatten-Stiftleisten",
-        "description": "6 auf Leiterplatten montierte Stiftleisten"
+        "description": "6 plattenmontierte Stiftleisten"
       }
+    },
+    "cta": {
+      "title": "Nicht Sicher, Welchen Steckverbinder?",
+      "subtitle": "Unser interaktiver Leitfaden hilft Ihnen bei der Auswahl des perfekten Steckverbinders",
+      "button": "Auswahlhilfe Starten"
     }
   },
   "CatalogPage": {
@@ -170,7 +188,9 @@
       },
       "drawings": {
         "title": "Technische Zeichnungen",
-        "comingSoon": "Technische Zeichnungen in Kürze"
+        "comingSoon": "Technische Zeichnungen in Kürze",
+        "description": "Detaillierte Maßangaben und Steckeraufbau",
+        "viewFull": "Vollständige Größe anzeigen"
       },
       "pdfDocument": "PDF-Dokument",
       "resources": {

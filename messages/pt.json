@@ -1,50 +1,68 @@
 {
   "Navbar": {
     "brandName": "Catálogo RAST 5",
+    "tagline": "Soluções Profissionais de Conectores",
     "browseCatalog": "Navegar no Catálogo",
-    "resources": "Recursos"
+    "resources": "Recursos",
+    "resourcesDropdown": {
+      "terminals": "Guia de Terminais",
+      "installation": "Guia de Instalação",
+      "wizard": "Assistente de Seleção"
+    }
+  },
+  "Footer": {
+    "brandName": "Catálogo RAST 5",
+    "tagline": "Catálogo profissional de conectores elétricos RAST 5 com especificações detalhadas, vistas interativas de 360° e informações completas de compatibilidade.",
+    "quickLinks": "Links Rápidos",
+    "catalog": "Catálogo",
+    "resources": "Recursos",
+    "terminalGuide": "Guia de Terminais",
+    "installationGuide": "Guia de Instalação",
+    "selectionGuide": "Assistente de Seleção",
+    "copyright": "© {year} Catálogo RAST 5. Todos os direitos reservados."
   },
   "HomePage": {
     "hero": {
-      "title": "Catálogo de Conectores RAST 5",
-      "description": "Catálogo profissional de conectores elétricos RAST 5 com especificações detalhadas, vistas interativas de 360° e informações completas de compatibilidade.",
+      "title": "Soluções Profissionais para Conectores RAST 5",
+      "subtitle": "Catálogo completo com vistas 360°, especificações detalhadas e informações de compatibilidade",
       "browseCatalog": "Navegar no Catálogo",
       "resources": "Recursos"
     },
     "features": {
-      "title": "Por Que Usar Este Catálogo?",
-      "view360": {
-        "title": "Vistas de 360°",
-        "description": "Vídeos interativos de 360° de cada conector. Arraste para girar e explorar de todos os ângulos."
+      "title": "Por Que Escolher Nosso Catálogo?",
+      "views360": {
+        "title": "Vistas Interativas 360°",
+        "description": "Gire e explore cada conector de todos os ângulos"
       },
       "compatibility": {
-        "title": "Compatibilidade Completa",
-        "description": "Veja quais conectores se encaixam entre si, componentes de terminais necessários e variantes de montagem."
+        "title": "Dados Completos de Compatibilidade",
+        "description": "Veja conectores compatíveis, terminais e variantes de montagem"
       },
       "documentation": {
-        "title": "Documentação Detalhada",
-        "description": "Acesse guias de codificação, especificações técnicas e recursos de instalação."
+        "title": "Documentação Completa",
+        "description": "Guias de codificação, especificações e recursos de instalação"
       }
     },
-    "selectionGuide": {
-      "title": "Não Tem Certeza de Qual Conector Precisa?",
-      "description": "Nosso guia interativo orienta você na seleção do conector perfeito com base em sua aplicação, contagem de polos e requisitos específicos.",
-      "launchGuide": "Iniciar Guia de Seleção"
-    },
     "categories": {
-      "title": "Categorias de Conectores",
+      "title": "Navegar por Categoria",
+      "browse": "Navegar",
       "socket": {
         "title": "Conectores Fêmea (Socket)",
-        "description": "34 carcaças fêmea para receber terminais macho"
+        "description": "34 carcaças fêmea"
       },
       "tab": {
         "title": "Conectores Macho (Tab)",
-        "description": "16 carcaças macho que se inserem em conectores fêmea"
+        "description": "16 carcaças macho"
       },
       "pcb": {
         "title": "Cabeçalhos para PCB",
-        "description": "6 cabeçalhos montados em placa de circuito impresso"
+        "description": "6 cabeçalhos montados em placa"
       }
+    },
+    "cta": {
+      "title": "Não Tem Certeza de Qual Conector?",
+      "subtitle": "Nosso guia interativo ajuda você a selecionar o conector perfeito",
+      "button": "Iniciar Guia de Seleção"
     }
   },
   "CatalogPage": {
@@ -170,7 +188,9 @@
       },
       "drawings": {
         "title": "Desenhos Técnicos",
-        "comingSoon": "Desenhos técnicos em breve"
+        "comingSoon": "Desenhos técnicos em breve",
+        "description": "Especificações dimensionais detalhadas e layout do conector",
+        "viewFull": "Ver Tamanho Completo"
       },
       "pdfDocument": "Documento PDF",
       "resources": {
