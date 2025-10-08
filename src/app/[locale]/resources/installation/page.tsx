@@ -313,7 +313,7 @@ export default function InstallationPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <TroubleshootingAccordion />
+                  <TroubleshootingAccordion t={t} />
                 </CardContent>
               </Card>
             </SectionContainer>
@@ -470,7 +470,7 @@ function StepContent({ stepId }: { stepId: string }) {
 }
 
 // Troubleshooting Accordion Component
-function TroubleshootingAccordion() {
+function TroubleshootingAccordion({ t }: { t: ReturnType<typeof useTranslations> }) {
   return (
     <div className="space-y-4">
       {[1, 2, 3, 4, 5, 6].map((num) => (
