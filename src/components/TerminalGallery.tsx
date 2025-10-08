@@ -71,17 +71,25 @@ export function TerminalGallery({ terminals }: TerminalGalleryProps) {
 
       {/* Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden">
-          <div className="relative bg-black">
-            {/* Close button is handled by DialogContent */}
+        <DialogContent className="!max-w-[90vw] h-[95vh] p-0 overflow-hidden" showCloseButton={false}>
+          <div className="relative bg-black w-full h-full">
+            {/* Close button - make it visible on black background */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-4 right-4 z-50 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-            {/* Image */}
-            <div className="flex items-center justify-center min-h-[400px] max-h-[80vh] p-8">
+            {/* Image - Full size container */}
+            <div className="absolute inset-0 flex items-center justify-center p-4 pb-32">
               {currentTerminal?.image_url && (
                 <img
                   src={currentTerminal.image_url}
                   alt={currentTerminal.spec_number}
-                  className="max-w-full max-h-full object-contain"
+                  className="w-full h-full object-contain"
                 />
               )}
             </div>

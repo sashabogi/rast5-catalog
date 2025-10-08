@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Search, X, Filter, ChevronDown, ChevronUp } from 'lucide-react'
 
 interface FilterState {
@@ -94,8 +95,8 @@ export function CatalogFilters() {
   const hasActiveFilters = activeFilterCount > 0
 
   return (
-    <div className="sticky top-0 z-40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div className="sticky top-20 z-40 bg-white/95 backdrop-blur-sm border-b shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         {/* Mobile: Collapsible header */}
         <div className="lg:hidden">
           <div className="flex items-center justify-between mb-3">
@@ -132,7 +133,7 @@ export function CatalogFilters() {
         </div>
 
         {/* Search Bar - Always visible */}
-        <div className="relative mb-4">
+        <div className="relative mb-3">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
@@ -157,7 +158,7 @@ export function CatalogFilters() {
             isMobileExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 lg:max-h-[2000px] lg:opacity-100'
           }`}
         >
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Desktop: Single row layout */}
             <div className="hidden lg:flex lg:items-start lg:gap-4 lg:flex-wrap">
               {/* Gender */}
@@ -184,20 +185,50 @@ export function CatalogFilters() {
 
               {/* Pole Count */}
               <div className="flex-1 min-w-[200px]">
-                <label className="text-sm font-medium mb-2 block">Pole Count</label>
-                <div className="grid grid-cols-3 gap-2">
-                  {POLE_COUNT_OPTIONS.map(count => (
-                    <Button
-                      key={count}
-                      variant={filters.poleCount.includes(count) ? 'default' : 'outline'}
-                      size="sm"
-                      onClick={() => toggleArrayFilter('poleCount', count)}
-                      className="transition-all"
-                    >
-                      {count}
-                    </Button>
-                  ))}
-                </div>
+                <label className="text-sm font-medium mb-2 block">
+                  Pole Count {filters.poleCount.length > 0 && `(${filters.poleCount.length} selected)`}
+                </label>
+                <Select
+                  value={filters.poleCount[0] || ''}
+                  onValueChange={(value) => {
+                    if (value) {
+                      toggleArrayFilter('poleCount', value)
+                    }
+                  }}
+                >
+                  <SelectTrigger className="w-full bg-white">
+                    <SelectValue placeholder="Click to select (multi-select)" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border-2">
+                    <div className="px-2 py-1.5 text-xs font-medium text-slate-500 border-b mb-1">
+                      Click to add/remove • Multiple selection
+                    </div>
+                    {POLE_COUNT_OPTIONS.map(count => (
+                      <SelectItem key={count} value={count} className="bg-white hover:bg-blue-50">
+                        <div className="flex items-center justify-between w-full">
+                          <span>{count} Pole</span>
+                          {filters.poleCount.includes(count) && (
+                            <span className="ml-2 text-blue-600 font-bold">✓</span>
+                          )}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {filters.poleCount.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {filters.poleCount.map(count => (
+                      <Badge
+                        key={count}
+                        variant="secondary"
+                        className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                        onClick={() => toggleArrayFilter('poleCount', count)}
+                      >
+                        {count} <X className="h-3 w-3 ml-1" />
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Orientation */}
@@ -274,7 +305,7 @@ export function CatalogFilters() {
             </div>
 
             {/* Mobile: Stacked layout */}
-            <div className="lg:hidden space-y-4">
+            <div className="lg:hidden space-y-3">
               {/* Gender */}
               <div>
                 <label className="text-sm font-medium mb-2 block">Gender</label>
@@ -295,20 +326,50 @@ export function CatalogFilters() {
 
               {/* Pole Count */}
               <div>
-                <label className="text-sm font-medium mb-2 block">Pole Count</label>
-                <div className="grid grid-cols-4 gap-2">
-                  {POLE_COUNT_OPTIONS.map(count => (
-                    <Button
-                      key={count}
-                      variant={filters.poleCount.includes(count) ? 'default' : 'outline'}
-                      size="sm"
-                      onClick={() => toggleArrayFilter('poleCount', count)}
-                      className="transition-all"
-                    >
-                      {count}
-                    </Button>
-                  ))}
-                </div>
+                <label className="text-sm font-medium mb-2 block">
+                  Pole Count {filters.poleCount.length > 0 && `(${filters.poleCount.length} selected)`}
+                </label>
+                <Select
+                  value={filters.poleCount[0] || ''}
+                  onValueChange={(value) => {
+                    if (value) {
+                      toggleArrayFilter('poleCount', value)
+                    }
+                  }}
+                >
+                  <SelectTrigger className="w-full bg-white">
+                    <SelectValue placeholder="Click to select (multi-select)" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border-2">
+                    <div className="px-2 py-1.5 text-xs font-medium text-slate-500 border-b mb-1">
+                      Click to add/remove • Multiple selection
+                    </div>
+                    {POLE_COUNT_OPTIONS.map(count => (
+                      <SelectItem key={count} value={count} className="bg-white hover:bg-blue-50">
+                        <div className="flex items-center justify-between w-full">
+                          <span>{count} Pole</span>
+                          {filters.poleCount.includes(count) && (
+                            <span className="ml-2 text-blue-600 font-bold">✓</span>
+                          )}
+                        </div>
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {filters.poleCount.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {filters.poleCount.map(count => (
+                      <Badge
+                        key={count}
+                        variant="secondary"
+                        className="cursor-pointer hover:bg-destructive hover:text-destructive-foreground transition-colors"
+                        onClick={() => toggleArrayFilter('poleCount', count)}
+                      >
+                        {count} <X className="h-3 w-3 ml-1" />
+                      </Badge>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Orientation */}
