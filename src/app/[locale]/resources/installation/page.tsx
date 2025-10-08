@@ -288,7 +288,7 @@ export default function InstallationPage() {
                           {/* Step content would go here - keeping it simpler for brevity */}
                           <div className="space-y-4">
                             {/* Dynamic step content based on step.id */}
-                            <StepContent stepId={step.id} t={t} />
+                            <StepContent stepId={step.id} />
                           </div>
                         </AccordionContent>
                       </AccordionItem>
@@ -313,7 +313,7 @@ export default function InstallationPage() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <TroubleshootingAccordion t={t} />
+                  <TroubleshootingAccordion />
                 </CardContent>
               </Card>
             </SectionContainer>
