@@ -9,7 +9,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Accordion,
   AccordionContent,
@@ -19,20 +18,15 @@ import {
 import {
   AlertTriangle,
   CheckCircle2,
-  XCircle,
   Download,
   Printer,
   ChevronRight,
   Wrench,
-  Eye,
   Shield,
-  ThermometerSun,
-  Activity,
   HelpCircle,
   BookOpen,
   Cable,
   ExternalLink,
-  ArrowRight,
   Settings,
   Zap,
   ClipboardCheck
@@ -461,7 +455,7 @@ export default function InstallationPage() {
 }
 
 // Step Content Component
-function StepContent({ stepId, t }: { stepId: string; t: any }) {
+function StepContent({ stepId }: { stepId: string }) {
   // This would contain the actual step content from the original file
   // Simplified for brevity
   return (
@@ -476,7 +470,7 @@ function StepContent({ stepId, t }: { stepId: string; t: any }) {
 }
 
 // Troubleshooting Accordion Component
-function TroubleshootingAccordion({ t }: { t: any }) {
+function TroubleshootingAccordion() {
   return (
     <div className="space-y-4">
       {[1, 2, 3, 4, 5, 6].map((num) => (
