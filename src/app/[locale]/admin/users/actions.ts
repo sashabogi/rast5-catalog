@@ -126,7 +126,7 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
         full_name: data.full_name,
         role: data.role,
         is_active: data.is_active ?? true,
-      })
+      } as any)
       .select()
       .single()
 
@@ -367,7 +367,7 @@ export async function updateAdminUser(
       .update({
         ...data,
         updated_at: new Date().toISOString(),
-      })
+      } as any)
       .eq('id', userId)
       .select()
       .single()
@@ -457,7 +457,7 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
       .update({
         is_active: false,
         updated_at: new Date().toISOString(),
-      })
+      } as any)
       .eq('id', userId)
 
     if (updateError) {
@@ -529,7 +529,7 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
       .update({
         is_active: true,
         updated_at: new Date().toISOString(),
-      })
+      } as any)
       .eq('id', userId)
 
     if (updateError) {
