@@ -71,10 +71,9 @@ export default function AdminLoginPage() {
       console.log('🔍 Checking admin role for user:', data.user.id)
 
       const { data: roleData, error: roleError } = await supabase
-        .from('user_roles')
-        .select('role')
+        .from('admin_users')
+        .select('role, is_active')
         .eq('user_id', data.user.id)
-        .eq('role', 'admin')
         .single()
 
       console.log('📋 Role check result:', { roleData, roleError })
@@ -84,6 +83,14 @@ export default function AdminLoginPage() {
         // Sign out if not admin
         await supabase.auth.signOut()
         setError('Access denied. Admin privileges required.')
+        return
+      }
+
+      // Check if user is active (any admin role is allowed)
+      if (!roleData.is_active) {
+        console.error('❌ User account is inactive')
+        await supabase.auth.signOut()
+        setError('Access denied. Your account is inactive.')
         return
       }
 

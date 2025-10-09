@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import { cookies } from 'next/headers'
 import type { Database } from '@/types/database'
+import type { Role, PermissionUser } from '@/lib/auth/permissions'
 
 // Create server client with cookie handling (for user sessions)
 export async function createClient() {
@@ -59,20 +60,49 @@ export async function getCurrentUser() {
 
 // Helper function to check if user has admin role
 export async function isUserAdmin(userId: string) {
-  const supabase = createServiceClient()
+  try {
+    console.log('[DEBUG] isUserAdmin called with userId:', userId)
 
-  const { data, error } = await supabase
-    .from('user_roles')
-    .select('role')
-    .eq('user_id', userId)
-    .eq('role', 'admin')
-    .single()
+    const supabase = createServiceClient()
+    console.log('[DEBUG] Service client created')
 
-  if (error || !data) {
+    const { data, error } = await supabase
+      .from('admin_users')
+      .select('role, is_active')
+      .eq('user_id', userId)
+      .single()
+
+    console.log('[DEBUG] Query result:', {
+      userId,
+      data,
+      error: error?.message || null,
+      errorDetails: error
+    })
+
+    if (error) {
+      console.error('[ERROR] Database query failed:', error)
+      return false
+    }
+
+    if (!data) {
+      console.log('[DEBUG] No admin user found for userId:', userId)
+      return false
+    }
+
+    // Check if user exists in admin_users table and is active (any admin role)
+    const isAdmin = data.is_active === true
+    console.log('[DEBUG] Admin check result:', {
+      userId,
+      role: data.role,
+      isActive: data.is_active,
+      isAdmin
+    })
+
+    return isAdmin
+  } catch (err) {
+    console.error('[ERROR] Unexpected error in isUserAdmin:', err)
     return false
   }
-
-  return true
 }
 
 // Combined helper to get current user and check admin status
@@ -90,4 +120,41 @@ export async function getCurrentAdminUser() {
   }
 
   return user
+}
+
+/**
+ * Get the current admin user with their role information
+ * Returns a PermissionUser object that can be used with permission utilities
+ *
+ * @returns {Promise<PermissionUser | null>} The user with role information or null if not authenticated/not admin
+ */
+export async function getCurrentAdminUserWithRole(): Promise<PermissionUser | null> {
+  const user = await getCurrentUser()
+
+  if (!user) {
+    return null
+  }
+
+  try {
+    const supabase = createServiceClient()
+    const { data, error } = await supabase
+      .from('admin_users')
+      .select('role, is_active')
+      .eq('user_id', user.id)
+      .single()
+
+    if (error || !data || !data.is_active) {
+      return null
+    }
+
+    // Return user with role information
+    return {
+      id: user.id,
+      role: data.role as Role,
+      email: user.email
+    }
+  } catch (err) {
+    console.error('[ERROR] Error fetching admin user role:', err)
+    return null
+  }
 }
