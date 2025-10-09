@@ -119,14 +119,14 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
 
     // Step 2: Create admin user record
     const { data: newUser, error: dbError } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .insert({
         user_id: authUser.user.id,
         email: data.email,
         full_name: data.full_name,
         role: data.role,
         is_active: data.is_active ?? true,
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select()
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
@@ -197,7 +197,7 @@ export async function getAdminUsers(filters?: {
 
     const supabase = createServiceClient()
     let query = supabase
-      .from('admin_users' as any)
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('*')
       .order('created_at', { ascending: false })
 
@@ -258,7 +258,7 @@ export async function getAdminUserById(id: string): Promise<ActionResult<AdminUs
 
     const supabase = createServiceClient()
     const { data: user, error } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('*')
       .eq('id', id)
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -322,7 +322,7 @@ export async function updateAdminUser(
 
     // Get the user being updated
     const { data: targetUser, error: fetchError } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('*')
       .eq('id', userId)
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -363,11 +363,12 @@ export async function updateAdminUser(
 
     // Update the user
     const { data: updatedUser, error: updateError } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      // @ts-expect-error - admin_users table types not generated in production until migrations deployed
       .update({
         ...data,
         updated_at: new Date().toISOString(),
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .eq('id', userId)
       .select()
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -437,7 +438,7 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
 
     // Get the user being deleted
     const { data: targetUser, error: fetchError } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('*')
       .eq('id', userId)
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -453,7 +454,8 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
 
     // Soft delete: Set is_active to false
     const { error: updateError } = await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      // @ts-expect-error - admin_users table types not generated in production until migrations deployed
       .update({
         is_active: false,
         updated_at: new Date().toISOString(),
@@ -514,7 +516,7 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
 
     // Get the user being restored
     const { data: targetUser, error: fetchError } = (await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('*')
       .eq('id', userId)
       .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -525,7 +527,8 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
 
     // Restore: Set is_active to true
     const { error: updateError } = await supabase
-      .from('admin_users')
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      // @ts-expect-error - admin_users table types not generated in production until migrations deployed
       .update({
         is_active: true,
         updated_at: new Date().toISOString(),

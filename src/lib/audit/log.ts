@@ -139,6 +139,7 @@ export async function logAuditEvent(params: AuditEventParams): Promise<boolean> 
     const supabase = createServiceClient();
 
     // Call the database function created in migration
+    // @ts-expect-error - log_admin_action RPC function not available until migrations deployed
     const { error } = await supabase.rpc('log_admin_action', {
       p_user_id: userId,
       p_action: action,

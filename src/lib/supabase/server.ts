@@ -66,11 +66,11 @@ export async function isUserAdmin(userId: string) {
     const supabase = createServiceClient()
     console.log('[DEBUG] Service client created')
 
-    const { data, error } = await supabase
-      .from('admin_users')
+    const { data, error } = (await supabase
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('role, is_active')
       .eq('user_id', userId)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     console.log('[DEBUG] Query result:', {
       userId,
@@ -137,11 +137,11 @@ export async function getCurrentAdminUserWithRole(): Promise<PermissionUser | nu
 
   try {
     const supabase = createServiceClient()
-    const { data, error } = await supabase
-      .from('admin_users')
+    const { data, error } = (await supabase
+      .from('admin_users' as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select('role, is_active')
       .eq('user_id', user.id)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (error || !data || !data.is_active) {
       return null
