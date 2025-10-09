@@ -99,10 +99,15 @@ export function ResourcePageTemplate({ config, namespace }: ResourcePageTemplate
                     title={t(card.title)}
                     description={t(card.description)}
                     badge={card.badge ? t(card.badge) : undefined}
-                    actions={card.actions?.map((action) => ({
-                      ...action,
-                      label: t(action.label as any),
-                    }))}
+                    actions={card.actions?.map((action) => {
+                      const ActionIcon = action.icon ? getIcon(action.icon) : undefined
+                      return {
+                        type: action.variant || 'outline',
+                        label: t(action.label),
+                        href: action.href,
+                        icon: ActionIcon,
+                      }
+                    })}
                   />
                 )
               })}

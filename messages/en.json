@@ -210,22 +210,56 @@
   "ResourcesPage": {
     "title": "Resources",
     "description": "Documentation and guides for RAST 5 connectors",
-    "selectionGuide": {
-      "title": "Interactive Connector Selection Guide",
-      "description": "Step-by-step guide to help you choose the right connector for your application"
-    },
-    "terminals": {
-      "title": "Terminal Components Guide",
-      "description": "Complete reference for all terminal types and their applications"
-    },
-    "installation": {
-      "title": "Installation Guide",
-      "description": "Proper assembly and installation procedures for RAST 5 connectors"
+    "exploreResources": {
+      "title": "Explore Our Resources",
+      "description": "Access comprehensive guides, technical documentation, and interactive tools to help you make the right connector choices"
     },
     "keyingDocs": {
       "title": "Keying Documentation",
       "description": "Download pole-specific keying guides that show compatible connector pairings",
-      "details": "Available for 2-12 pole connectors, including special versions"
+      "badge": "Catalog",
+      "action": "View Catalog"
+    },
+    "selectionGuide": {
+      "title": "Interactive Connector Selection Guide",
+      "description": "Step-by-step guide to help you choose the right connector for your application",
+      "badge": "Interactive",
+      "action": "Start Guide"
+    },
+    "terminals": {
+      "title": "Terminal Components Guide",
+      "description": "Complete reference for all terminal types and their applications",
+      "badge": "Technical",
+      "action": "View Guide"
+    },
+    "installation": {
+      "title": "Installation Guide",
+      "description": "Proper assembly and installation procedures for RAST 5 connectors",
+      "badge": "Guide",
+      "action": "Read Guide"
+    },
+    "quickAccess": {
+      "title": "Quick Access Tools",
+      "safety": {
+        "title": "Safety Standards",
+        "description": "ISO 9001 compliant documentation",
+        "action": "Learn More"
+      },
+      "specs": {
+        "title": "Technical Specs",
+        "description": "Detailed electrical specifications",
+        "action": "View Specs"
+      },
+      "downloads": {
+        "title": "Downloads",
+        "description": "CAD files and datasheets",
+        "action": "Browse Files"
+      },
+      "models": {
+        "title": "3D Models",
+        "description": "Interactive 360° views",
+        "action": "Explore"
+      }
     }
   },
   "ConnectorGuide": {

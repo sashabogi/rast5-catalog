@@ -1,8 +1,10 @@
-import { LucideIcon } from 'lucide-react'
-import { InfoCardAction } from '@/components/content/InfoCard'
-import { SpecItem } from '@/components/content/SpecTable'
-import { Step } from '@/components/content/StepGuide'
-import { Problem } from '@/components/content/TroubleshootingSection'
+// Config action type (uses icon name string instead of component)
+export interface ConfigAction {
+  variant?: 'primary' | 'secondary' | 'outline'
+  label: string           // Translation key
+  icon?: string          // Icon name
+  href?: string
+}
 
 // Icon configuration
 export interface IconConfig {
@@ -43,7 +45,7 @@ export interface InfoCardSection extends BaseSection {
     title: string          // Translation key
     description: string    // Translation key
     badge?: string         // Translation key
-    actions?: InfoCardAction[]
+    actions?: ConfigAction[]
   }[]
 }
 
@@ -89,7 +91,7 @@ export interface TroubleshootingSection extends BaseSection {
 export interface CustomSection extends BaseSection {
   type: 'custom'
   component: string        // Component name to render
-  props?: Record<string, any>
+  props?: Record<string, unknown>
 }
 
 // Union type for all sections
