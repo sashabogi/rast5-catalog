@@ -87,25 +87,37 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      user_roles: {
+      admin_users: {
         Row: {
           id: string
           user_id: string
-          role: 'admin' | 'editor' | 'viewer'
+          email: string
+          full_name: string
+          role: 'super_admin' | 'content_manager' | 'translator' | 'sales_viewer'
+          is_active: boolean
+          last_login_at: string | null
           created_at: string
           updated_at: string
         }
         Insert: {
           id?: string
           user_id: string
-          role?: 'admin' | 'editor' | 'viewer'
+          email: string
+          full_name: string
+          role?: 'super_admin' | 'content_manager' | 'translator' | 'sales_viewer'
+          is_active?: boolean
+          last_login_at?: string | null
           created_at?: string
           updated_at?: string
         }
         Update: {
           id?: string
           user_id?: string
-          role?: 'admin' | 'editor' | 'viewer'
+          email?: string
+          full_name?: string
+          role?: 'super_admin' | 'content_manager' | 'translator' | 'sales_viewer'
+          is_active?: boolean
+          last_login_at?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -115,7 +127,19 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      is_admin: {
+      is_super_admin: {
+        Args: {
+          user_id: string
+        }
+        Returns: boolean
+      }
+      can_manage_content: {
+        Args: {
+          user_id: string
+        }
+        Returns: boolean
+      }
+      has_admin_read_access: {
         Args: {
           user_id: string
         }
@@ -123,7 +147,7 @@ export interface Database {
       }
     }
     Enums: {
-      user_role: 'admin' | 'editor' | 'viewer'
+      admin_role: 'super_admin' | 'content_manager' | 'translator' | 'sales_viewer'
     }
   }
 }
