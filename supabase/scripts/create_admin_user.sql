@@ -36,7 +36,7 @@ VALUES (
 -- Replace YOUR_USER_UUID_HERE with the actual user UUID
 INSERT INTO public.user_roles (user_id, role)
 VALUES (
-  'YOUR_USER_UUID_HERE',  -- Replace with actual UUID
+  '40558a80-9c43-4b87-9283-ebb651c5142a',  -- Replace with actual UUID
   'admin'
 )
 ON CONFLICT (user_id)
@@ -57,7 +57,7 @@ WHERE ur.role = 'admin';
 
 -- Step 3: Test the is_admin function
 -- Replace YOUR_USER_UUID_HERE with the actual user UUID
-SELECT public.is_admin('YOUR_USER_UUID_HERE') as is_admin;
+SELECT public.is_admin('40558a80-9c43-4b87-9283-ebb651c5142a') as is_admin;
 
 -- NOTES:
 -- - The user must exist in auth.users before running this script

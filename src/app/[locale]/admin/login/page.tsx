@@ -43,23 +43,33 @@ export default function AdminLoginPage() {
       setIsLoading(true)
       setError('')
 
+      console.log('🔐 Starting login...')
+
       // Sign in with Supabase
       const { data, error: signInError } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       })
 
+      console.log('✅ Sign in response:', { data, error: signInError })
+
       if (signInError) {
+        console.error('❌ Sign in error:', signInError)
         setError(signInError.message)
         return
       }
 
       if (!data.user) {
+        console.error('❌ No user data returned')
         setError('Login failed. Please try again.')
         return
       }
 
+      console.log('👤 User signed in:', data.user.id)
+
       // Check if user has admin role
+      console.log('🔍 Checking admin role for user:', data.user.id)
+
       const { data: roleData, error: roleError } = await supabase
         .from('user_roles')
         .select('role')
@@ -67,21 +77,27 @@ export default function AdminLoginPage() {
         .eq('role', 'admin')
         .single()
 
+      console.log('📋 Role check result:', { roleData, roleError })
+
       if (roleError || !roleData) {
+        console.error('❌ Admin check failed:', roleError)
         // Sign out if not admin
         await supabase.auth.signOut()
         setError('Access denied. Admin privileges required.')
         return
       }
 
+      console.log('✅ Admin verified! Redirecting...')
+
       // Redirect to admin dashboard
       router.push('/en/admin/dashboard')
       router.refresh()
     } catch (err) {
-      console.error('Login error:', err)
+      console.error('💥 Login error:', err)
       setError('An unexpected error occurred. Please try again.')
     } finally {
       setIsLoading(false)
+      console.log('🏁 Login process complete')
     }
   }
 
