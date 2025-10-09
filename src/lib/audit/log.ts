@@ -36,7 +36,7 @@ export interface AuditEventParams {
   resourceType: AuditResourceType;
   resourceId?: string;
   resourceDescription?: string;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
   userId?: string;
   status?: AuditStatus;
   errorMessage?: string;
@@ -180,7 +180,7 @@ export async function logConnectorChange(
   details?: {
     connectorName?: string;
     connectorCode?: string;
-    changes?: Record<string, any>;
+    changes?: Record<string, unknown>;
     reason?: string;
   },
   userId?: string
@@ -208,7 +208,7 @@ export async function logTerminalChange(
   details?: {
     terminalName?: string;
     terminalCode?: string;
-    changes?: Record<string, any>;
+    changes?: Record<string, unknown>;
     reason?: string;
   },
   userId?: string
@@ -236,7 +236,7 @@ export async function logUserAction(
   details?: {
     userEmail?: string;
     userRole?: string;
-    changes?: Record<string, any>;
+    changes?: Record<string, unknown>;
     reason?: string;
   },
   performingUserId?: string
@@ -310,7 +310,7 @@ export async function logKeyingDocumentChange(
   documentId: string,
   details?: {
     documentName?: string;
-    changes?: Record<string, any>;
+    changes?: Record<string, unknown>;
     reason?: string;
   },
   userId?: string
@@ -333,7 +333,7 @@ export async function logDataExport(
   details: {
     format?: 'csv' | 'xlsx' | 'json' | 'pdf';
     recordCount?: number;
-    filters?: Record<string, any>;
+    filters?: Record<string, unknown>;
   },
   userId?: string
 ): Promise<boolean> {
@@ -356,7 +356,7 @@ export async function logDataImport(
     recordCount?: number;
     successCount?: number;
     errorCount?: number;
-    errors?: any[];
+    errors?: unknown[];
   },
   userId?: string,
   status: AuditStatus = 'success'
@@ -380,7 +380,7 @@ export async function logCustomerInquiryChange(
   details?: {
     customerName?: string;
     inquiryType?: string;
-    changes?: Record<string, any>;
+    changes?: Record<string, unknown>;
   },
   userId?: string
 ): Promise<boolean> {
@@ -405,8 +405,8 @@ export async function logSystemSettingChange(
   action: Extract<AuditAction, 'update'>,
   settingKey: string,
   details: {
-    oldValue?: any;
-    newValue?: any;
+    oldValue?: unknown;
+    newValue?: unknown;
     reason?: string;
   },
   userId?: string
@@ -436,7 +436,7 @@ export async function logAuditEventBatch(events: AuditEventParams[]): Promise<bo
 // EXPORTS
 // ============================================================================
 
-export default {
+const auditLogHelpers = {
   logAuditEvent,
   logConnectorChange,
   logTerminalChange,
@@ -450,3 +450,5 @@ export default {
   logSystemSettingChange,
   logAuditEventBatch,
 };
+
+export default auditLogHelpers;
