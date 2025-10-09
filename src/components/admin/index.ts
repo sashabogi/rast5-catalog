@@ -7,7 +7,7 @@
  *
  * @example
  * ```tsx
- * import { RequireRole, RequirePermission } from '@/components/admin'
+ * import { RequireRole, RequirePermission, ErrorBoundary } from '@/components/admin'
  *
  * // Check for specific role
  * <RequireRole role="super_admin">
@@ -18,8 +18,14 @@
  * <RequirePermission permission="connectors:delete">
  *   <DeleteButton />
  * </RequirePermission>
+ *
+ * // Catch component errors
+ * <ErrorBoundary>
+ *   <YourComponent />
+ * </ErrorBoundary>
  * ```
  */
 
 export { default as RequireRole } from './RequireRole'
 export { default as RequirePermission } from './RequirePermission'
+export { ErrorBoundary } from './ErrorBoundary'

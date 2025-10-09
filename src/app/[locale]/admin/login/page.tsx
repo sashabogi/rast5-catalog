@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -25,10 +25,81 @@ const loginSchema = z.object({
 
 type LoginFormValues = z.infer<typeof loginSchema>
 
+// Simple in-memory rate limiter
+interface RateLimitEntry {
+  attempts: number
+  lockedUntil?: number
+}
+
+const rateLimitStore = new Map<string, RateLimitEntry>()
+const MAX_ATTEMPTS = 5
+const LOCKOUT_DURATION = 15 * 60 * 1000 // 15 minutes in milliseconds
+
+// Utility to get client identifier (using a simple hash of browser fingerprint)
+function getClientIdentifier(): string {
+  // Use a combination of user agent and screen properties for basic fingerprinting
+  const fingerprint = `${navigator.userAgent}-${window.screen.width}x${window.screen.height}`
+  // Simple hash function
+  let hash = 0
+  for (let i = 0; i < fingerprint.length; i++) {
+    const char = fingerprint.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash
+  }
+  return hash.toString()
+}
+
+function checkRateLimit(identifier: string): { allowed: boolean; remainingTime?: number } {
+  const now = Date.now()
+  const entry = rateLimitStore.get(identifier)
+
+  // No entry yet - allow and create entry
+  if (!entry) {
+    rateLimitStore.set(identifier, { attempts: 1 })
+    return { allowed: true }
+  }
+
+  // Check if currently locked out
+  if (entry.lockedUntil && entry.lockedUntil > now) {
+    const remainingMs = entry.lockedUntil - now
+    return { allowed: false, remainingTime: Math.ceil(remainingMs / 60000) } // minutes
+  }
+
+  // Lockout expired - reset
+  if (entry.lockedUntil && entry.lockedUntil <= now) {
+    rateLimitStore.set(identifier, { attempts: 1 })
+    return { allowed: true }
+  }
+
+  // Check if max attempts reached
+  if (entry.attempts >= MAX_ATTEMPTS) {
+    entry.lockedUntil = now + LOCKOUT_DURATION
+    rateLimitStore.set(identifier, entry)
+    return { allowed: false, remainingTime: 15 }
+  }
+
+  // Increment attempts and allow
+  entry.attempts += 1
+  rateLimitStore.set(identifier, entry)
+  return { allowed: true }
+}
+
+function resetRateLimit(identifier: string): void {
+  rateLimitStore.delete(identifier)
+}
+
 export default function AdminLoginPage() {
   const router = useRouter()
   const [error, setError] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
+  const [clientId, setClientId] = useState<string>('')
+  const [isRateLimited, setIsRateLimited] = useState(false)
+  const [remainingTime, setRemainingTime] = useState<number>(0)
+
+  useEffect(() => {
+    // Set client identifier on mount
+    setClientId(getClientIdentifier())
+  }, [])
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -42,6 +113,20 @@ export default function AdminLoginPage() {
     try {
       setIsLoading(true)
       setError('')
+
+      // Check rate limit before attempting login
+      if (!clientId) {
+        setError('Unable to verify request. Please refresh the page.')
+        return
+      }
+
+      const rateLimitCheck = checkRateLimit(clientId)
+      if (!rateLimitCheck.allowed) {
+        setIsRateLimited(true)
+        setRemainingTime(rateLimitCheck.remainingTime || 15)
+        setError(`Too many login attempts. Please try again in ${rateLimitCheck.remainingTime || 15} minutes.`)
+        return
+      }
 
       console.log('🔐 Starting login...')
 
@@ -95,6 +180,10 @@ export default function AdminLoginPage() {
       }
 
       console.log('✅ Admin verified! Redirecting...')
+
+      // Reset rate limit on successful login
+      resetRateLimit(clientId)
+      setIsRateLimited(false)
 
       // Redirect to admin dashboard
       router.push('/en/admin/dashboard')
@@ -167,9 +256,9 @@ export default function AdminLoginPage() {
               <Button
                 type="submit"
                 className="w-full"
-                disabled={isLoading}
+                disabled={isLoading || isRateLimited}
               >
-                {isLoading ? 'Signing in...' : 'Sign In'}
+                {isLoading ? 'Signing in...' : isRateLimited ? `Locked (${remainingTime}m)` : 'Sign In'}
               </Button>
             </form>
           </Form>
