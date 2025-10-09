@@ -74,3 +74,56 @@ export const CATEGORY_NAMES: Record<string, string> = {
   'X-For tab terminals': 'Tab Connectors (Male)',
   'X-Printed circuit board headers': 'PCB Headers'
 }
+
+// Supabase Database Types
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+
+export interface Database {
+  public: {
+    Tables: {
+      user_roles: {
+        Row: {
+          id: string
+          user_id: string
+          role: 'admin' | 'editor' | 'viewer'
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          role?: 'admin' | 'editor' | 'viewer'
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          role?: 'admin' | 'editor' | 'viewer'
+          created_at?: string
+          updated_at?: string
+        }
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      is_admin: {
+        Args: {
+          user_id: string
+        }
+        Returns: boolean
+      }
+    }
+    Enums: {
+      user_role: 'admin' | 'editor' | 'viewer'
+    }
+  }
+}

@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
 import { Navbar } from "@/components/Navbar";
 import { AOSInit } from "@/components/AOSInit";
+import { AuthProvider } from "@/lib/auth/AuthProvider";
 import "../css/style.css";
 
 const inter = Inter({
@@ -45,13 +46,15 @@ export default async function LocaleLayout({
       <body
         className={`${inter.variable} font-inter antialiased bg-white text-slate-800 tracking-tight`}
       >
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          <AOSInit />
-          <Navbar />
-          <main className="min-h-screen">
-            {children}
-          </main>
-        </NextIntlClientProvider>
+        <AuthProvider>
+          <NextIntlClientProvider messages={messages} locale={locale}>
+            <AOSInit />
+            <Navbar />
+            <main className="min-h-screen">
+              {children}
+            </main>
+          </NextIntlClientProvider>
+        </AuthProvider>
       </body>
     </html>
   );
