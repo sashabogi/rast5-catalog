@@ -1,112 +1,122 @@
 'use client'
 
-import { useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { PageHero } from '@/components/shared/PageHero'
 import { SectionContainer } from '@/components/shared/SectionContainer'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Checkbox } from '@/components/ui/checkbox'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion'
-import {
-  AlertTriangle,
-  CheckCircle2,
-  Download,
-  Printer,
-  ChevronRight,
-  Wrench,
-  Shield,
-  HelpCircle,
-  BookOpen,
-  Cable,
-  ExternalLink,
-  Settings,
-  Zap,
-  ClipboardCheck
-} from 'lucide-react'
+import { SafetyWarning } from '@/components/content/SafetyWarning'
+import { InstallationSteps } from '@/components/content/InstallationSteps'
+import { InstallationSidebar } from '@/components/content/InstallationSidebar'
+import { TroubleshootingSection } from '@/components/content/TroubleshootingSection'
+import { BookOpen, Printer, Download, HelpCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-
-interface ChecklistItem {
-  id: string
-  label: string
-  checked: boolean
-}
 
 export default function InstallationPage() {
   const params = useParams()
   const locale = params.locale as string
   const t = useTranslations('InstallationGuide')
 
-  // Checklist state for interactive tracking
-  const [checklist, setChecklist] = useState<ChecklistItem[]>([
-    { id: 'tools', label: t('sidebar.installationChecklist.items.tools'), checked: false },
-    { id: 'safety', label: t('sidebar.installationChecklist.items.safety'), checked: false },
-    { id: 'terminal-selection', label: t('sidebar.installationChecklist.items.terminal-selection'), checked: false },
-    { id: 'wire-prep', label: t('sidebar.installationChecklist.items.wire-prep'), checked: false },
-    { id: 'crimping', label: t('sidebar.installationChecklist.items.crimping'), checked: false },
-    { id: 'insertion', label: t('sidebar.installationChecklist.items.insertion'), checked: false },
-    { id: 'assembly', label: t('sidebar.installationChecklist.items.assembly'), checked: false },
-    { id: 'inspection', label: t('sidebar.installationChecklist.items.inspection'), checked: false },
-  ])
-
-  const toggleChecklistItem = (id: string) => {
-    setChecklist((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, checked: !item.checked } : item))
-    )
-  }
-
-  const completionPercentage = Math.round(
-    (checklist.filter((item) => item.checked).length / checklist.length) * 100
-  )
-
   const handlePrint = () => {
     window.print()
   }
 
-  // Installation steps content
-  const installationSteps = [
+  // Troubleshooting problems data
+  const troubleshootingProblems = [
     {
-      id: 'step1',
-      badge: t('steps.step1.badge'),
-      title: t('steps.step1.title'),
-      icon: Cable,
-      color: 'blue'
+      title: t('troubleshooting.problem1.title'),
+      causes: [
+        t('troubleshooting.problem1.causes.items.1'),
+        t('troubleshooting.problem1.causes.items.2'),
+        t('troubleshooting.problem1.causes.items.3'),
+      ],
+      solutions: [
+        t('troubleshooting.problem1.solutions.items.1'),
+        t('troubleshooting.problem1.solutions.items.2'),
+        t('troubleshooting.problem1.solutions.items.3'),
+        t('troubleshooting.problem1.solutions.items.4'),
+      ],
     },
     {
-      id: 'step2',
-      badge: t('steps.step2.badge'),
-      title: t('steps.step2.title'),
-      icon: Wrench,
-      color: 'orange'
+      title: t('troubleshooting.problem2.title'),
+      causes: [
+        t('troubleshooting.problem2.causes.items.1'),
+        t('troubleshooting.problem2.causes.items.2'),
+        t('troubleshooting.problem2.causes.items.3'),
+        t('troubleshooting.problem2.causes.items.4'),
+      ],
+      solutions: [
+        t('troubleshooting.problem2.solutions.items.1'),
+        t('troubleshooting.problem2.solutions.items.2'),
+        t('troubleshooting.problem2.solutions.items.3'),
+        t('troubleshooting.problem2.solutions.items.4'),
+      ],
     },
     {
-      id: 'step3',
-      badge: t('steps.step3.badge'),
-      title: t('steps.step3.title'),
-      icon: Settings,
-      color: 'green'
+      title: t('troubleshooting.problem3.title'),
+      causes: [
+        t('troubleshooting.problem3.causes.items.1'),
+        t('troubleshooting.problem3.causes.items.2'),
+        t('troubleshooting.problem3.causes.items.3'),
+        t('troubleshooting.problem3.causes.items.4'),
+      ],
+      solutions: [
+        t('troubleshooting.problem3.solutions.items.1'),
+        t('troubleshooting.problem3.solutions.items.2'),
+        t('troubleshooting.problem3.solutions.items.3'),
+        t('troubleshooting.problem3.solutions.items.4'),
+        t('troubleshooting.problem3.solutions.items.5'),
+      ],
     },
     {
-      id: 'step4',
-      badge: t('steps.step4.badge'),
-      title: t('steps.step4.title'),
-      icon: Zap,
-      color: 'purple'
+      title: t('troubleshooting.problem4.title'),
+      causes: [
+        t('troubleshooting.problem4.causes.items.1'),
+        t('troubleshooting.problem4.causes.items.2'),
+        t('troubleshooting.problem4.causes.items.3'),
+        t('troubleshooting.problem4.causes.items.4'),
+      ],
+      solutions: [
+        t('troubleshooting.problem4.solutions.items.1'),
+        t('troubleshooting.problem4.solutions.items.2'),
+        t('troubleshooting.problem4.solutions.items.3'),
+        t('troubleshooting.problem4.solutions.items.4'),
+        t('troubleshooting.problem4.solutions.items.5'),
+      ],
     },
     {
-      id: 'step5',
-      badge: t('steps.step5.badge'),
-      title: t('steps.step5.title'),
-      icon: CheckCircle2,
-      color: 'indigo'
-    }
+      title: t('troubleshooting.problem5.title'),
+      causes: [
+        t('troubleshooting.problem5.causes.items.1'),
+        t('troubleshooting.problem5.causes.items.2'),
+        t('troubleshooting.problem5.causes.items.3'),
+        t('troubleshooting.problem5.causes.items.4'),
+      ],
+      solutions: [
+        t('troubleshooting.problem5.solutions.items.1'),
+        t('troubleshooting.problem5.solutions.items.2'),
+        t('troubleshooting.problem5.solutions.items.3'),
+        t('troubleshooting.problem5.solutions.items.4'),
+        t('troubleshooting.problem5.solutions.items.5'),
+      ],
+    },
+    {
+      title: t('troubleshooting.problem6.title'),
+      causes: [
+        t('troubleshooting.problem6.causes.items.1'),
+        t('troubleshooting.problem6.causes.items.2'),
+        t('troubleshooting.problem6.causes.items.3'),
+        t('troubleshooting.problem6.causes.items.4'),
+      ],
+      solutions: [
+        t('troubleshooting.problem6.solutions.items.1'),
+        t('troubleshooting.problem6.solutions.items.2'),
+        t('troubleshooting.problem6.solutions.items.3'),
+        t('troubleshooting.problem6.solutions.items.4'),
+        t('troubleshooting.problem6.solutions.items.5'),
+        t('troubleshooting.problem6.solutions.items.6'),
+      ],
+    },
   ]
 
   return (
@@ -150,16 +160,6 @@ export default function InstallationPage() {
               <ChevronRight className="h-4 w-4" />
               <span className="font-inter font-semibold text-slate-900">{t('hero.breadcrumb.current')}</span>
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-sm font-inter font-medium text-slate-700">{t('quickActions.progress')}</span>
-              <div className="w-32 h-3 bg-slate-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-green-600 to-emerald-600 transition-all duration-500"
-                  style={{ width: `${completionPercentage}%` }}
-                />
-              </div>
-              <span className="text-sm font-inter font-bold text-slate-900">{completionPercentage}%</span>
-            </div>
           </div>
         </div>
       </div>
@@ -170,261 +170,60 @@ export default function InstallationPage() {
           {/* Main Content Column */}
           <div className="lg:col-span-2 space-y-8">
             {/* Critical Safety Warning */}
-            <Card className="border-2 border-red-300 bg-gradient-to-br from-red-50 to-pink-50" data-aos="fade-up">
-              <CardContent className="py-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center flex-shrink-0">
-                    <AlertTriangle className="h-8 w-8 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-inter font-bold text-red-900 mb-4">
-                      {t('safetyWarning.title')}
-                    </h3>
-                    <ul className="space-y-3">
-                      {[1, 2, 3, 4, 5].map((num) => (
-                        <li key={num} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-red-200">
-                          <Shield className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
-                          <span className="text-slate-700 font-inter">{t(`safetyWarning.items.${num}`)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <SafetyWarning />
 
-            {/* Getting Started Section */}
+            {/* Getting Started Section - Simplified with just workspace setup */}
             <SectionContainer variant="default" spacing="small" className="px-0">
-              <Card className="border-2 border-slate-200 hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-2xl flex items-center gap-3 font-inter font-bold">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-600 to-amber-600 flex items-center justify-center">
-                      <Wrench className="h-6 w-6 text-white" />
-                    </div>
+              <div className="p-6 bg-white rounded-xl border-2 border-slate-200" data-aos="fade-up">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-600 to-amber-600 flex items-center justify-center">
+                    <BookOpen className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-inter font-bold text-slate-900">
                     {t('gettingStarted.title')}
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-600">
-                    {t('gettingStarted.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-8">
-                  <div>
-                    <h3 className="font-inter font-bold text-lg mb-4 text-slate-800">
-                      {t('gettingStarted.requiredTools.title')}
-                    </h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {[1, 2, 3, 4, 5, 6].map((num) => (
-                        <div key={num} className="flex items-start gap-3 p-4 bg-gradient-to-r from-slate-50 to-blue-50 rounded-xl border border-slate-200 hover:shadow-md transition-all duration-300">
-                          <CheckCircle2 className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                          <div>
-                            <p className="font-inter font-semibold text-slate-900">
-                              {t(`gettingStarted.requiredTools.items.${num}.name`)}
-                            </p>
-                            <p className="text-sm text-slate-600 mt-1">
-                              {t(`gettingStarted.requiredTools.items.${num}.description`)}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  </h3>
+                </div>
+                <p className="text-slate-600 mb-6">{t('gettingStarted.description')}</p>
 
-                  <div>
-                    <h3 className="font-inter font-bold text-lg mb-4 text-slate-800">
-                      {t('gettingStarted.workspaceSetup.title')}
-                    </h3>
-                    <ul className="space-y-3">
-                      {[1, 2, 3, 4].map((num) => (
-                        <li key={num} className="flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-200">
-                          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-orange-600 to-amber-600 text-white flex items-center justify-center text-sm font-inter font-bold flex-shrink-0">
-                            {num}
-                          </div>
-                          <span className="text-slate-700 font-inter">{t(`gettingStarted.workspaceSetup.items.${num}`)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+                {/* Workspace Setup */}
+                <div>
+                  <h4 className="font-inter font-bold text-lg mb-4 text-slate-800">
+                    {t('gettingStarted.workspaceSetup.title')}
+                  </h4>
+                  <ul className="space-y-3">
+                    {['1', '2', '3', '4'].map((num) => (
+                      <li key={num} className="flex items-start gap-3 p-3 bg-gradient-to-r from-slate-50 to-orange-50 rounded-lg border border-slate-200">
+                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-orange-600 to-amber-600 text-white flex items-center justify-center text-sm font-inter font-bold flex-shrink-0">
+                          {num}
+                        </div>
+                        <span className="text-slate-700 font-inter">{t(`gettingStarted.workspaceSetup.items.${num}`)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </SectionContainer>
 
             {/* Step-by-Step Installation Process */}
             <SectionContainer variant="default" spacing="small" className="px-0">
-              <Card className="border-2 border-slate-200" data-aos="fade-up">
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-2xl font-inter font-bold text-slate-900">
-                    {t('steps.title')}
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-600">
-                    {t('steps.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Accordion type="multiple" className="w-full space-y-4">
-                    {installationSteps.map((step, index) => (
-                      <AccordionItem
-                        key={step.id}
-                        value={step.id}
-                        className="border-2 rounded-xl px-6 hover:shadow-lg transition-all duration-300"
-                        data-aos="fade-up"
-                        data-aos-delay={100 + index * 50}
-                      >
-                        <AccordionTrigger className="hover:no-underline">
-                          <div className="flex items-center gap-4">
-                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-${step.color}-600 to-${step.color}-700 flex items-center justify-center`}>
-                              <step.icon className="h-6 w-6 text-white" />
-                            </div>
-                            <div className="text-left">
-                              <Badge className="mb-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-                                {step.badge}
-                              </Badge>
-                              <span className="block font-inter font-bold text-lg text-slate-900">
-                                {step.title}
-                              </span>
-                            </div>
-                          </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-6">
-                          {/* Step content would go here - keeping it simpler for brevity */}
-                          <div className="space-y-4">
-                            {/* Dynamic step content based on step.id */}
-                            <StepContent stepId={step.id} />
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </CardContent>
-              </Card>
+              <InstallationSteps />
             </SectionContainer>
 
             {/* Troubleshooting Section */}
             <SectionContainer variant="default" spacing="small" className="px-0">
-              <Card className="border-2 border-slate-200" data-aos="fade-up">
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-2xl flex items-center gap-3 font-inter font-bold text-slate-900">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center">
-                      <HelpCircle className="h-6 w-6 text-white" />
-                    </div>
-                    {t('troubleshooting.title')}
-                  </CardTitle>
-                  <CardDescription className="text-base text-slate-600">
-                    {t('troubleshooting.description')}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <TroubleshootingAccordion t={t} />
-                </CardContent>
-              </Card>
+              <div data-aos="fade-up">
+                <h2 className="text-2xl font-inter font-bold text-slate-900 mb-2">
+                  {t('troubleshooting.title')}
+                </h2>
+                <p className="text-slate-600 mb-6">{t('troubleshooting.description')}</p>
+                <TroubleshootingSection problems={troubleshootingProblems} />
+              </div>
             </SectionContainer>
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            {/* Progress Checklist */}
-            <Card className="sticky top-4 print:hidden border-2 border-slate-200 hover:shadow-xl transition-all duration-300" data-aos="fade-up">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-inter font-bold flex items-center gap-2">
-                  <ClipboardCheck className="h-5 w-5 text-blue-600" />
-                  {t('sidebar.installationChecklist.title')}
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  {t('sidebar.installationChecklist.description')}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {checklist.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors"
-                  >
-                    <Checkbox
-                      id={item.id}
-                      checked={item.checked}
-                      onCheckedChange={() => toggleChecklistItem(item.id)}
-                      className="mt-0.5"
-                    />
-                    <label
-                      htmlFor={item.id}
-                      className={`text-sm cursor-pointer flex-1 font-inter ${
-                        item.checked ? 'line-through text-slate-500' : 'text-slate-700'
-                      }`}
-                    >
-                      {item.label}
-                    </label>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
-            {/* Quick Links */}
-            <Card className="print:hidden border-2 border-slate-200" data-aos="fade-up" data-aos-delay="100">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-inter font-bold">
-                  {t('sidebar.quickLinks.title')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                <Link
-                  href={`/${locale}/resources`}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-sm group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <BookOpen className="h-4 w-4 text-blue-600" />
-                  </div>
-                  <span className="font-inter text-slate-700 group-hover:text-blue-600">
-                    {t('sidebar.quickLinks.allResources')}
-                  </span>
-                </Link>
-                <Link
-                  href={`/${locale}/resources/connector-guide`}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-sm group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Cable className="h-4 w-4 text-purple-600" />
-                  </div>
-                  <span className="font-inter text-slate-700 group-hover:text-purple-600">
-                    {t('sidebar.quickLinks.connectorGuide')}
-                  </span>
-                </Link>
-                <a
-                  href="#contact"
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-slate-50 transition-colors text-sm group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <HelpCircle className="h-4 w-4 text-green-600" />
-                  </div>
-                  <span className="font-inter text-slate-700 group-hover:text-green-600">
-                    {t('sidebar.quickLinks.technicalSupport')}
-                  </span>
-                </a>
-              </CardContent>
-            </Card>
-
-            {/* Quality Standards */}
-            <Card className="border-2 border-slate-200" data-aos="fade-up" data-aos-delay="200">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg font-inter font-bold flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-green-600" />
-                  {t('sidebar.qualityStandards.title')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm">
-                <p className="font-inter font-semibold text-slate-800 mb-2">
-                  {t('sidebar.qualityStandards.compliantWith')}
-                </p>
-                <ul className="space-y-2">
-                  {[1, 2, 3, 4].map((num) => (
-                    <li key={num} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-slate-600 font-inter">
-                        {t(`sidebar.qualityStandards.items.${num}`)}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+          <div className="lg:col-span-1">
+            <InstallationSidebar locale={locale} />
           </div>
         </div>
       </div>
@@ -450,81 +249,6 @@ export default function InstallationPage() {
           </div>
         </div>
       </SectionContainer>
-    </div>
-  )
-}
-
-// Step Content Component
-function StepContent({ stepId }: { stepId: string }) {
-  // This would contain the actual step content from the original file
-  // Simplified for brevity
-  return (
-    <div className="space-y-4">
-      <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
-        <p className="text-slate-700 font-inter">
-          Step content would be dynamically loaded here based on stepId
-        </p>
-      </div>
-    </div>
-  )
-}
-
-// Troubleshooting Accordion Component
-function TroubleshootingAccordion({ t }: { t: ReturnType<typeof useTranslations> }) {
-  return (
-    <div className="space-y-4">
-      {[1, 2, 3, 4, 5, 6].map((num) => (
-        <div key={num} className="border-2 border-slate-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 bg-gradient-to-br from-white to-slate-50">
-          <h4 className="font-inter font-bold text-red-900 mb-3 flex items-start gap-3">
-            <AlertTriangle className="h-5 w-5 text-red-600 mt-0.5 flex-shrink-0" />
-            {t(`troubleshooting.problem${num}.title`)}
-          </h4>
-          <div className="ml-8 space-y-3">
-            <div className="p-3 bg-red-50 rounded-lg border border-red-200">
-              <p className="text-sm font-inter font-semibold text-red-800 mb-1">
-                {t(`troubleshooting.problem${num}.causes.title`)}
-              </p>
-              <ul className="text-sm text-slate-700 space-y-1">
-                {[1, 2, 3].map((item) => {
-                  const text = t(`troubleshooting.problem${num}.causes.items.${item}`)
-                  if (text && !text.startsWith('InstallationGuide.')) {
-                    return <li key={item}>• {text}</li>
-                  }
-                  return null
-                }).filter(Boolean)}
-              </ul>
-            </div>
-            <div className="p-3 bg-green-50 rounded-lg border border-green-200">
-              <p className="text-sm font-inter font-semibold text-green-800 mb-1">
-                {t(`troubleshooting.problem${num}.solutions.title`)}
-              </p>
-              <ul className="text-sm text-slate-700 space-y-1">
-                {[1, 2, 3].map((item) => {
-                  const text = t(`troubleshooting.problem${num}.solutions.items.${item}`)
-                  if (text && !text.startsWith('InstallationGuide.')) {
-                    return <li key={item}>• {text}</li>
-                  }
-                  return null
-                }).filter(Boolean)}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))}
-
-      <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl">
-        <h4 className="font-inter font-bold text-blue-900 mb-3 flex items-center gap-2">
-          <HelpCircle className="h-5 w-5" />
-          {t('troubleshooting.stillHavingProblems.title')}
-        </h4>
-        <p className="text-sm text-slate-700 mb-4">
-          {t('troubleshooting.stillHavingProblems.description')}
-        </p>
-        <Button variant="outline" className="bg-white hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300">
-          {t('troubleshooting.stillHavingProblems.contactSupport')}
-          <ExternalLink className="ml-2 h-4 w-4" />
-        </Button>
-      </div>
     </div>
   )
 }

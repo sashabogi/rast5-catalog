@@ -27,6 +27,8 @@ import {
   Play,
   Loader2,
   RotateCcw,
+  Scissors,
+  Search,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -61,6 +63,10 @@ export const iconMap: Record<string, LucideIcon> = {
   play: Play,
   loader: Loader2,
   'rotate-ccw': RotateCcw,
+  scissors: Scissors,
+  cut: Scissors,
+  search: Search,
+  tool: Wrench,
 }
 
 // Get icon component by name

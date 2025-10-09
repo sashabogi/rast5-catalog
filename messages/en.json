@@ -126,6 +126,7 @@
       "contactForAvailability": "Contact for availability"
     },
     "quickSpecs": {
+      "title": "Quick Specifications",
       "poles": "Poles",
       "type": "Type",
       "typeSocket": "Socket",
@@ -204,7 +205,9 @@
     "actions": {
       "addToProject": "Add to Project",
       "comingSoon": "Coming Soon",
-      "requestQuote": "Request Quote"
+      "requestQuote": "Request Quote",
+      "readyToOrder": "Ready to Order?",
+      "contactUs": "Contact Us"
     }
   },
   "ResourcesPage": {
