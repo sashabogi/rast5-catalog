@@ -118,7 +118,7 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
     }
 
     // Step 2: Create admin user record
-    const { data: newUser, error: dbError } = await supabase
+    const { data: newUser, error: dbError } = (await supabase
       .from('admin_users')
       .insert({
         user_id: authUser.user.id,
@@ -126,9 +126,9 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
         full_name: data.full_name,
         role: data.role,
         is_active: data.is_active ?? true,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any)
       .select()
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (dbError || !newUser) {
       // Rollback: Delete auth user if admin_users creation fails
@@ -197,7 +197,7 @@ export async function getAdminUsers(filters?: {
 
     const supabase = createServiceClient()
     let query = supabase
-      .from('admin_users')
+      .from('admin_users' as any)
       .select('*')
       .order('created_at', { ascending: false })
 
@@ -214,7 +214,7 @@ export async function getAdminUsers(filters?: {
       query = query.or(`email.ilike.%${filters.search}%,full_name.ilike.%${filters.search}%`)
     }
 
-    const { data: users, error } = await query
+    const { data: users, error } = (await query) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (error) {
       console.error('Failed to fetch admin users:', error)
@@ -257,11 +257,11 @@ export async function getAdminUserById(id: string): Promise<ActionResult<AdminUs
     }
 
     const supabase = createServiceClient()
-    const { data: user, error } = await supabase
+    const { data: user, error } = (await supabase
       .from('admin_users')
       .select('*')
       .eq('id', id)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (error) {
       console.error('Failed to fetch admin user:', error)
@@ -321,11 +321,11 @@ export async function updateAdminUser(
     const supabase = createServiceClient()
 
     // Get the user being updated
-    const { data: targetUser, error: fetchError } = await supabase
+    const { data: targetUser, error: fetchError } = (await supabase
       .from('admin_users')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (fetchError || !targetUser) {
       return { success: false, error: 'User not found' }
@@ -362,15 +362,15 @@ export async function updateAdminUser(
     }
 
     // Update the user
-    const { data: updatedUser, error: updateError } = await supabase
+    const { data: updatedUser, error: updateError } = (await supabase
       .from('admin_users')
       .update({
         ...data,
         updated_at: new Date().toISOString(),
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any)
       .eq('id', userId)
       .select()
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (updateError || !updatedUser) {
       console.error('Failed to update admin user:', updateError)
@@ -436,11 +436,11 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
     const supabase = createServiceClient()
 
     // Get the user being deleted
-    const { data: targetUser, error: fetchError } = await supabase
+    const { data: targetUser, error: fetchError } = (await supabase
       .from('admin_users')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (fetchError || !targetUser) {
       return { success: false, error: 'User not found' }
@@ -513,11 +513,11 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
     const supabase = createServiceClient()
 
     // Get the user being restored
-    const { data: targetUser, error: fetchError } = await supabase
+    const { data: targetUser, error: fetchError } = (await supabase
       .from('admin_users')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single()) as any // eslint-disable-line @typescript-eslint/no-explicit-any
 
     if (fetchError || !targetUser) {
       return { success: false, error: 'User not found' }
