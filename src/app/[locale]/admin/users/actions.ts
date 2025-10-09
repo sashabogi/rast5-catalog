@@ -118,7 +118,6 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
     }
 
     // Step 2: Create admin user record
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: newUser, error: dbError } = await supabase
       .from('admin_users')
       .insert({
@@ -127,7 +126,7 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
         full_name: data.full_name,
         role: data.role,
         is_active: data.is_active ?? true,
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .select()
       .single()
 
@@ -363,13 +362,12 @@ export async function updateAdminUser(
     }
 
     // Update the user
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: updatedUser, error: updateError } = await supabase
       .from('admin_users')
       .update({
         ...data,
         updated_at: new Date().toISOString(),
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .eq('id', userId)
       .select()
       .single()
@@ -454,13 +452,12 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Soft delete: Set is_active to false
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
         is_active: false,
         updated_at: new Date().toISOString(),
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .eq('id', userId)
 
     if (updateError) {
@@ -527,13 +524,12 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Restore: Set is_active to true
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
         is_active: true,
         updated_at: new Date().toISOString(),
-      } as any)
+      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
       .eq('id', userId)
 
     if (updateError) {
