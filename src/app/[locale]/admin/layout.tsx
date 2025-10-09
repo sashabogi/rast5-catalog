@@ -1,5 +1,8 @@
 import { getCurrentAdminUser } from '@/lib/supabase/server'
-import { AdminNavbar } from '@/components/admin/AdminNavbar'
+import { Sidebar } from '@/components/admin/Sidebar'
+import { UserProfileDropdown } from '@/components/admin/UserProfileDropdown'
+import { AdminBreadcrumbs } from '@/components/admin/Breadcrumbs'
+import { Toaster } from '@/components/ui/sonner'
 
 export default async function AdminLayout({
   children,
@@ -8,14 +11,44 @@ export default async function AdminLayout({
 }) {
   const user = await getCurrentAdminUser()
 
-  // If user is authenticated and admin, show admin layout with navbar
+  // If user is authenticated and admin, show admin layout with navbar and sidebar
   if (user) {
     return (
       <div className="min-h-screen bg-slate-50">
-        <AdminNavbar userEmail={user.email || ''} />
-        <main className="container mx-auto px-4 py-8">
-          {children}
-        </main>
+        {/* Sidebar - Fixed on desktop, drawer on mobile */}
+        <Sidebar />
+
+        {/* Main Content Area */}
+        <div className="lg:pl-64">
+          {/* Top Navigation Bar */}
+          <header className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
+            <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+              {/* Breadcrumbs on the left */}
+              <div className="flex items-center flex-1">
+                <AdminBreadcrumbs className="hidden sm:flex" />
+              </div>
+
+              {/* User Profile Dropdown on the right */}
+              <UserProfileDropdown
+                email={user.email || ''}
+                role="Administrator"
+              />
+            </div>
+          </header>
+
+          {/* Page Content */}
+          <main className="p-4 sm:p-6 lg:p-8">
+            {/* Mobile Breadcrumbs */}
+            <div className="mb-4 sm:hidden">
+              <AdminBreadcrumbs />
+            </div>
+
+            {children}
+          </main>
+        </div>
+
+        {/* Toast Notifications */}
+        <Toaster position="top-right" richColors />
       </div>
     )
   }
