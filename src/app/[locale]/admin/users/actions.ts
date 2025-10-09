@@ -118,6 +118,7 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
     }
 
     // Step 2: Create admin user record
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: newUser, error: dbError } = await supabase
       .from('admin_users')
       .insert({
@@ -196,6 +197,7 @@ export async function getAdminUsers(filters?: {
     }
 
     const supabase = createServiceClient()
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     let query = supabase
       .from('admin_users')
       .select('*')
@@ -257,6 +259,7 @@ export async function getAdminUserById(id: string): Promise<ActionResult<AdminUs
     }
 
     const supabase = createServiceClient()
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: user, error } = await supabase
       .from('admin_users')
       .select('*')
@@ -321,6 +324,7 @@ export async function updateAdminUser(
     const supabase = createServiceClient()
 
     // Get the user being updated
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: targetUser, error: fetchError } = await supabase
       .from('admin_users')
       .select('*')
@@ -362,6 +366,7 @@ export async function updateAdminUser(
     }
 
     // Update the user
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: updatedUser, error: updateError } = await supabase
       .from('admin_users')
       .update({
@@ -436,6 +441,7 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
     const supabase = createServiceClient()
 
     // Get the user being deleted
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: targetUser, error: fetchError } = await supabase
       .from('admin_users')
       .select('*')
@@ -452,6 +458,7 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Soft delete: Set is_active to false
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
@@ -513,6 +520,7 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
     const supabase = createServiceClient()
 
     // Get the user being restored
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { data: targetUser, error: fetchError } = await supabase
       .from('admin_users')
       .select('*')
@@ -524,6 +532,7 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Restore: Set is_active to true
+    // @ts-expect-error - admin_users table exists in production but types not yet generated
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
