@@ -1,41 +1,38 @@
+import { createServerClient } from '@supabase/ssr'
 import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 import { cookies } from 'next/headers'
 import type { Database } from '@/types/database'
 
-// Create client for session-aware operations (reads cookies)
-async function createSessionClient() {
+// Create server client with cookie handling (for user sessions)
+export async function createClient() {
   const cookieStore = await cookies()
-  const supabaseAccessToken = cookieStore.get('sb-rbbjnwebxrxzxvwgdykf-auth-token')?.value
 
-  if (!supabaseAccessToken) {
-    return null
-  }
-
-  // Parse the token (it's stored as JSON)
-  let accessToken: string
-  try {
-    const tokenData = JSON.parse(supabaseAccessToken)
-    accessToken = tokenData.access_token
-  } catch {
-    return null
-  }
-
-  return createSupabaseClient<Database>(
+  return createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
-      global: {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      }
+      cookies: {
+        getAll() {
+          return cookieStore.getAll()
+        },
+        setAll(cookiesToSet) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options)
+            )
+          } catch {
+            // The `setAll` method was called from a Server Component.
+            // This can be ignored if you have middleware refreshing
+            // user sessions.
+          }
+        },
+      },
     }
   )
 }
 
 // Create service role client for admin operations (bypasses RLS)
-// Exported as createClient for backward compatibility with dashboard/logout
-export function createClient() {
+export function createServiceClient() {
   return createSupabaseClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.SUPABASE_SERVICE_ROLE_KEY!,
@@ -50,12 +47,7 @@ export function createClient() {
 
 // Helper function to get the current user
 export async function getCurrentUser() {
-  const supabase = await createSessionClient()
-
-  if (!supabase) {
-    return null
-  }
-
+  const supabase = await createClient()
   const { data: { user }, error } = await supabase.auth.getUser()
 
   if (error || !user) {
@@ -67,7 +59,7 @@ export async function getCurrentUser() {
 
 // Helper function to check if user has admin role
 export async function isUserAdmin(userId: string) {
-  const supabase = createClient()
+  const supabase = createServiceClient()
 
   const { data, error } = await supabase
     .from('user_roles')
