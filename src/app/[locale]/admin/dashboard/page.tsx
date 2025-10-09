@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Database, Cable, Terminal, Video, Languages } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { redirect } from 'next/navigation'
 
 async function getDashboardStats() {
   const supabase = await createClient()
@@ -21,8 +22,19 @@ async function getDashboardStats() {
   }
 }
 
-export default async function AdminDashboardPage() {
+export default async function AdminDashboardPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   const user = await getCurrentAdminUser()
+
+  // Redirect to login if not authenticated
+  if (!user) {
+    const { locale } = await params
+    redirect(`/${locale}/admin/login`)
+  }
+
   const stats = await getDashboardStats()
 
   const quickActions = [
