@@ -118,6 +118,7 @@ export async function createAdminUser(data: CreateUserData): Promise<ActionResul
     }
 
     // Step 2: Create admin user record
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: newUser, error: dbError } = await supabase
       .from('admin_users')
       .insert({
@@ -362,6 +363,7 @@ export async function updateAdminUser(
     }
 
     // Update the user
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { data: updatedUser, error: updateError } = await supabase
       .from('admin_users')
       .update({
@@ -452,6 +454,7 @@ export async function deleteAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Soft delete: Set is_active to false
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
@@ -524,6 +527,7 @@ export async function restoreAdminUser(userId: string): Promise<ActionResult> {
     }
 
     // Restore: Set is_active to true
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const { error: updateError } = await supabase
       .from('admin_users')
       .update({
